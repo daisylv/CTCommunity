@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="org.hns.user.User" table="userinfo">
+	<id name="userId" column="userId" type="int">
+		<generator class="increment"/>
+	</id>
+
+	<property name="sinaId" column="sinaId" type="int"/>
+	<property name="username" column="username" type="string"/>
+	<property name="usergender" column="usergender" type="string"/>
+	</class>
+</hibernate-mapping>

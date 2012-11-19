@@ -8,6 +8,9 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Daisy/Documents/apache-tomcat-7.0.32-windows-x86/apache-tomcat-7.0.32/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="F:/apache-tomcat-7.0.11-windows-x86/apache-tomcat-7.0.11/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="F:/apache-tomcat-7.0.11-windows-x86/apache-tomcat-7.0.11/lib/Microsoft JDBC Driver 4.0 for SQL Server/sqljdbc_4.0/chs/sqljdbc4.jar"/>
+	<classpathentry kind="lib" path="F:/apache-tomcat-7.0.11-windows-x86/apache-tomcat-7.0.11/lib/javax.servlet-5.1.12.jar"/>
+	<classpathentry kind="lib" path="F:/apache-tomcat-7.0.11-windows-x86/apache-tomcat-7.0.11/lib/javax.servlet.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
