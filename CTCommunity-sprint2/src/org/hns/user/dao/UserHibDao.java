@@ -65,20 +65,19 @@ public class UserHibDao {
 			Session session = HibernateUtil.getSession();
 			//Transaction tx = null;
 			try{
-				Query query = (Query) session.createQuery("from User u where " +
-						"u.username = ?");
+				org.hibernate.Query query = session.createQuery("from User u where u.username=?");
 				((org.hibernate.Query) query).setString(0, username);
 				List<User> userlist = ((org.hibernate.Query) query).list();
-				if(null == userlist || 0 == userlist.size()){
+				if(userlist == null || 0 == userlist.size()){
 					return -1;//用户名不存在
 				}
 				
-				Query query2 = (Query) session.createQuery("from User u where " +
-						"u.username = ? and u.password = ?");
-				((org.hibernate.Query) query).setString(0, username);
-				((org.hibernate.Query) query).setString(1, password);
-				List<User> userlist2 = ((org.hibernate.Query) query).list();
-				if(null == userlist2){
+				org.hibernate.Query query2 = session.createQuery("from User u where u.username=? and " +
+						"u.password=?");
+				((org.hibernate.Query) query2).setString(0, username);
+				((org.hibernate.Query) query2).setString(1, password);
+				List<User> userlist2 = ((org.hibernate.Query) query2).list();
+				if(userlist2.size()==0){
 					return -2;//密码不正确
 				}
 				

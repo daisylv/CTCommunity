@@ -33,10 +33,11 @@
     	<action name="AddUser" class="com.action.Adduser" method="add">
     		<result name="success">/jsp/User.jsp</result>
     	</action>
+    	 
     	<action name="Login" class="com.action.Login" method="login">
-    		<result name="noneuser">/jsp/noneuser</result>
-    		<result name="failpassword">/jsp/failpsw</result>
-    		<result name="error">/jsp/error</result>
+    		<result name="noneuser">/jsp/noneuser.jsp</result>
+    		<result name="failpassword">/jsp/failpsw.jsp</result>
+    		<result name="error">/jsp/error.jsp</result>
     		<result name="success">/jsp/User.jsp</result>
     	</action>
     </package>

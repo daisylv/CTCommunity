@@ -16,6 +16,9 @@ public class Login extends ActionSupport{
 	}
 	
 	public String login(){
+		System.out.println("Login!");
+		System.out.println(user.getUsername());
+		System.out.println(user.getPassword());
 		int id = UserHibDao.finduser(user.getUsername(), user.getPassword());
 		if(id == -1){
 			return "noneuser";
