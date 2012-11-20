@@ -17,7 +17,18 @@ public class Login extends ActionSupport{
 	
 	public String login(){
 		int id = UserHibDao.finduser(user.getUsername(), user.getPassword());
-		user.setUserId(id);
-		return "success";
+		if(id == -1){
+			return "noneuser";
+		}
+		else if(id == -2){
+			return "failpassword";
+		}
+		else if(id == 0){
+			return "error";
+		}
+		else{
+			user.setUserId(id);
+			return "success";
+		}
 	}
 }
