@@ -1,12 +1,10 @@
 package com.action;
 
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.dispatcher.mapper.ActionMapping;
-import org.hns.user.User;
+import org.hns.bean.User;
 import org.hns.user.dao.UserHibDao;
 
 import com.opensymphony.xwork2.ActionContext;

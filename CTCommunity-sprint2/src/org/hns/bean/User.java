@@ -1,4 +1,4 @@
-package org.hns.user;
+package org.hns.bean;
 
 public class User {
 	
@@ -6,6 +6,7 @@ public class User {
 	private int sinaId;
 	private String username;
 	private String usergender;
+	private String password;
 	
 	public void setUserId(int userId) {
 		this.userId = userId;
@@ -21,6 +22,14 @@ public class User {
 	
 	public void setUsergender(String usergender) {
 		this.usergender = usergender;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public String getPassword() {
+		return password;
 	}
 	
 	public int getUserId() {

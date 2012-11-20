@@ -33,6 +33,9 @@
     	<action name="AddUser" class="com.action.Adduser" method="add">
     		<result name="success">/jsp/User.jsp</result>
     	</action>
+    	<action name="Login" class="com.action.Login" method="login">
+    		<result name="success">/jsp/User.jsp</result>
+    	</action>
     </package>
     
 
