@@ -13,4 +13,5 @@
    name="usergender" type="string"/>
   <property column="password" name="password" type="string"/>
  </class>
+ 
 </hibernate-mapping>
