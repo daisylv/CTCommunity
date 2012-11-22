@@ -47,7 +47,11 @@
             <result name="success">/jsp/community.jsp</result>
         </action>
     </package>
-
+    <package name="Item" namespace="/com/action" extends="default">
+        <action name="Additem" class="com.action.Additem" method="add">
+            <result name="success">/jsp/item.jsp</result>
+        </action>
+    </package>
    
 
 </struts>
