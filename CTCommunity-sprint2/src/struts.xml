@@ -41,9 +41,6 @@
     		<result name="success">/jsp/User.jsp</result>
     	</action>
     	
-    	<action name="Addcommunity" class="com.action.Addcommunity" method="add">
-            <result name="success">/jsp/community.jsp</result>
-        </action>
     </package>
     <package name="Community" namespace="/com/action" extends="default">
         <action name="Addcommunity" class="com.action.Addcommunity" method="add">

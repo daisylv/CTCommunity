@@ -37,6 +37,7 @@ public class Addcommunity extends ActionSupport{
 		System.out.println("Your communityName is: "+community.getCommunityName());
 		System.out.println("Your communityType is: "+community.getCommunityType());
 		CommunityHibDao.insert(community);
+		System.out.println("Insert successfully!");
 		return "success";
 	}
 
