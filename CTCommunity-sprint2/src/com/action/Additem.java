@@ -30,6 +30,8 @@ public class Additem extends ActionSupport{
 	}
     
     public String add(){
+    	System.out.println("Your ItemName is: "+item.getItemName());
+		System.out.println("Your ItemContent is: "+item.getItemCountent());
 		ItemHibDao.insert(item);
 		System.out.println("Insert successfully!");
 		return "success";

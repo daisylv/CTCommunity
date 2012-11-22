@@ -12,10 +12,10 @@
 	<ul>
     	<li>
 		<s:form action="Additem" namespace="/com/action" method="post">
-		    <s:textfield label="ItemId" name="Item.Itemid"></s:textfield>
+		    <s:textfield label="ItemName" name="Item.ItemName"></s:textfield>
 			<s:textfield label="ItemCountent" name="Item.ItemCountent"></s:textfield> 
 			<s:textfield label="OwnerId" name="Item.ownerId"></s:textfield>
-			<s:textfield label="CommunityItemcol" name="Item.communityItemcol"></s:textfield>
+			
 			<s:submit value="submit"></s:submit>
 		</s:form>
 		</li>

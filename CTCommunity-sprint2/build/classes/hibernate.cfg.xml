@@ -15,5 +15,6 @@
         
         <mapping resource="org/hns/bean/User.hbm.xml"/>
         <mapping resource="org/hns/bean/Community.hbm.xml"/> 
+        <mapping resource="org/hns/bean/Item.hbm.xml"/> 
     </session-factory>
 </hibernate-configuration>

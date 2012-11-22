@@ -4,7 +4,7 @@ public class Item {
 	private int Itemid;
 	private String ItemCountent;
 	private int ownerId;
-	private String communityItemcol;
+	private String ItemName;
 
 	public void setItemid(int itemid) {
 		Itemid = itemid;
@@ -30,12 +30,11 @@ public class Item {
 		return ownerId;
 	}
 	
-	public void setCommunityItemcol(String communityItemcol) {
-		this.communityItemcol = communityItemcol;
+	public void setItemName(String itemName) {
+		ItemName = itemName;
 	}
-	
-	public String getCommunityItemcol() {
-		return communityItemcol;
+	public String getItemName() {
+		return ItemName;
 	}
 }
 

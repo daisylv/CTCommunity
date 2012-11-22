@@ -13,8 +13,9 @@ welcome!<br><br>
 	<s:property value="Community.communityName"/>
 	<br><br>
 	Your community type is:<br>
-	<s:property value="Community.communityName"/>
-	
+	<s:property value="Community.communityType"/>
+	<br>
+	<br>
 	<a href="http://localhost:8080/CTCommunity/jsp/createitem.jsp">createitem</a>
 </body>
 </html>

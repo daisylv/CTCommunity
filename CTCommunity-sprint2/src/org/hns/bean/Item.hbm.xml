@@ -6,11 +6,11 @@
   <id column="Itemid" name="Itemid" type="int">
    <generator class="increment"/>
   </id>
-  <property column="ItemCountent" generated="never" lazy="false" name="ItemCountent" type="string"/>
+  <property column="ItemCountent" generated="never" lazy="false"
+   name="ItemCountent" type="string"/>
   <property column="ownerId" generated="never" lazy="false"
    name="ownerId" type="int"/>
-  <property column="communityItemcol" generated="never" lazy="false"
-   name="communityItemcol" type="string"/>
- 
+  <property column="ItemName" generated="never" lazy="false"
+   name="ItemName" type="string"/>
  </class>
 </hibernate-mapping>
