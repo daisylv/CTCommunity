@@ -5,9 +5,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+import org.apache.catalina.connector.Request;
 import org.hns.bean.Community;
+import org.hns.user.dao.CommunityHibDao;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import com.sun.xml.internal.ws.client.RequestContext;
 
 
 public class Hello extends ActionSupport{
@@ -153,7 +157,7 @@ public class Hello extends ActionSupport{
 		}
 	};
 	
-	public void setCommunitylist(List<Community> communitylist) {
+	public void setCommunitylist1(List<Community> communitylist1) {
 		this.communitylist = communitylist;
 	}
 	
@@ -164,6 +168,10 @@ public class Hello extends ActionSupport{
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
+		
+		this.communitylist = CommunityHibDao.select();
+		ActionContext.getContext().getSession().put("communitylist", communitylist);
+		System.out.println(communitylist.get(0).getCommunityName());
 		System.out.println("Hello!");
 		return super.execute();
 	}

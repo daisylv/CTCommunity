@@ -12,10 +12,34 @@ Logo+XXX………………………………………<button>新浪认证登录<
 <br>
 <br>
 热门社区…………………………………………<input><button>搜索社区</button>
-<div id="content" align="left" title="动漫类">
- 
+
+<br>
+<br>
+<div id="cntent1" align="left" title="动画类">
+	动漫类
+ <table style="border: 2px">
+ 	<s:iterator value="communitylist">
+ 		<s:if test='communityType=="动画片"'>
+ 			<a href="<s:url action="InCommunity" namespace="/com/action"/>">
+ 				<li><s:property value="communityName"/></li>
+ 			</a>
+		</s:if>
+	</s:iterator>
+ </table>
 </div>
-<div id="content" align="right" title=“运动类”></div>
+
+<div id="content" align="right" title=“运动类”>
+	体育类
+	<table style="border: 2px">
+ 		<s:iterator value="communitylist">
+ 			<s:if test='communityType=="运动"'>
+ 				<a href="<s:url action="InCommunity" namespace="/com/action"/>">
+ 					<li><s:property value="communityName"/></li>
+ 				</a>
+			</s:if>
+		</s:iterator>
+ 	</table>
+</div>
 <div id="content"></div>
 <div id="content"></div>
 </body>

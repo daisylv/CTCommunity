@@ -12,23 +12,25 @@ import org.hns.plugin.HibernateUtil;
 
 public class CommunityHibDao {
 	
-	//private List<Community>communitylist;
+	public static List<Community>communitylist;
 	//private Community community;
 	
 	
 	
-	public static void select(String type){
+	public static List<Community> select(){
 		Session session = HibernateUtil.getSession();
 		try{
-			org.hibernate.Query query = session.createQuery("from Community c where c.communityType=?");
-			((org.hibernate.Query)query).setString(0, type);
-			List<Community> community = ((org.hibernate.Query) query).list();
-			
+			org.hibernate.Query query = session.createQuery("from Community c");
+			//((org.hibernate.Query)query).setString(0, type);
+			communitylist = ((org.hibernate.Query) query).list();
+			//return communitylist;
 		}catch(RuntimeException e){
 			e.printStackTrace();
 		}finally{
 			session.close();
 		}
+		return communitylist;
+		
 	}
 	public static void insert(Community community){
 		Session session = HibernateUtil.getSession();

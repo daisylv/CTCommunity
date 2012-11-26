@@ -19,7 +19,7 @@
         </global-exception-mappings>
 
 		<action name="index11" class="com.action.Hello">
-           <result>/jsp/Hello.jsp</result>
+           <result>/jsp/mainpage/notlogin.jsp</result>
            <!-- <result name="input">/jsp/User.jsp</result>-->
            <!--   <result type="redirectAction">
                 <param name="actionName">AddUser</param>
@@ -46,6 +46,7 @@
         <action name="Addcommunity" class="com.action.Addcommunity" method="add">
             <result name="success">/jsp/community.jsp</result>
         </action>
+        <action name="InCommunity" class="com.action.InCommunity"></action>
     </package>
     <package name="Item" namespace="/com/action" extends="default">
         <action name="Additem" class="com.action.Additem" method="add">
