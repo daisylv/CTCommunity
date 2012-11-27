@@ -5,9 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title><s:property value="currentCommunity.communityName"/>社区</title>
 </head>
 <body>
-	Welcome!<br><s:property value="currentCommunity.communityName"/>
+	Welcome!<br>欢迎来到：<s:property value="currentCommunity.communityName"/>
 </body>
 </html>

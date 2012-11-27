@@ -8,7 +8,10 @@
 <title>Welcome!</title>
 </head>
 <body>
-Logo+XXX………………………………………<button>新浪认证登录</button><button>直接登陆</button><button>注册</button>
+Logo+XXX………………………………………<input type="button" name="LoginbySina" value="新浪认证登陆">
+<input type="button" name="Login" value="直接登录">
+<input type="button" name="Register" value="注册" onclick="window.location.href='http://localhost:8080/CTCommunity/jsp/register.jsp'">
+
 <br>
 <br>
 热门社区…………………………………………<input><button>搜索社区</button>
@@ -29,7 +32,8 @@ Logo+XXX………………………………………<button>新浪认证登录<
 	-->
  	<s:iterator id="co" value="communitylist">
  		<s:if test='communityType=="动画片"'>
- 			<a href="<s:url action="InCommunity" namespace="/com/action"/>">
+ 			<a
+ 				href="<s:url action="InCommunity" namespace="/com/action"/>?communityId=<s:property value="communityId"/>">
  				<li><s:property value="#co.getCommunityName()"/></li>
  			</a>
 		</s:if>
