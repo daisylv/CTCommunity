@@ -46,7 +46,9 @@
         <action name="Addcommunity" class="com.action.Addcommunity" method="add">
             <result name="success">/jsp/community.jsp</result>
         </action>
-        <action name="InCommunity" class="com.action.InCommunity"></action>
+        <action name="InCommunity" class="com.action.InCommunity">
+        	<result name="success">/jsp/community/Incommunity.jsp</result>
+        </action>
     </package>
     <package name="Item" namespace="/com/action" extends="default">
         <action name="Additem" class="com.action.Additem" method="add">

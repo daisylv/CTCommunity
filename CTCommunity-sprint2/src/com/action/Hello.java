@@ -16,7 +16,7 @@ import com.sun.xml.internal.ws.client.RequestContext;
 
 public class Hello extends ActionSupport{
 	private String msg;
-	private List<Community> communitylist = new List<Community>() {
+	public static List<Community> communitylist = new List<Community>() {
 		
 		@Override
 		public <T> T[] toArray(T[] a) {

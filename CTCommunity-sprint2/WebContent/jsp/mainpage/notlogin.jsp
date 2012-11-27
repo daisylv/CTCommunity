@@ -18,10 +18,19 @@ Logo+XXX………………………………………<button>新浪认证登录<
 <div id="cntent1" align="left" title="动画类">
 	动漫类
  <table style="border: 2px">
+ 	<!--
  	<s:iterator value="communitylist">
  		<s:if test='communityType=="动画片"'>
  			<a href="<s:url action="InCommunity" namespace="/com/action"/>">
  				<li><s:property value="communityName"/></li>
+ 			</a>
+		</s:if>
+	</s:iterator>  
+	-->
+ 	<s:iterator id="co" value="communitylist">
+ 		<s:if test='communityType=="动画片"'>
+ 			<a href="<s:url action="InCommunity" namespace="/com/action"/>">
+ 				<li><s:property value="#co.getCommunityName()"/></li>
  			</a>
 		</s:if>
 	</s:iterator>
@@ -33,10 +42,11 @@ Logo+XXX………………………………………<button>新浪认证登录<
 	<table style="border: 2px">
  		<s:iterator value="communitylist">
  			<s:if test='communityType=="运动"'>
- 				<a href="<s:url action="InCommunity" namespace="/com/action"/>">
- 					<li><s:property value="communityName"/></li>
- 				</a>
-			</s:if>
+					<a
+						href="<s:url action="InCommunity" namespace="/com/action"/>?communityId=<s:property value="communityId"/>">
+						<li><s:property value="communityName" /></li>
+					</a>
+				</s:if>
 		</s:iterator>
  	</table>
 </div>
