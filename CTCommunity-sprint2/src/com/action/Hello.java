@@ -5,13 +5,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-import org.apache.catalina.connector.Request;
 import org.hns.bean.Community;
 import org.hns.user.dao.CommunityHibDao;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import com.sun.xml.internal.ws.client.RequestContext;
 
 
 public class Hello extends ActionSupport{

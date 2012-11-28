@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-11-24 17:26:44 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="communityDB.Topic" table="topic" catalog="webobase">
+        <id name="topicId" type="java.lang.Integer">
+            <column name="topicId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userinfo" class="communityDB.Userinfo" fetch="select">
+            <column name="userId" not-null="true" />
+        </many-to-one>
+        <property name="communityId" type="int">
+            <column name="communityId" not-null="true" />
+        </property>
+        <property name="tpContent" type="string">
+            <column name="tpContent" length="65535" />
+        </property>
+        <property name="tpPic" type="string">
+            <column name="tpPic" length="65535" />
+        </property>
+        <property name="tpTitle" type="string">
+            <column name="tpTitle" length="60" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

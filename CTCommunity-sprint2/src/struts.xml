@@ -8,23 +8,18 @@
     <constant name="struts.enable.DynamicMethodInvocation" value="false" />
     <constant name="struts.devMode" value="false" />
 
+   <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="false" />
+
     <package name="default" namespace="/" extends="struts-default">
 
-        <default-action-ref name="index11" />
-
-       
-
+        <default-action-ref name="index" />
         <global-exception-mappings>
             <exception-mapping exception="java.lang.Exception" result="error"/>
         </global-exception-mappings>
 
-		<action name="index11" class="com.action.Hello">
+		<action name="index" class="com.action.Hello">
            <result>/jsp/mainpage/notlogin.jsp</result>
-           <!-- <result name="input">/jsp/User.jsp</result>-->
-           <!--   <result type="redirectAction">
-                <param name="actionName">AddUser</param>
-                <param name="namespace">/com/action</param>
-            </result>  -->
         </action>
         
     </package>
@@ -50,10 +45,40 @@
         	<result name="success">/jsp/community/Incommunity.jsp</result>
         </action>
     </package>
+    
     <package name="Item" namespace="/com/action" extends="default">
         <action name="Additem" class="com.action.Additem" method="add">
             <result name="success">/jsp/item.jsp</result>
         </action>
+    </package>
+    
+    
+    <package name="weiboAction" namespace="/weiboAction" extends="struts-default">
+        	<action name="Home" class="weiboAction.Home">
+                <result>/jsp/weiboAcct/Home.jsp</result>
+            </action>
+            <action name="Bind" class="weiboAction.BindWeibo">
+                <result name="success" type="redirectAction">
+                    <param name="namespace">/weiboAction</param>
+                    <param name="actionName">User</param>
+                </result>
+            </action>
+            
+            <action name="User" class="weiboAction.GetUserInfo">
+                <result name="success" type="dispatcher">/jsp/weiboAcct/createTopic.jsp</result>
+                <result name="failure" type="redirectAction">
+                    <param name="namespace">/weiboAction</param>
+                    <param name="actionName">Bind</param>
+                </result>  
+            </action>  
+    </package>
+    
+    <package name="communityAction"  namespace="/communityAction" extends="struts-default">
+        <action name="Topic" class="communityAction.TopicAction">
+            <result name="success" type="dispatcher">/jsp/weiboAcct/TopicHome.jsp</result>
+            <result name="failure" type="dispatcher">/jsp/weiboAcct/createTopic.jsp</result>
+        </action>
+        
     </package>
    
 
