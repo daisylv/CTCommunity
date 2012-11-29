@@ -8,13 +8,16 @@
 <title>Welcome!</title>
 </head>
 <body>
-Logo+XXX………………………………………<input type="button" name="LoginbySina" value="新浪认证登陆">
-<input type="button" name="Login" value="直接登录">
+Logo+XXX………………………………………………
+<input type="button" name="Login" value="直接登录" onclick="window.location.href='http://localhost:8080/CTCommunity/jsp/login.jsp'">
+
+<input type="button" name="LoginbySina" value="新浪认证登陆">
+
 <input type="button" name="Register" value="注册" onclick="window.location.href='http://localhost:8080/CTCommunity/jsp/register.jsp'">
 
 <br>
 <br>
-热门社区…………………………………………<input><button>搜索社区</button>
+热门社区………………………………………………<input><button>搜索社区</button>
 
 <br>
 <br>
