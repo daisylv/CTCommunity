@@ -155,8 +155,8 @@ public class Hello extends ActionSupport{
 		}
 	};
 	
-	public void setCommunitylist1(List<Community> communitylist1) {
-		this.communitylist = communitylist;
+	public void setCommunitylist(List<Community> communitylist) {
+		Hello.communitylist = communitylist;
 	}
 	
 	public List<Community> getCommunitylist() {
