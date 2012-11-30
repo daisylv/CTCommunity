@@ -57,10 +57,13 @@
                 <result>/jsp/weiboAcct/Home.jsp</result>
             </action>
             <action name="Bind" class="weiboAction.BindWeibo">
-                <result name="success" type="redirectAction">
+                <result name="success" type="redirect">
+                ${redirectUrl}
+                </result>
+                <!-- 
                     <param name="namespace">/weiboAction</param>
                     <param name="actionName">User</param>
-                </result>
+                 -->
             </action>
             
             <action name="User" class="weiboAction.GetUserInfo">

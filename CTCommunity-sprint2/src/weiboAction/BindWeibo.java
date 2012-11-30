@@ -31,6 +31,8 @@ public class BindWeibo extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 	
+	private String redirectUrl;
+	
 	public String  execute() {
 		request=ServletActionContext.getRequest();
 		response=ServletActionContext.getResponse();
@@ -47,9 +49,10 @@ public class BindWeibo extends ActionSupport {
 				String s= null;
 				s=new Oauth().authorize("code");
 				System.out.println(s);
-				response.sendRedirect(s);
-				return "success";
-			} catch (IOException | WeiboException e) {
+				setRedirectUrl(s);
+				//response.sendRedirect(s);
+				//return "success";
+			} catch ( WeiboException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -77,6 +80,14 @@ public class BindWeibo extends ActionSupport {
 			//return null;
 		}
 		return "success";
+	}
+
+	public String getRedirectUrl() {
+		return redirectUrl;
+	}
+
+	public void setRedirectUrl(String redirectUrl) {
+		this.redirectUrl = redirectUrl;
 	}
 
 
