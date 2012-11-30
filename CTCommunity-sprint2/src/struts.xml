@@ -60,6 +60,10 @@
                 <result name="success" type="redirect">
                 ${redirectUrl}
                 </result>
+                <result name="successlogin" type="redirectAction">
+                	 <param name="namespace">/weiboAction</param>
+                    <param name="actionName">User</param>
+                </result>
                 <!-- 
                     <param name="namespace">/weiboAction</param>
                     <param name="actionName">User</param>

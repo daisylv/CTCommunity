@@ -20,16 +20,18 @@ public class GetUserInfo extends ActionSupport {
 
 	public String execute() {
 		System.out.println("Come to get access Token");
-		AccessToken accessToken = (AccessToken) request.getSession().getAttribute("accessToken");
+		AccessToken accessToken = (AccessToken) ServletActionContext.getRequest().getSession().getAttribute("useraccessToken");
+		System.out.println(accessToken.toString());
 		weiboUtil util = new weiboUtil(accessToken);
 		AccountHelper helper = AccountHelper.INSTANCE;
 		helper.validation(accessToken);
+		
 		//System.out.println(util.getUid());
 		//util.updateStatus("test");
 		//util.sendProductInfoStatus();
-		if (accessToken.getUid() == null)
-			return FAILURE;
-		return SUCCESS;
+		/*if (accessToken.getUid() == null)
+			return "failure";*/
+		return "success";
 	}
 
 }

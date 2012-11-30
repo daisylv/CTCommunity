@@ -12,7 +12,7 @@
 	
 	<input type="button" name="LoginBySina" value="新浪认证登陆"
 	onclick="window.location.href='http://localhost:8080/CTCommunity/jsp/weiboAcct/Home.jsp'">
-	<input type="button" name="Login" value="直接登录">
+	<input type="button" name="Login" value="直接登录" onclick="window.location.href='http://localhost:8080/CTCommunity/jsp/login.jsp'">
 	<input type="button" name="Register" value="注册"
 		onclick="window.location.href='http://localhost:8080/CTCommunity/jsp/register.jsp'">
 	<br>

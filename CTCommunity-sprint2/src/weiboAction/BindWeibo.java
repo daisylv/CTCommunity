@@ -13,6 +13,7 @@ import org.apache.struts2.interceptor.ServletResponseAware;
 
 //import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import communityDB.AccountHelper;
 
 import weibo4j.Oauth;
 import weibo4j.http.AccessToken;
@@ -66,9 +67,15 @@ public class BindWeibo extends ActionSupport {
 			AccessToken accessToken = null;
 			try {
 				accessToken = new Oauth().getAccessTokenByCode(code);
-				//String userId = accessToken.getUid();
-				request.getSession().setAttribute("accessToken", accessToken);
-				
+				String userId = accessToken.getUid();
+				request.getSession().setAttribute("useraccessToken", accessToken);
+				//AccessToken accessToken2 = (AccessToken) ServletActionContext.getRequest().getSession().getAttribute("useraccessToken");
+				/*accessToken = (AccessToken) request.getSession().getAttribute("accessToken");
+				weiboUtil util = new weiboUtil(accessToken);
+				AccountHelper helper = AccountHelper.INSTANCE;
+				helper.validation(accessToken);*/
+				System.out.println(userId.toString());
+				//System.out.println(accessToken2.toString());
 			} catch (WeiboException e) {
 				if(401 == e.getStatusCode()){
 					Log.logInfo("Unable to get the access token.");
@@ -77,7 +84,7 @@ public class BindWeibo extends ActionSupport {
 				}
 			}
 			Log.logInfo("code: " + code);
-			//return null;
+			return "successlogin";
 		}
 		return "success";
 	}
@@ -89,6 +96,4 @@ public class BindWeibo extends ActionSupport {
 	public void setRedirectUrl(String redirectUrl) {
 		this.redirectUrl = redirectUrl;
 	}
-
-
 }
