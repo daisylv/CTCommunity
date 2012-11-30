@@ -8,8 +8,6 @@
     <constant name="struts.enable.DynamicMethodInvocation" value="false" />
     <constant name="struts.devMode" value="false" />
 
-   <constant name="struts.enable.DynamicMethodInvocation" value="false" />
-    <constant name="struts.devMode" value="false" />
 
     <package name="default" namespace="/" extends="struts-default">
 
@@ -54,7 +52,7 @@
     </package>
     
     
-    <package name="weiboAction" namespace="/weiboAction" extends="struts-default">
+    <package name="weiboAction" namespace="/weiboAction" extends="default">
         	<action name="Home" class="weiboAction.Home">
                 <result>/jsp/weiboAcct/Home.jsp</result>
             </action>
@@ -74,7 +72,7 @@
             </action>  
     </package>
     
-    <package name="communityAction"  namespace="/communityAction" extends="struts-default">
+    <package name="communityAction"  namespace="/communityAction" extends="default">
         <action name="Topic" class="communityAction.TopicAction">
             <result name="success" type="dispatcher">/jsp/weiboAcct/TopicHome.jsp</result>
             <result name="failure" type="dispatcher">/jsp/weiboAcct/createTopic.jsp</result>

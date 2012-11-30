@@ -17,6 +17,7 @@ public class ItemHibDao {
 
 	
 	public static void insert(Item item){
+		//HibernateUtil.createSeesionFactory();
 		Session session = HibernateUtil.getSession();
 		Transaction tx = null;
 		try{

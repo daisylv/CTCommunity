@@ -16,6 +16,7 @@ public class UserHibDao {
 		private User user;
 		
 		public void delete(Integer id){
+			//HibernateUtil.createSeesionFactory();
 			Session session = HibernateUtil.getSession();
 			Transaction tx = null;
 			
@@ -33,6 +34,7 @@ public class UserHibDao {
 		}
 		
 		public static void insert(User user){
+			//HibernateUtil.createSeesionFactory();
 			Session session = HibernateUtil.getSession();
 			Transaction tx = null;
 			try{
@@ -48,6 +50,7 @@ public class UserHibDao {
 		}
 		
 		public static void update(User user){
+			HibernateUtil.createSeesionFactory();
 			Session session = HibernateUtil.getSession();
 			Transaction tx = null;
 			try{

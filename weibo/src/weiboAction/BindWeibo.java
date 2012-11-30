@@ -23,7 +23,10 @@ public class BindWeibo extends ActionSupport {
 		String code = request.getParameter("code");
 		if (code == null) {
 			try {
-				response.sendRedirect(new Oauth().authorize("code"));
+				String s= null;
+				s=new Oauth().authorize("code");
+				System.out.println(s);
+				response.sendRedirect(s);
 			} catch (IOException | WeiboException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

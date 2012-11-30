@@ -16,8 +16,8 @@ public class CommunityHibDao {
 	//private Community community;
 	
 	
-	
 	public static List<Community> select(){
+		//HibernateUtil.createSeesionFactory();
 		Session session = HibernateUtil.getSession();
 		try{
 			org.hibernate.Query query = session.createQuery("from Community c");
@@ -33,6 +33,7 @@ public class CommunityHibDao {
 		
 	}
 	public static void insert(Community community){
+		//HibernateUtil.createSeesionFactory();
 		Session session = HibernateUtil.getSession();
 		Transaction tx = null;
 		try{

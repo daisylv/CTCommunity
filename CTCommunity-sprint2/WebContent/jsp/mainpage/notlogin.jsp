@@ -8,47 +8,57 @@
 <title>Welcome!</title>
 </head>
 <body>
-	Logo+XXX………………………………………�
+	Logo+XXX………………………………………
+	
 	<input type="button" name="LoginBySina" value="新浪认证登陆"
-onclick="window.location.href='http://localhost:8080/CTCommunity/jsp/weiboAcct/Home.jsp'">
+	onclick="window.location.href='http://localhost:8080/CTCommunity/jsp/weiboAcct/Home.jsp'">
 	<input type="button" name="Login" value="直接登录">
 	<input type="button" name="Register" value="注册"
 		onclick="window.location.href='http://localhost:8080/CTCommunity/jsp/register.jsp'">
 	<br>
-	<br> 热门社区………………………………………�
-	<input>
-	<button>搜索社区</button>
+	
+<br>
+热门社区………………………………………………<input><button>搜索社区</button>
 
-	<br>
-	<br>
-	<div id="cntent1" align="left" title="动画�>
-		动漫�
-		<table style="border: 2px">
-			<s:iterator id="co" value="communitylist">
-				<s:if test='communityType=="动画�'>
+<br>
+<br>
+<div id="cntent1" align="left" title="动画类">
+	动漫类
+ <table style="border: 2px">
+ 	<!--
+ 	<s:iterator value="communitylist">
+ 		<s:if test='communityType=="动画片"'>
+ 			<a href="<s:url action="InCommunity" namespace="/com/action"/>">
+ 				<li><s:property value="communityName"/></li>
+ 			</a>
+		</s:if>
+	</s:iterator>  
+	-->
+ 	<s:iterator id="co" value="communitylist">
+ 		<s:if test='communityType=="动画片"'>
+ 			<a
+ 				href="<s:url action="InCommunity" namespace="/com/action"/>?communityId=<s:property value="communityId"/>">
+ 				<li><s:property value="#co.getCommunityName()"/></li>
+ 			</a>
+		</s:if>
+	</s:iterator>
+ </table>
+</div>
+
+<div id="content" align="right" title=“运动类”>
+	体育类
+	<table style="border: 2px">
+ 		<s:iterator value="communitylist">
+ 			<s:if test='communityType=="运动"'>
 					<a
 						href="<s:url action="InCommunity" namespace="/com/action"/>?communityId=<s:property value="communityId"/>">
-						<s:property value="#co.getCommunityName()" />
+						<li><s:property value="communityName" /></li>
 					</a>
 				</s:if>
-			</s:iterator>
-		</table>
-	</div>
-
-	<div id="content" align="right" title=“运动类�
-		体育�
-		<table style="border: 2px">
-			<s:iterator value="communitylist">
-				<s:if test='communityType=="运动"'>
-					<a
-						href="<s:url action="InCommunity" namespace="/com/action"/>?communityId=<s:property value="communityId"/>">
-						<s:property value="communityName" />
-					</a>
-				</s:if>
-			</s:iterator>
-		</table>
-	</div>
-	<div id="content"></div>
-	<div id="content"></div>
+		</s:iterator>
+ 	</table>
+</div>
+<div id="content"></div>
+<div id="content"></div>
 </body>
 </html>

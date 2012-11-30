@@ -19,6 +19,7 @@ public class GetUserInfo extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 
 	public String execute() {
+		System.out.println("Come to get access Token");
 		AccessToken accessToken = (AccessToken) request.getSession().getAttribute("accessToken");
 		weiboUtil util = new weiboUtil(accessToken);
 		AccountHelper helper = AccountHelper.INSTANCE;

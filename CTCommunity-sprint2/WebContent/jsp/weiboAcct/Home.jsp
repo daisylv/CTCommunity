@@ -8,9 +8,11 @@
 <body>
 
 	<h3>access to weibo</h3>
-	<s:form action="Bind" namespace="/weiboAction" method="post">
-		<s:submit name="execute" value="access" />
-	</s:form>
+	<ul>
+    <li>
+        <a href="<s:url action="Bind" namespace="/weiboAction"/>">access</a>
+    </li>
+</ul>
 
 </body>
 </html>
