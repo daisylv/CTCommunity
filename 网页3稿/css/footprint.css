@@ -1,0 +1,67 @@
+#footprint_context {
+	float:left;
+	
+}/* CSS Document */
+
+.bottom_dot{
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #CCC;
+	
+	}
+#history ul {
+	list-style:none;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #CCC;
+}
+
+#history ul li {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCC;
+}
+#footprint_sina span {
+	font-size: 13px;
+}
+#modify_info {
+	margin-top: 110px;
+}
+#modify_info ul li{
+	display:inline-block;
+	margin-right:300px;
+	
+	margin-bottom: 20px;
+}
+
+#action_time {
+	font-size: 14px;
+	color: #066;
+}
+#footprint_context p {
+	font-size: 14px;
+}
+
+
+
+#history table tr td{
+	padding-top:0px;
+	padding-bottom:0px;
+}
+#delete a {
+	padding-right: 5px;
+	padding-left: 5px;
+	font-size: 13px;	
+}
+#action_time a {
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+
+#delete a:hover{
+	background-color:#033;
+	}
+#action_time a:hover {
+	background-color: #063;
+}

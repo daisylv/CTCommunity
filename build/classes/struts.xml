@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="false" />
+
+    <package name="default" namespace="/" extends="struts-default">
+
+        <default-action-ref name="index11" />
+
+       
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+
+		<action name="index11" class="com.action.Hello">
+           <result>/jsp/Hello.jsp</result>
+           <!-- <result name="input">/jsp/User.jsp</result>-->
+           <!--   <result type="redirectAction">
+                <param name="actionName">AddUser</param>
+                <param name="namespace">/com/action</param>
+            </result>  -->
+        </action>
+        
+    </package>
+    
+    <package name="User" namespace="/com/action" extends="default">
+    	<action name="AddUser" class="com.action.Adduser" method="add">
+    		<result name="success">/jsp/User.jsp</result>
+    	</action>
+    </package>
+    
+
+   
+
+</struts>
