@@ -8,7 +8,8 @@
 <title>Welcome</title>
 </head>
 <body>
-Logo+XXX………………………………………………Hello!<s:property value="User.username"/>
+Logo+XXX………………………………………………Hello!<s:property value="User.username"/> 
+								<s:property value="id"/>
 <br>
 <br>
 <div id="cntent1" align="left" title="动画类">

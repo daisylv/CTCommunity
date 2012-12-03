@@ -25,7 +25,8 @@ public class GetUserInfo extends ActionSupport {
 		weiboUtil util = new weiboUtil(accessToken);
 		AccountHelper helper = AccountHelper.INSTANCE;
 		helper.validation(accessToken);
-		
+		String weiboId = accessToken.getUid(); 
+		ServletActionContext.getRequest().getSession().setAttribute("weiboId", weiboId);
 		//System.out.println(util.getUid());
 		//util.updateStatus("test");
 		//util.sendProductInfoStatus();

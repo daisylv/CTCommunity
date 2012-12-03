@@ -53,6 +53,10 @@
     
     
     <package name="weiboAction" namespace="/weiboAction" extends="default">
+    	<action name="UserConfig" class="com.action.Login" method="loginByweibo">
+			<result name="registe">/jsp/register.jsp</result>
+    		<result name="success">/jsp/mainpage/haslogin.jsp</result>
+		</action>
         	<action name="Home" class="weiboAction.Home">
                 <result>/jsp/weiboAcct/Home.jsp</result>
             </action>
@@ -71,7 +75,11 @@
             </action>
             
             <action name="User" class="weiboAction.GetUserInfo">
-                <result name="success" type="dispatcher">/jsp/weiboAcct/createTopic.jsp</result>
+           	 	<result name="success" type="redirectAction">
+					<param name="namespace">/weiboAction</param>
+					<param name="actionName">UserConfig</param>
+				</result>
+                <!-- <result name="success" type="dispatcher">/jsp/weiboAcct/createTopic.jsp</result> -->
                 <result name="failure" type="redirectAction">
                     <param name="namespace">/weiboAction</param>
                     <param name="actionName">Bind</param>

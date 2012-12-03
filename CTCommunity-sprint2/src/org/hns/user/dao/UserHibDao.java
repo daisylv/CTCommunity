@@ -10,6 +10,8 @@ import org.hibernate.Transaction;
 import org.hns.bean.User;
 import org.hns.plugin.HibernateUtil;
 
+import communityDB.Userinfo;
+
 public class UserHibDao {
 
 		private List<User>userlist;
@@ -94,5 +96,40 @@ public class UserHibDao {
 				session.close();
 			}
 			
+		}
+		
+		public static String findUserbyWeibo(String weiboid){
+			Session session = HibernateUtil.getSession();
+			try{
+				org.hibernate.Query query = session.createQuery("from Userinfo u where u.weiboId=?");
+				((org.hibernate.Query) query).setString(0, weiboid);
+				List<Userinfo>weiboinfoList = ((org.hibernate.Query) query).list();
+				if(weiboinfoList == null || 0 == weiboinfoList.size()){
+					return "nonuser";//用户名不存在
+				}
+				Iterator<Userinfo> it = weiboinfoList.iterator();
+				Userinfo weiboinfo = it.next();
+				int userid = weiboinfo.getUserId();
+				try{
+					org.hibernate.Query query2 = session.createQuery("from User u where u.userId=?");
+					((org.hibernate.Query) query2).setLong(0, userid);
+					List<User> userlist = ((org.hibernate.Query) query2).list();
+					if(userlist.size()==0){
+						return "registe";
+					}
+					Iterator<User> it2 = userlist.iterator();
+					User user = it2.next();
+					return "success";
+				}catch(RuntimeException e){
+					e.printStackTrace();
+					return "error";
+				}
+				//return weiboinfo.getWeiboId();
+			}catch(RuntimeException e){
+				e.printStackTrace();
+				return "error";
+			}finally{
+				session.close();
+			}
 		}
 }
