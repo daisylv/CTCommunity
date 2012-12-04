@@ -67,6 +67,7 @@ public class Login extends ActionSupport{
 	public String loginByweibo(){
 		System.out.println("Login!");
 		String sinaWeiboid = (String) ServletActionContext.getRequest().getSession().getAttribute("weiboId");
+		//System.out.println(sinaWeiboid);
 		String weiboid = UserHibDao.findUserbyWeibo(sinaWeiboid); 
 		System.out.println(weiboid);
 		if(weiboid=="registe")

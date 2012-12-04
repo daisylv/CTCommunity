@@ -25,6 +25,8 @@ public enum AccountHelper{
 	public Userinfo validation(AccessToken _accessToken){
 		this.getAccountSession();
 		account = new Userinfo();
+		if(_accessToken.getUid()==null)
+			
 		account = accountTrans.findByWeiboId(_accessToken.getUid()).get(0);//unique value
 		if(account.getWeiboId() == null){
 			//not exist
