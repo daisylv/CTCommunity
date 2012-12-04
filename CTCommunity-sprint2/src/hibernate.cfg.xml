@@ -12,10 +12,11 @@
         <property name="hibernate.connection.password">yishijin5723</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="current_session_context_class">thread</property>
-        <!--  <property name="org.hibernate.JDBCTransactionFactory"</property>  -->
         
         <mapping resource="org/hns/bean/User.hbm.xml"/>
         <mapping resource="org/hns/bean/Community.hbm.xml"/> 
-        <mapping resource="org/hns/bean/Item.hbm.xml"/> 
+        <mapping resource="org/hns/bean/Item.hbm.xml"/>
+        <mapping resource="communityDB/Userinfo.hbm.xml"/>
+        <mapping resource="communityDB/Topic.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

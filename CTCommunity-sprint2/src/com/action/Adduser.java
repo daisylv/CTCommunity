@@ -67,6 +67,16 @@ public class Adduser extends ActionSupport{
 	public int getSinaid(){
 		return sinaid;
 	}*/
+	@Override
+	public void validate() {
+		// TODO Auto-generated method stub
+		if(getUser().getUsername()==null||"".equals(getUser().getUsername().trim()))
+			this.addFieldError("User.username", "请输入用户名");
+		if(getUser().getPassword()==null||"".equals(getUser().getPassword().trim()))
+			this.addFieldError("User.password", "请输入密码");
+		super.validate();
+	}
+	
 	public String add() {
 		//int u = user.getUserId();
 		//String s = SinaId;

@@ -8,15 +8,26 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/apache-tomcat-7.0.32/webapps/examples/WEB-INF/lib/jstl.jar"/>
-	<classpathentry kind="lib" path="D:/apache-tomcat-7.0.32/webapps/examples/WEB-INF/lib/standard.jar"/>
-	<classpathentry kind="lib" path="D:/apache-tomcat-7.0.32/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="/weibo4j-oauth2/lib/commons-codec.jar"/>
-	<classpathentry kind="lib" path="/weibo4j-oauth2/lib/commons-httpclient-3.1.jar"/>
-	<classpathentry kind="lib" path="/weibo4j-oauth2/lib/commons-logging-1.1.jar"/>
-	<classpathentry kind="lib" path="/weibo4j-oauth2/lib/jackson-all-1.8.5.jar"/>
-	<classpathentry kind="lib" path="/weibo4j-oauth2/lib/log4j-1.2.16.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="D:/workspace/Eclipse/weibo/WebContent/WEB-INF/lib/xwork-core-2.3.4.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daisy/CTCommunity/CTCommunity/weibo/WebContent/WEB-INF/lib/asm-3.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daisy/CTCommunity/CTCommunity/weibo/WebContent/WEB-INF/lib/asm-commons-3.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daisy/CTCommunity/CTCommunity/weibo/WebContent/WEB-INF/lib/asm-tree-3.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daisy/CTCommunity/CTCommunity/weibo/WebContent/WEB-INF/lib/commons-codec.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daisy/CTCommunity/CTCommunity/weibo/WebContent/WEB-INF/lib/commons-fileupload-1.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daisy/CTCommunity/CTCommunity/weibo/WebContent/WEB-INF/lib/commons-httpclient-3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daisy/CTCommunity/CTCommunity/weibo/WebContent/WEB-INF/lib/commons-io-2.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daisy/CTCommunity/CTCommunity/weibo/WebContent/WEB-INF/lib/commons-lang3-3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daisy/CTCommunity/CTCommunity/weibo/WebContent/WEB-INF/lib/commons-logging-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daisy/CTCommunity/CTCommunity/weibo/WebContent/WEB-INF/lib/freemarker-2.3.19.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daisy/CTCommunity/CTCommunity/weibo/WebContent/WEB-INF/lib/jackson-all-1.8.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daisy/CTCommunity/CTCommunity/weibo/WebContent/WEB-INF/lib/javassist-3.11.0.GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daisy/CTCommunity/CTCommunity/weibo/WebContent/WEB-INF/lib/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daisy/CTCommunity/CTCommunity/weibo/WebContent/WEB-INF/lib/mysql-connector-java-5.1.22-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daisy/CTCommunity/CTCommunity/weibo/WebContent/WEB-INF/lib/ognl-3.0.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daisy/CTCommunity/CTCommunity/weibo/WebContent/WEB-INF/lib/struts2-core-2.3.4.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daisy/CTCommunity/CTCommunity/weibo/WebContent/WEB-INF/lib/xwork-core-2.3.4.1.jar"/>
+	<classpathentry kind="lib" path="D:/下载/apache-tomcat-7.0.11-windows-x86/apache-tomcat-7.0.11/webapps/examples/WEB-INF/lib/jstl.jar"/>
+	<classpathentry kind="lib" path="D:/下载/apache-tomcat-7.0.11-windows-x86/apache-tomcat-7.0.11/webapps/examples/WEB-INF/lib/standard.jar"/>
+	<classpathentry kind="lib" path="D:/下载/apache-tomcat-7.0.11-windows-x86/apache-tomcat-7.0.11/lib/servlet-api.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

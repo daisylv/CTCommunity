@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,13 +8,17 @@
 <title>Welcome!</title>
 </head>
 <body>
-Logo+XXX………………………………………<input type="button" name="LoginbySina" value="新浪认证登陆">
-<input type="button" name="Login" value="直接登录">
-<input type="button" name="Register" value="注册" onclick="window.location.href='http://localhost:8080/CTCommunity/jsp/register.jsp'">
-
+	Logo+XXX………………………………………
+	
+	<input type="button" name="LoginBySina" value="新浪认证登陆"
+	onclick="window.location.href='http://localhost:8080/CTCommunity/jsp/weiboAcct/Home.jsp'">
+	<input type="button" name="Login" value="直接登录" onclick="window.location.href='http://localhost:8080/CTCommunity/jsp/login.jsp'">
+	<input type="button" name="Register" value="注册"
+		onclick="window.location.href='http://localhost:8080/CTCommunity/jsp/register.jsp'">
+	<br>
+	
 <br>
-<br>
-热门社区…………………………………………<input><button>搜索社区</button>
+热门社区………………………………………………<input><button>搜索社区</button>
 
 <br>
 <br>
