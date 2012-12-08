@@ -1,0 +1,130 @@
+.topic {
+	width: 960px;
+	height:85px;
+	margin-left:15%;
+	padding-top:10px;
+	
+}
+.community_pic {
+	float:left;
+	padding-right:20px;
+}
+#coomunity_introduce {
+	padding-top: 10px;
+	float:left;
+}
+.topic #addnew {
+	margin-left:60%;
+}
+#community_topics {
+	
+	width:750px;
+	margin-top:3px;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-top-color: #CCC;
+	border-right-color: #CCC;
+	border-left-width: 1px;
+	border-left-style: solid;
+	border-left-color: #CCC;
+	
+}
+#community_topics table tr td {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCC;
+	height:40px;
+}
+#community_topics table tr:hover {
+	background-color:#CCC;
+}
+#community_topics table #topic_top {
+	background-color:#999;
+	
+}
+#page {
+	width:750px;
+	margin-top:15px;
+	
+}
+
+#community_left {
+	float:left;
+	margin-left:15%;
+	padding-right: 20px;	
+}
+
+#master_pic {
+	float: left;
+	display:inline-block;
+}
+.obu {
+	margin: 0 0 10px 0;
+	width: 100px;
+	float: left;
+	display: inline;
+}
+#community_right p {
+	display: block;
+}
+
+
+#community_context {
+	margin: 0;
+	
+}
+
+#master_name {
+	float: left;
+}
+#master_name {
+	padding-top: 10px;
+	padding-left: 20px;
+}
+#master h2 {
+	font-size: 20px;
+}
+.clear {
+}
+
+#page a {
+	text-decoration: none;
+	border: 1px solid #CCC;
+	padding-top: 4px;
+	padding-right: 7px;
+	padding-bottom: 4px;
+	padding-left: 7px;
+}
+.strong {
+	font-weight: bold;
+}
+
+
+
+#community_topics table #topic_top td{
+	height:30px;
+	
+}
+
+#all {
+	position: absolute;
+	margin-top: 220px;
+	margin-left: 980px;
+}
+#page a{
+	color:#030;		
+	}
+#modify_info a {
+	color: #093;
+	text-decoration:none;
+}
+#modify_info a:hover {
+	color:#0C6;
+	
+}
+
+#page a:hover {
+	background-color:#093;
+}

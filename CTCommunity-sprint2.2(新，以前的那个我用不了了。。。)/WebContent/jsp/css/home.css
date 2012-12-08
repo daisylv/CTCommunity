@@ -1,0 +1,424 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+}/* CSS Document */
+
+.nav{
+	width: 1400px;
+	overflow:visible;
+	position: fixed;/*固定作用*/
+	top: 0px;
+	_position:absolute;/* 把导航栏位置定义为绝对位置  关键*/
+ _top: expression(documentElement.scrollTop + "px"); /* 把导航栏位置放在浏览器垂直滚动条的顶端  关键 */
+	z-index:9999; /* 让导航栏浮在网页的高层位置，遇到flash和图片时候也能始终保持最外层 */
+	text-align:left;
+	height:40px;
+	background-color:#6abc8b;
+	color:#ffffff;
+	padding-left:0px;
+	background-image: url(../res/navback.jpg); 
+}
+.information{
+	text-align:center;
+	margin-left:15%;
+	width:960px;
+	
+	}
+	
+.four_table{
+	text-align:center;
+	margin-left:15%;
+	width:860px;
+	
+}
+	
+.reply{
+	text-align:center;
+	margin-left:15%;
+	margin-top:10px;
+	width:960px;
+	
+	}
+#history {
+	text-align:left;
+	margin-left:15%;
+	width:750px;
+	float:left;
+	padding-right:20px;
+}
+#location {
+	text-align:left;
+	margin-left:15%;
+	margin-top:42px;
+	width:960px;
+	height:20px;
+	font-size: 16px;
+	font-style: normal;
+	line-height:16px;
+}
+#create-community-table table {
+	margin-left:21%;
+	margin-top:3%;
+	width:750px;
+	color: #060;
+}
+#create-community-table {
+	
+	float:left;
+	margin-left:3%;
+}
+
+#create-community-table table tr th {
+	text-align::center;
+}
+#create-community-table table tr td {
+	text-align:left;
+}
+.home_big_table {
+	width:480px;
+	height:280px;
+}
+.home_small_table{
+	width:480px;
+	height:50px;
+	
+	}
+.arrow {
+	background-image: url(../res/arrow-right.gif);
+	background-repeat: no-repeat;
+	width:16px;
+	height:16px;
+}
+
+.home_small_table_title{
+	width:480px;
+	height:30px;
+	border-bottom-width: 1px;
+	border-bottom-style:solid;
+	border-bottom-color: #CCC;	
+	}
+.create_community_pic{
+	margin-left: 80%;
+	position: absolute;
+	top: 45px;
+	}
+	
+.logo {
+	position: absolute;
+	left: 10%;
+}
+.nav_category {
+	position: absolute;
+	left: 20%;	
+	float:left;
+	display:block;
+	float: left;
+overflow: hidden;
+list-style:none;
+}
+.nav_category li{
+	float: left;
+	line-height:1;
+	margin-right:20px;
+	}
+	
+.userId {
+	position: absolute;
+	right: 30%;
+	top:30%;
+	width: 74px;
+	
+}
+.userId1 {
+	position: absolute;
+	right: 25%;
+	top:30%;
+	width: 50px;
+	
+}
+.pop_pic {
+	position:absolute;
+	right:30%;
+	z-index:998;
+}
+.pop_pic li a{
+	display:block; /* 将链接设为块级元素 */
+padding:8px 50px; /* 设置内边距 */
+background:#3A4953; /* 设置背景色 */
+color:#fff; /* 设置文字颜色 */
+text-decoration:none; /* 去掉下划线 */
+border-right:1px solid #000; /* 在左侧加上分隔线 */
+	}
+	
+.pop_pic li a:hover {
+ background:#146C9C;
+ color:#fff;
+ text-decoration:none;
+ border-right:1px solid #000;
+}
+.dropmenudiv{
+position:absolute;
+top: 0;
+border: 1px solid #BBB; /*THEME CHANGE HERE*/
+border-bottom-width: 0;
+font:normal 12px Verdana;
+line-height:18px;
+z-index:100;
+background-color: white;
+width: 150px;
+visibility: hidden;
+filter: progid:DXImageTransform.Microsoft.Shadow(color=#CACACA,direction=135,strength=4); /*Add Shadow in IE. Remove if desired*/
+}
+
+
+.dropmenudiv a{
+width: auto;
+display: block;
+text-indent: 3px;
+border-bottom: 1px solid #BBB; /*THEME CHANGE HERE*/
+padding: 2px 0;
+text-decoration: none;
+font-weight: bold;
+color: black;
+}
+.dropmenudiv a:hover{ /*THEME CHANGE HERE*/
+background-color: #F0F0F0;
+}
+.house {
+	
+	overflow:hidden;
+	with:16px;
+	
+}
+#location a {
+	text-decoration: none;
+}
+#location a:link {
+	font-size: 14px;
+	color: #000;
+}
+#location em {
+	font-size: 14px;
+	font-family: Verdana, Geneva, sans-serif;
+}
+.four_table #catelog {
+	height: 75px;
+	width: 860px;
+	display:block;
+	font-size:0;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCC;
+	
+}
+.four_table #communities {
+	width: 960px;
+}
+.tags li{
+	display:inline-block;
+	font-size:14px;
+	padding-top: 8px;
+	padding-right: 0px;
+	padding-bottom: 8px;
+	padding-left: 0px;
+	
+}
+.tags li a {
+	display:block;
+	width: 82px;
+	text-align:center;
+	margin-right:0px;
+	text-decoration: none;
+	cursor:pointer;
+	padding-top: 2px;
+	padding-bottom: 2px;	
+}
+.four_table a:hover,.four_table a:active {
+	background-color: #093;
+	color: #FFF;	
+}
+#community_picture {
+	height: 85px;
+	width: 85px;
+}
+
+.tags {
+	margin:0;
+	padding:0;
+}
+.four_table #communities ul {
+	
+}
+ #communities ul li {
+	display:inline-block;
+	width:450px;
+	margin-top: 10px;
+	margin-bottom: 10px;	
+}
+#community_content {
+	display:block;
+	line-height:1.62;
+	text-align:left;
+	
+	
+}
+#community_title a {
+	text-decoration: none;
+}
+#bottom {
+	display:block;
+	margin-left:18%;
+	font-size: 14px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #CCC;
+	width:860px;
+}
+#bottom ul li{
+	display:inline-block;
+	width:150px;
+	margin-top: 20px;
+	margin-bottom: 0px;
+}
+#bottom ul li a {
+	text-decoration: none;
+}
+
+
+
+
+#community_picture {
+	float:left;
+	padding-right: 20px;
+	
+}
+
+#create_title {
+	margin-left: 15%;
+}
+#submit {
+	margin-left: 1%;
+	position:absolute;
+}
+.submit_div {
+	margin-left: 30%;
+}
+.topic_title{
+	
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCC;	
+	}
+.topic_title ul {
+	display:block;
+	float:right;
+}
+.topic_title ul li {
+	display:inline-block;
+}
+
+
+.topic_content {
+	float: left;
+}
+#author {
+	display:block;
+	
+	width:130px;
+	
+}
+#author_say {
+	float: right;
+	
+
+}
+#addnew {
+	margin-left: 85%;
+	margin-top: 0px;
+	position: absolute;
+}
+#item_body {
+	margin-left: 15%;
+	margin-top:5%;
+}
+.item {
+	margin-left: 15%;
+	width:960px;
+}
+
+
+
+.flour1 {
+	width:960px;
+	margin:0px;
+	border:0;
+}
+#author ul {
+	margin: 0px;
+	padding: 0px;
+	list-style:none;
+	display:block;
+}
+#author ul li{
+	margin: 0px;
+	padding: 0px;
+	}
+	
+#flour1 {
+	padding-top: 10px;
+	float:left;
+}
+
+.auther_pic {
+	float:left;
+	padding-right:20px;
+}
+
+
+#search {
+	left:1100px;
+	position: absolute;
+	top:4px;
+	z-index:1;
+}
+.search_input {
+	background-image: url(../images/search2_03.png);
+	background-repeat: no-repeat;
+	height:25px;
+}
+#search_input {
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	font-size: 16px;	
+}
+#search #__01 tr td a:hover {
+	background-image: none;
+	background-color:#6dba8c;
+}
+
+#house_pic a:hover {
+	background-color: #C00;
+}
+
+.backToTop {
+    display: none;
+    width: 18px;
+    line-height: 1.2;
+    padding: 5px 0;
+    background-color: #000;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    position: fixed;
+    _position: absolute;
+    right: 10px;
+    bottom: 100px;
+    _bottom: "auto";
+    cursor: pointer;
+    opacity: .6;
+    filter: Alpha(opacity=60);
+}#history h2 {
+	font-size: 24px;
+}
