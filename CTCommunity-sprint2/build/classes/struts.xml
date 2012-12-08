@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="false" />
+
+
+    <package name="default" namespace="/" extends="struts-default">
+
+        <default-action-ref name="index" />
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+
+		<action name="index" class="com.action.Hello">
+           <result>/jsp/mainpage/notlogin.jsp</result>
+        </action>
+        
+    </package>
+    
+    <package name="User" namespace="/com/action" extends="default">
+    	<action name="AddUser" class="com.action.Adduser" method="add">
+    		<result name="input">/jsp/register.jsp</result>
+    		<result name="success">/jsp/User.jsp</result>
+    	</action>
+    	 
+    	<action name="Login" class="com.action.Login" method="login">
+    		<result name="noneuser">/jsp/noneuser.jsp</result>
+    		<result name="failpassword">/jsp/failpsw.jsp</result>
+    		<result name="error">/jsp/error.jsp</result>
+    		<result name="success">/jsp/mainpage/haslogin.jsp</result>
+    	</action>
+    	
+    </package>
+    <package name="Community" namespace="/com/action" extends="default">
+        <action name="Addcommunity" class="com.action.Addcommunity" method="add">
+            <result name="success">/jsp/community.jsp</result>
+        </action>
+        <action name="InCommunity" class="com.action.InCommunity">
+        	<result name="success">/jsp/community/Incommunity.jsp</result>
+        </action>
+    </package>
+    
+    <package name="Item" namespace="/com/action" extends="default">
+        <action name="Additem" class="com.action.Additem" method="add">
+            <result name="success">/jsp/item.jsp</result>
+        </action>
+    </package>
+    
+    
+    <package name="weiboAction" namespace="/weiboAction" extends="default">
+    	<action name="UserConfig" class="com.action.Login" method="loginByweibo">
+			<result name="registe">/jsp/register.jsp</result>
+    		<result name="success">/jsp/mainpage/haslogin.jsp</result>
+		</action>
+        	<action name="Home" class="weiboAction.Home">
+                <result>/jsp/weiboAcct/Home.jsp</result>
+            </action>
+            <action name="Bind" class="weiboAction.BindWeibo">
+                <result name="success" type="redirect">
+                ${redirectUrl}
+                </result>
+                <result name="successlogin" type="redirectAction">
+                	 <param name="namespace">/weiboAction</param>
+                    <param name="actionName">User</param>
+                </result>
+                <!-- 
+                    <param name="namespace">/weiboAction</param>
+                    <param name="actionName">User</param>
+                 -->
+            </action>
+            
+            <action name="User" class="weiboAction.GetUserInfo">
+           	 	<result name="success" type="redirectAction">
+					<param name="namespace">/weiboAction</param>
+					<param name="actionName">UserConfig</param>
+				</result>
+                <!-- <result name="success" type="dispatcher">/jsp/weiboAcct/createTopic.jsp</result> -->
+                <result name="failure" type="redirectAction">
+                    <param name="namespace">/weiboAction</param>
+                    <param name="actionName">Bind</param>
+                </result>  
+            </action>  
+    </package>
+    
+    <package name="communityAction"  namespace="/communityAction" extends="default">
+        <action name="Topic" class="communityAction.TopicAction">
+            <result name="success" type="dispatcher">/jsp/weiboAcct/TopicHome.jsp</result>
+            <result name="failure" type="dispatcher">/jsp/weiboAcct/createTopic.jsp</result>
+        </action>
+        
+    </package>
+   
+
+</struts>

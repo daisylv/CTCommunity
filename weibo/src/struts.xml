@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="false" />
+
+ 
+
+    <package name="default" namespace="/" extends="struts-default">
+
+        <default-action-ref name="index" />
+
+        <global-results>
+            <result name="error">/error.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+
+        <action name="index">
+            <result type="redirectAction">
+                <param name="actionName">Home</param>
+                <param name="namespace">/weiboAction</param>
+            </result>
+        </action>
+        
+    </package>
+    
+    <package name="weiboAction" namespace="/weiboAction" extends="default">
+            <action name="Home" class="weiboAction.Home">
+                <result>/weiboAcct/Home.jsp</result>
+            </action>
+            
+            <action name="Bind" class="weiboAction.BindWeibo">
+                <result name="success" type="redirectAction">
+                    <param name="namespace">/weiboAction</param>
+                    <param name="actionName">User</param>
+                </result>
+            </action>
+            
+            <action name="User" class="weiboAction.GetUserInfo">
+                <result name="success" type="redirectAction">
+                    <param name="namespace">/weiboAction</param>
+                    <param name="actionName">Home</param>
+                </result>  
+                <result name="failure" type="redirectAction">
+                    <param name="namespace">/weiboAction</param>
+                    <param name="actionName">Bind</param>
+                </result>  
+            </action>  
+    </package>
+            
+</struts>
