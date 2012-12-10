@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="org.hns.bean.User" table="userinfo" dynamic-insert="true" dynamic-update="true">
+  <id column="userId" name="userId" type="int">
+   <generator class="increment"/>
+  </id>
+  <property column="sinaId" name="sinaId" type="int"/>
+  <property column="username" generated="never" lazy="false"
+   name="username" type="string"/>
+  <property column="usergender" generated="never" lazy="false"
+   name="usergender" type="string"/>
+  <property column="password" generated="never" lazy="false" name="password" type="string"/>
+ </class>
+ 
+</hibernate-mapping>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="org.hns.bean.Community" table="community">
+  <id column="communityId" name="communityId" type="int">
+   <generator class="increment"/>
+  </id>
+  <property column="communityName" generated="never" lazy="false" name="communityName" type="string"/>
+  <property column="communityIntroduce" generated="never" lazy="false"
+   name="communityIntro" type="string"/>
+  <property column="communityType" generated="never" lazy="false"
+   name="communityType" type="string"/>
+  <property column="ownerId" generated="never" lazy="false" name="ownerId" type="int"/>
+ </class>
+</hibernate-mapping>
