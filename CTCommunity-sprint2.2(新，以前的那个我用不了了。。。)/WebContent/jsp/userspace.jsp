@@ -1,3 +1,4 @@
+<!-- 页面还没做好-->
 <%@page import="org.hns.bean.Community"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -11,12 +12,14 @@
 <title>用户空间</title>
 </head>
 <body>
-	Hello…………<s:property value="#session.username"/>
+	Hello…………<% String username = request.getParameter("username").toString();
+				request.setAttribute("username", username);%>
+	<%=request.getParameter("username")%>
 	<%int userid= Integer.parseInt(request.getSession().getAttribute("userid").toString());
 	request.setAttribute("userid", userid);%>
 	<!-- <%out.println(userid); %> -->
 	
-	<input type="button" name="mainpage" value="回到主页" onclick="window.location.href='http://localhost:8080/CTCommunity/jsp/haslogin.jsp?username=<s:property value="#session.username"/>'">
+	<input type="button" name="mainpage" value="回到主页" onclick="window.location.href='http://localhost:8080/CTCommunity/jsp/haslogin.jsp?username=<%=request.getParameter("username")%>'">
 	
 	<input type="button" name="CreateCinS" value="创建社区" onclick="window.location.href='http://localhost:8080/CTCommunity/jsp/createcommunity.jsp'">
 <div id="cntent1" align="left" title="用户所有">

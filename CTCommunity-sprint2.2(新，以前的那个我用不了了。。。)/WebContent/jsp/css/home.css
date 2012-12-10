@@ -6,11 +6,11 @@ body {
 .nav{
 	width: 1400px;
 	overflow:visible;
-	position: fixed;/*固定作用*/
+	position: fixed;/*鍥哄畾浣滅敤*/
 	top: 0px;
-	_position:absolute;/* 把导航栏位置定义为绝对位置  关键*/
- _top: expression(documentElement.scrollTop + "px"); /* 把导航栏位置放在浏览器垂直滚动条的顶端  关键 */
-	z-index:9999; /* 让导航栏浮在网页的高层位置，遇到flash和图片时候也能始终保持最外层 */
+	_position:absolute;/* 鎶婂鑸爮浣嶇疆瀹氫箟涓虹粷瀵逛綅缃� 鍏抽敭*/
+ _top: expression(documentElement.scrollTop + "px"); /* 鎶婂鑸爮浣嶇疆鏀惧湪娴忚鍣ㄥ瀭鐩存粴鍔ㄦ潯鐨勯《绔� 鍏抽敭 */
+	z-index:9999; /* 璁╁鑸爮娴湪缃戦〉鐨勯珮灞備綅缃紝閬囧埌flash鍜屽浘鐗囨椂鍊欎篃鑳藉缁堜繚鎸佹渶澶栧眰 */
 	text-align:left;
 	height:40px;
 	background-color:#6abc8b;
@@ -142,12 +142,12 @@ list-style:none;
 	z-index:998;
 }
 .pop_pic li a{
-	display:block; /* 将链接设为块级元素 */
-padding:8px 50px; /* 设置内边距 */
-background:#3A4953; /* 设置背景色 */
-color:#fff; /* 设置文字颜色 */
-text-decoration:none; /* 去掉下划线 */
-border-right:1px solid #000; /* 在左侧加上分隔线 */
+	display:block; /* 灏嗛摼鎺ヨ涓哄潡绾у厓绱�*/
+padding:8px 50px; /* 璁剧疆鍐呰竟璺�*/
+background:#3A4953; /* 璁剧疆鑳屾櫙鑹�*/
+color:#fff; /* 璁剧疆鏂囧瓧棰滆壊 */
+text-decoration:none; /* 鍘绘帀涓嬪垝绾�*/
+border-right:1px solid #000; /* 鍦ㄥ乏渚у姞涓婂垎闅旂嚎 */
 	}
 	
 .pop_pic li a:hover {
@@ -235,7 +235,7 @@ background-color: #F0F0F0;
 }
 .four_table a:hover,.four_table a:active {
 	background-color: #093;
-	color: #FFF;	
+	color: #999;	
 }
 #community_picture {
 	height: 85px;

@@ -1,15 +1,14 @@
-<!-- 已合-->
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>创建社区</title>
+<title>my-information</title>
 <link href="css/home.css" rel="stylesheet" type="text/css"> 
-<link href="css/menu.css" rel="stylesheet" type="text/css"> 
+<link href="css/community.css" rel="stylesheet" type="text/css"> 
 <link href="css/top.css" rel="stylesheet"  type="text/css"/>
+<link href="css/footprint.css" rel="stylesheet" type="text/css">
+<link href="css/modify-info.css" rel="stylesheet" type="text/css">
+<link href="css/menu.css" rel="stylesheet" media="screen" type="text/css"/>
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript">
 var timeout         = 500;
@@ -37,7 +36,7 @@ $(document).ready(function()
 	$('#jsddm > li').bind('mouseout',  jsddm_timer);});
 
 document.onclick = jsddm_close;
-  </script>
+  </script> 
 </head>
 
 <body>
@@ -104,32 +103,70 @@ document.onclick = jsddm_close;
 <em >></em>
 <a href="#">首页</a>
 <em >></em>
-<a href="#">创建社区</a>
+<a href="#">我的资料</a>
 </div>
 
-<div id="create_title">
-<h2>申请创建社区</h2>
+<div id="infomation_body">
+<div class="my_information">
+<h2>我的资料</h2>
 </div>
-
-<div id="create-community-table">
-<table width="620" height="206" border="0" cellpadding="0" cellspacing="0">
-  <tr><td>
-		<s:form action="Addcommunity" namespace="/com/action" method="post">
-		   
-			<s:textfield label="社区名" name="Community.communityName"></s:textfield> 
-			<s:textfield label="社区介绍" name="Community.communityIntro"></s:textfield>
-			<s:textfield label="社区类型" name="Community.communityType"></s:textfield>
-			<s:submit value="submit"></s:submit>
-		</s:form>
-		</td>
-		</tr>
-  
- 
+<div>
+<table width="912" border="0">
+  <tr>
+    
+    <td width="114">用户名</td>
+    <td width="670"><form id="form2" name="form2" method="post" action="">
+      <label for="userName"></label>
+      <input type="text" name="userName" id="userName" />
+    </form></td>
+    <td >&nbsp;</td>
+  </tr>
+  <tr>
+    <td>性别</td>
+    <td><form id="form3" name="form3" method="post" action="">
+   		<table width="134">
+   		  <tr>
+   		    <td width="57"><label>
+   		      <input type="radio" name="gender" value="0" id="gender_0" />
+   		      女</label></td>
+ 		    
+   		    <td width="65"><label>
+   		      <input type="radio" name="gender" value="1" id="gender_1" />
+   		      男</label></td>
+ 		    </tr>
+ 		  </table>
+    </form></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    
+    <td>密码</td>
+    <td><form id="form4" name="form4" method="post" action="">
+      <label for="password"></label>
+      <input type="text" name="password" id="password" />
+    </form></td>
+    <td>&nbsp;</td>
+  </tr>
+ <tr>
+    <td>头像</td>
+    <td><form action="" method="post" enctype="multipart/form-data" name="form4" id="form4">
+     <label for="head_pic"></label>
+      <input type="file" name="head_pic" id="head_pic" />
+    </form>
+      </td>
+      <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="3"><form id="form5" name="form5" method="post" action="">
+      <input type="submit" name="modify_button" id="modify_button" value="修改" />
+    </form></td>
+    </tr>
 </table>
 
 </div>
-<div class="create_right">
-<h2>创建注意事项</h2></div>
+
+</div>
+
 
 
 </body>

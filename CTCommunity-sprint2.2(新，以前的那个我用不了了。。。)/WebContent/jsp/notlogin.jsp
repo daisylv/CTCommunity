@@ -10,7 +10,7 @@
 <link href="<%=request.getContextPath()%>/jsp/css/top.css" rel="stylesheet"  type="text/css">
 <link href="<%=request.getContextPath()%>/jsp/css/menu.css" rel="stylesheet" media="screen" type="text/css"/>
 <script type="text/javascript" src="<%=request.getContextPath()%>/jsp/js/jquery.min.js"></script>
-
+<script type="text/javascript" src="<%=request.getContextPath()%>/jsp/js/home.js"></script>
 <script type="text/javascript">
 var timeout         = 500;
 var closetimer		= 0;
@@ -67,7 +67,7 @@ function MM_swapImage() { //v3.0
 <script src="<%=request.getContextPath()%>/jsp/js/jquery-1.6.4.min.js" type="text/javascript"></script> 
 <script src="<%=request.getContextPath()%>/jsp/js/top.js" type="text/javascript"></script>
 <div class="nav">
-<div class="logo"> <a href="home.html"><img src="<%=request.getContextPath()%>/jsp/res/logo.jpg" width="100" height="40" /></a> </div>
+<div class="logo"> <a href="http://localhost:8080/CTCommunity/"><img src="<%=request.getContextPath()%>/jsp/res/logo.jpg" width="100" height="40" /></a> </div>
 
 
 <div class="userId">
@@ -130,34 +130,31 @@ function MM_swapImage() { //v3.0
 <a href="#">首页</a>
 </div>
 
-<% String type = (String)(request.getParameter("type"));
-	//type.getBytes("UTF-8");
-	
-%>
-<%=type%>
+
+
 <div class="four_table">
 <div id="catelog" >
 <ul class="tags">
-<li><a href="?type=sports" >运动类</a></li>
-<li><a href="?type='动画类'" >动画类</a></li>
-<li><a href="#" >分类1</a></li>
-<li><a href="#" >分类1</a></li>
-<li><a href="#" >分类1</a></li>
-<li><a href="#" >分类1</a></li>
-<li><a href="#" >分类1</a></li>
-<li><a href="#" >分类1</a></li>
-<li><a href="#" >分类1</a></li>
-<li><a href="#" >分类10</a></li>
-<li><a href="#" >分类1</a></li>
-<li><a href="#" >分类1</a></li>
-<li><a href="#" >分类1</a></li>
-<li><a href="#" >分类1</a></li>
-<li><a href="#" >分类1</a></li>
-<li><a href="#" >分类1</a></li>
-<li><a href="#" >分类1</a></li>
-<li><a href="#" >分类1</a></li>
-<li><a href="#" >分类1</a></li>
-<li><a href="#" >分类10</a></li>
+<li><a href="#" class="type" style="background:#093">运动类</a></li>
+<li><a href="#" class="type">分类1</a></li>
+<li><a href="#" class="type">分类1</a></li>
+<li><a href="#" class="type">分类1</a></li>
+<li><a href="#" class="type">分类1</a></li>
+<li><a href="#" class="type">分类1</a></li>
+<li><a href="#" class="type">分类1</a></li>
+<li><a href="#" class="type">分类1</a></li>
+<li><a href="#" class="type">分类1</a></li>
+<li><a href="#" class="type">分类10</a></li>
+<li><a href="#" class="type">分类1</a></li>
+<li><a href="#" class="type">分类1</a></li>
+<li><a href="#" class="type">分类1</a></li>
+<li><a href="#" class="type" >分类1</a></li>
+<li><a href="#" class="type">分类1</a></li>
+<li><a href="#" class="type">分类1</a></li>
+<li><a href="#" class="type">分类1</a></li>
+<li><a href="#" class="type">分类1</a></li>
+<li><a href="#" class="type">分类1</a></li>
+<li><a href="#" class="type">分类10</a></li>
 </ul>
 </div>
 <div id="communities">
@@ -170,11 +167,17 @@ function MM_swapImage() { //v3.0
 </div>
 <div id="community_content">
  <div id="community_title">
- <table><tr><td><a href="<s:url action="InCommunity" namespace="/com/action"/>?communityId=<s:property value="communityId"/>">
-						<s:property value="communityName" /></td></tr>
-					</a></div>
+ <table>
+ <tr><td>
+ <a href="<s:url action="InCommunity" namespace="/com/action"/>?communityId=<s:property value="communityId"/>">
+						<s:property value="communityName" />
+					</a>
+
  <p>社区1介绍</p>
+ 
+ </td></tr>
  </table>
+</div>
 </div>
 </li>
 

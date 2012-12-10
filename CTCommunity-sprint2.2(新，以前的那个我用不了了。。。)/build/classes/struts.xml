@@ -10,12 +10,25 @@
 
 
     <package name="default" namespace="/" extends="struts-default">
-
-        <default-action-ref name="index" />
+    
+		<interceptors>
+			<interceptor name="Encoding" class="org.hns.plugin.EncodingInterceptor"></interceptor>
+			<interceptor-stack name="Encode">
+				<interceptor-ref name="Encoding"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="Encode"></default-interceptor-ref>
+		
+		
+		<default-action-ref name="index" />
+		
         <global-exception-mappings>
             <exception-mapping exception="java.lang.Exception" result="error"/>
         </global-exception-mappings>
-
+        
+		
 		<action name="index" class="com.action.Hello">
            <result>/jsp/notlogin.jsp</result>
         </action>
@@ -53,6 +66,7 @@
             <result name="success">/jsp/item.jsp</result>
         </action>
     </package>
+    
     
     
     <package name="weiboAction" namespace="/weiboAction" extends="default">

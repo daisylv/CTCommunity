@@ -1,3 +1,4 @@
+<!--已合-->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="s" uri="/struts-tags" %>
@@ -47,7 +48,7 @@ document.onclick = jsddm_close;
 <script src="js/jquery-1.6.4.min.js" type="text/javascript"></script> 
 <script src="js/top.js" type="text/javascript"></script>
 <div class="nav">
-<div class="logo"> <a href="home.html"><img src="res/logo.jpg" width="100" height="40" /></a> </div>
+<div class="logo"> <a href="http://localhost:8080/CTCommunity/"><img src="res/logo.jpg" width="100" height="40" /></a> </div>
 
 
 <div class="userId">

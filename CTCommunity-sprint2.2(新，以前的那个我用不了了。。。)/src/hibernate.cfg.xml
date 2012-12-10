@@ -15,6 +15,7 @@
         <mapping resource="org/hns/bean/User.hbm.xml"/>
         <mapping resource="org/hns/bean/Community.hbm.xml"/>
         <mapping resource="org/hns/bean/Item.hbm.xml"/>
+        <mapping resource="org/hns/bean/UserPace.hbm.xml"/>
         <mapping resource="communityDB/Userinfo.hbm.xml"/>
         <mapping resource="communityDB/Topic.hbm.xml"/>
     </session-factory>

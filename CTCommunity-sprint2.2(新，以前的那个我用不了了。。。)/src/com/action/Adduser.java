@@ -6,7 +6,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.dispatcher.mapper.ActionMapping;
 import org.hns.bean.User;
+import org.hns.bean.UserPace;
 import org.hns.user.dao.UserHibDao;
+import org.hns.user.dao.UserPaceHibDao;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -37,7 +39,6 @@ public class Adduser extends ActionSupport{
 	int userid = (int)param.get("userid");
 	int sinaid = (int)param.get("sinaid");*/
 	private User user = new User();
-	
 	
 	public void setUser(User user) {
 		this.user = user;
@@ -88,6 +89,9 @@ public class Adduser extends ActionSupport{
 		UserHibDao.insert(user);
 		ServletActionContext.getRequest().getSession().setAttribute("userid", user.getUserId());
 		ServletActionContext.getRequest().getSession().setAttribute("username", user.getUsername());
+		UserPace userPace = GetPace.setPaceInfo("º”»Î¡ÀCTCommunity");
+		UserPaceHibDao.insert(userPace);
+		System.out.println(userPace.getTimestamp());
 		return "success";
 		
 	}
