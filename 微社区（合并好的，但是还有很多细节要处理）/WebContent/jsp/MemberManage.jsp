@@ -20,6 +20,7 @@
  	同意？
  	</a>
 </s:iterator>
+<a href="<s:url action="CommunityPager" namespace="/com/action"/>?username=<s:property value="#session.username"/>&cuPage=1&page=0&cuPage2=1&page2=0&ty=<s:property value="1"/>">返回我的天地</a>
 <br>
 	<!--<s:iterator id="msg" value="@com.action.MemberManage@msglist">
 		<s:iterator id="users" value="@com.action.MemberManage@userlist">

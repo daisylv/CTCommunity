@@ -141,7 +141,7 @@ function MM_swapImage() { //v3.0
 %>
 <%System.out.println(com.action.Hello.ctype[1]); 
 %>
-<s:debug></s:debug>
+
 <div class="four_table">
 <div id="catelog" >
 <ul class="tags">

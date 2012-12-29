@@ -206,7 +206,7 @@ document.onclick = jsddm_close;
 <tr>
 <td>
 <span><s:property value="#up.getUserpace()"/><br><s:property value="#up.getTimestamp()"/></span>
- 		<br>	<a>
+ 		<br>	<a href="#">
  				转发微薄？
  			</a></td>
 </tr>
