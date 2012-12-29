@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="org.hns.bean.MsgList" table="msglist">
+  <id column="msgId" name="msgId" type="int">
+   <generator class="increment"/>
+  </id>
+  <property column="senderId" generated="never" lazy="false"
+   name="senderId" type="int"/>
+  <property column="receiverId" generated="never" lazy="false"
+   name="receiverId" type="int"/>
+  <property column="communityId" generated="never" lazy="false"
+   name="communityId" type="int"/>
+   <property column="content" name="content" generated="never" lazy="false" type="string"/>
+ </class>
+</hibernate-mapping>
