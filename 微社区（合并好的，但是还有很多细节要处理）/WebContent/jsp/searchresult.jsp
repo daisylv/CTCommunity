@@ -17,8 +17,7 @@
  				<li><s:property value="#co.getCommunityName()"/></li>
  		</a>
 	</s:iterator>
- </table>
+</table>
 </div>
-
 </body>
 </html>

@@ -46,7 +46,7 @@ public class CommunityHibDao {
 		}
 	}
 	
-	public void delete(Integer id){
+	public static void delete(Integer id){
 		//HibernateUtil.createSeesionFactory();
 		Session session = HibernateUtil.getSession();
 		Transaction tx = null;

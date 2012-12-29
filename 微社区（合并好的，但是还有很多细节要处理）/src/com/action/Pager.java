@@ -3,6 +3,8 @@ package com.action;
 import java.util.Collection;
 
 import org.apache.struts2.ServletActionContext;
+import org.hns.bean.Community;
+import org.hns.user.dao.CommunityHibDao;
 
 import com.bean.PagerBean;
 import com.opensymphony.xwork2.ActionSupport;
@@ -26,6 +28,20 @@ public class Pager extends ActionSupport{
 	}
 	
 	public String communityPager(){
+		if(ServletActionContext.getRequest().getParameter("oper")!=null){
+			int oper = Integer.parseInt(ServletActionContext.getRequest().getParameter("oper"));
+			Community community = new Community();
+			for(int i = 0; i<Hello.communitylist.size(); ++i){
+				if(Hello.communitylist.get(i).getCommunityId()==oper){
+					community = Hello.communitylist.get(i);
+					break;
+				}
+			}
+			CommunityHibDao.delete(oper);
+			Hello.communitylist.remove(community);
+			Login.userCommunity.remove(community);
+		}
+		
 		int type = Integer.parseInt(ServletActionContext.getRequest().getParameter("ty"));
 		
 		System.out.println("come int page");

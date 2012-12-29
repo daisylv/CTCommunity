@@ -171,7 +171,7 @@ document.onclick = jsddm_close;
  				<span><s:property value="#co.getCommunityName()"/></span>
  			</a></div>
  <p>社区1介绍</p></div></td>
- <td width="39"><a href="#">删除</a></td>
+ <td width="39"><a href="<s:url action="CommunityPager" namespace="/com/action"/>?username=<s:property value="#session.username"/>&cuPage=1&page=0&cuPage2=1&page2=0&ty=<s:property value="1"/>&oper=<s:property value="communityId"/>">删除</a></td>
 </tr>
 	</s:iterator>
 </table>
