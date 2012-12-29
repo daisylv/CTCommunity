@@ -3,7 +3,7 @@
 -- Server version:               5.5.28 - MySQL Community Server (GPL)
 -- Server OS:                    Win64
 -- HeidiSQL version:             7.0.0.4053
--- Date/time:                    2012-12-29 20:00:10
+-- Date/time:                    2012-12-29 23:27:01
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `community` (
   CONSTRAINT `FK_community_userinfo` FOREIGN KEY (`ownerId`) REFERENCES `userinfo` (`userId`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=8907915 DEFAULT CHARSET=utf8;
 
--- Dumping data for table weicom.community: ~35 rows (approximately)
+-- Dumping data for table weicom.community: ~34 rows (approximately)
 DELETE FROM `community`;
 /*!40000 ALTER TABLE `community` DISABLE KEYS */;
 INSERT INTO `community` (`communityId`, `picpath`, `communityName`, `communityIntroduce`, `communityType`, `ownerId`, `pic`) VALUES
@@ -44,7 +44,6 @@ INSERT INTO `community` (`communityId`, `picpath`, `communityName`, `communityIn
 	(8907891, NULL, '粤语', '大家一起学粤语', '语言', 890897, NULL),
 	(8907892, NULL, '请问额', '地热污染', '非主流', 890898, NULL),
 	(8907893, NULL, 'D', '', '非主流', 123456, NULL),
-	(8907894, NULL, 'w', '', '', 123456, NULL),
 	(8907895, NULL, 'x', '', '', 123456, NULL),
 	(8907896, NULL, 'b', '', '', 123456, NULL),
 	(8907897, NULL, 's', '', '', 123456, NULL),
@@ -61,7 +60,6 @@ INSERT INTO `community` (`communityId`, `picpath`, `communityName`, `communityIn
 	(8907908, NULL, '过年', '放假了', '情感', 123456, NULL),
 	(8907909, NULL, '少年派', '电影谈论区', '电影', 123456, NULL),
 	(8907910, NULL, '少年派', '电影谈论区', '电影', 123456, NULL),
-	(8907911, NULL, '第三方的', '发vdasf ', '其他', 123456, NULL),
 	(8907912, NULL, '大水法', '发送', '-1', 123456, NULL),
 	(8907913, NULL, '小提琴', '初级开始练习', '音乐', 890898, NULL),
 	(8907914, NULL, '八卦', '各种八卦汇集', '其他', 890898, NULL);
@@ -82,8 +80,8 @@ CREATE TABLE IF NOT EXISTS `communityitem` (
   UNIQUE KEY `topicId_UNIQUE` (`topicId`),
   KEY `fk_userId_idx` (`userId`),
   KEY `fk_communityId_idx` (`communityId`),
-  CONSTRAINT `fk_communityId` FOREIGN KEY (`communityId`) REFERENCES `community` (`communityId`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_userId` FOREIGN KEY (`userId`) REFERENCES `userinfo` (`userId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_communityId` FOREIGN KEY (`communityId`) REFERENCES `community` (`communityId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_userId` FOREIGN KEY (`userId`) REFERENCES `userinfo` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table weicom.communityitem: ~12 rows (approximately)
@@ -99,7 +97,6 @@ INSERT INTO `communityitem` (`topicId`, `userId`, `communityId`, `tpContent`, `t
 	(21, 123456, 8907893, 'content', NULL, 'name', '2012-12-29 00:36:03'),
 	(22, 123456, 8907881, 'content', NULL, 'name', '2012-12-29 15:49:15'),
 	(23, 123456, 8907910, 'content', NULL, 'name', '2012-12-29 16:20:29'),
-	(24, 123456, 8907911, 'content', NULL, 'name', '2012-12-29 16:25:35'),
 	(25, 123456, 8907912, 'content', NULL, 'name', '2012-12-29 16:30:18'),
 	(26, 890898, 8907914, '我把数据库搞错了，怪不得没插入数据', NULL, '今天的囧事', '2012-12-29 19:44:44');
 /*!40000 ALTER TABLE `communityitem` ENABLE KEYS */;
@@ -112,11 +109,11 @@ CREATE TABLE IF NOT EXISTS `communitymember` (
   `communityId` int(11) NOT NULL,
   KEY `FK_communitymember_userinfo` (`userId`),
   KEY `FK_communitymember_community` (`communityId`),
-  CONSTRAINT `FK_communitymember_community` FOREIGN KEY (`communityId`) REFERENCES `community` (`communityId`),
-  CONSTRAINT `FK_communitymember_userinfo` FOREIGN KEY (`userId`) REFERENCES `userinfo` (`userId`)
+  CONSTRAINT `FK_communitymember_community` FOREIGN KEY (`communityId`) REFERENCES `community` (`communityId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FK_communitymember_userinfo` FOREIGN KEY (`userId`) REFERENCES `userinfo` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table weicom.communitymember: ~16 rows (approximately)
+-- Dumping data for table weicom.communitymember: ~18 rows (approximately)
 DELETE FROM `communitymember`;
 /*!40000 ALTER TABLE `communitymember` DISABLE KEYS */;
 INSERT INTO `communitymember` (`userId`, `communityId`) VALUES
@@ -132,10 +129,11 @@ INSERT INTO `communitymember` (`userId`, `communityId`) VALUES
 	(890898, 8907892),
 	(123456, 8907909),
 	(123456, 8907910),
-	(123456, 8907911),
 	(123456, 8907912),
 	(890898, 8907913),
-	(890898, 8907914);
+	(890898, 8907914),
+	(890897, 8907886),
+	(123456, 8907886);
 /*!40000 ALTER TABLE `communitymember` ENABLE KEYS */;
 
 
@@ -155,9 +153,9 @@ CREATE TABLE IF NOT EXISTS `itemreply` (
   KEY `fk_userId3_idx` (`userId`),
   KEY `fk_communityId_idx` (`communityId`),
   KEY `fk_itemId_idx` (`topicId`),
-  CONSTRAINT `fk_communityId2` FOREIGN KEY (`communityId`) REFERENCES `community` (`communityId`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_itemId` FOREIGN KEY (`topicId`) REFERENCES `communityitem` (`topicId`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_userId3` FOREIGN KEY (`userId`) REFERENCES `userinfo` (`userId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_communityId2` FOREIGN KEY (`communityId`) REFERENCES `community` (`communityId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_itemId` FOREIGN KEY (`topicId`) REFERENCES `communityitem` (`topicId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_userId3` FOREIGN KEY (`userId`) REFERENCES `userinfo` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table weicom.itemreply: ~11 rows (approximately)
@@ -169,8 +167,6 @@ INSERT INTO `itemreply` (`replyId`, `rpContent`, `userId`, `topicId`, `rpPic`, `
 	(3, 'dd', 890904, 21, NULL, '梦落檀香', 8907893, NULL, '2012-12-29 01:05:25'),
 	(4, '肉骨头让他', 123456, 22, NULL, 'DDD', 8907881, NULL, '2012-12-29 15:49:35'),
 	(5, '喂！', 890898, 22, NULL, 'Daisy', 8907881, 4, '2012-12-29 15:50:25'),
-	(6, '地方撒地方', 123456, 24, NULL, 'DDD', 8907911, NULL, '2012-12-29 16:25:44'),
-	(7, '地方撒', 123456, 24, NULL, 'DDD', 8907911, NULL, '2012-12-29 16:25:51'),
 	(8, '额。。。', 123456, 26, NULL, 'DDD', 8907914, NULL, '2012-12-29 19:45:57'),
 	(9, '好吧。。。', 123456, 26, NULL, 'DDD', 8907914, NULL, '2012-12-29 19:46:10'),
 	(10, '…………………………', 123456, 26, NULL, 'DDD', 8907914, NULL, '2012-12-29 19:46:27'),
@@ -193,7 +189,7 @@ CREATE TABLE IF NOT EXISTS `msglist` (
   CONSTRAINT `FK_msglist_community` FOREIGN KEY (`communityId`) REFERENCES `community` (`communityId`),
   CONSTRAINT `FK_msglist_userinfo` FOREIGN KEY (`senderId`) REFERENCES `userinfo` (`userId`),
   CONSTRAINT `FK_msglist_userinfo_2` FOREIGN KEY (`receiverId`) REFERENCES `userinfo` (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table weicom.msglist: ~1 rows (approximately)
 DELETE FROM `msglist`;
@@ -264,7 +260,6 @@ INSERT INTO `topicinfo` (`topicId`, `updateTime`, `replyNum`, `replier`, `author
 	(21, '2012-12-29 01:05:25', 3, '梦落檀香', 'DDD', 0),
 	(22, '2012-12-29 15:50:25', 2, 'Daisy', 'DDD', 0),
 	(23, '2012-12-29 16:20:29', 0, NULL, 'DDD', 0),
-	(24, '2012-12-29 16:26:00', 2, 'DDD', 'DDD', 0),
 	(25, '2012-12-29 16:30:18', 0, NULL, 'DDD', 0),
 	(26, '2012-12-29 19:47:29', 4, 'OOO', 'Daisy', 0);
 /*!40000 ALTER TABLE `topicinfo` ENABLE KEYS */;
@@ -311,7 +306,7 @@ CREATE TABLE IF NOT EXISTS `userpace` (
   CONSTRAINT `ID` FOREIGN KEY (`userId`) REFERENCES `userinfo` (`userId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table weicom.userpace: ~10 rows (approximately)
+-- Dumping data for table weicom.userpace: ~11 rows (approximately)
 DELETE FROM `userpace`;
 /*!40000 ALTER TABLE `userpace` DISABLE KEYS */;
 INSERT INTO `userpace` (`userId`, `userpace`, `time`, `paceId`) VALUES
@@ -324,7 +319,8 @@ INSERT INTO `userpace` (`userId`, `userpace`, `time`, `paceId`) VALUES
 	(123456, 'DDD刚刚在CTCommunity新建了社区：大水法，快来围观哦！', '2012-12-29 16:30:09', 7),
 	(890898, 'Daisy刚刚在CTCommunity新建了社区：小提琴，快来围观哦！', '2012-12-29 19:13:12', 8),
 	(890898, 'Daisy刚刚在CTCommunity新建了社区：八卦，快来围观哦！', '2012-12-29 19:39:35', 9),
-	(123456, 'DDD刚刚申请了加入社区：八卦，快来围观哦！', '2012-12-29 19:51:17', 10);
+	(123456, 'DDD刚刚申请了加入社区：八卦，快来围观哦！', '2012-12-29 19:51:17', 10),
+	(123456, 'DDD刚刚申请了加入社区：海贼王，快来围观哦！', '2012-12-29 20:14:09', 11);
 /*!40000 ALTER TABLE `userpace` ENABLE KEYS */;
 
 
