@@ -94,15 +94,15 @@ document.onclick = jsddm_close;
 		<td rowspan="2">
 			<img src="<%=request.getContextPath()%>/jsp/images/search2_02.png" width="13" height="27" alt=""></td>
 		<td class="search_input" >
-        <form id="form1" name="form1" method="post" action="">
-		  <label for="search"></label>
-		  <input name="search_input" type="text" id="search_input" size="14" />
-	    </form>
+        <s:form action="SearchOwn" namespace="/com/action">
+				<s:textfield name="searchcontent"></s:textfield>
+				<s:submit value="搜索社区"></s:submit>
+		</s:form>
         </td>
 		<td>
 			<a href="#"><img src="<%=request.getContextPath()%>/jsp/images/search2_04.png" width="29" height="25" alt=""></a></td>
 		<td>
-			</td>
+		</td>
 	</tr>
 	<tr>
 		<td rowspan="2">

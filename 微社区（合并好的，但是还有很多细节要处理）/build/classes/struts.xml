@@ -58,6 +58,12 @@
         </action>
         <action name="Search" class="com.action.Search">
         	<result name="success">/jsp/searchresult.jsp</result>
+        	<result name="failed">/jsp/search/searchfailed.jsp</result>
+        	<result name="userfailed">/jsp/search/usersearchfailed.jsp</result>
+        </action>
+        <action name="SearchOwn" class="com.action.Search" method="searchOwn">
+        	<result name="success">/jsp/searchresult.jsp</result>
+        	<result name="failed">/jsp/search/usersearchfailed.jsp</result>
         </action>
         <action name="MemberManage" class="com.action.MemberManage" method="getMsgli">
         	<result name="success">/jsp/MemberManage.jsp</result>

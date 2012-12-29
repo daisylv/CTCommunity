@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hns.bean.Community;
+import org.hns.bean.User;
 import org.hns.plugin.HibernateUtil;
 
 public class CommunityHibDao {
@@ -44,6 +45,25 @@ public class CommunityHibDao {
 			session.close();
 		}
 	}
+	
+	public void delete(Integer id){
+		//HibernateUtil.createSeesionFactory();
+		Session session = HibernateUtil.getSession();
+		Transaction tx = null;
+		
+		try{
+			tx = session.beginTransaction();
+			Community community = (Community)session.get(Community.class, id);
+			session.delete(community);
+			tx.commit();
+		}catch(RuntimeException e){
+			if(tx != null)tx.rollback();
+			throw e;
+		}finally{
+			session.close();
+		}
+	}
+	
 	public static List<Community> search(String searchcontent){
 		Session session = HibernateUtil.getSession();
 		//Transaction tx = null;
