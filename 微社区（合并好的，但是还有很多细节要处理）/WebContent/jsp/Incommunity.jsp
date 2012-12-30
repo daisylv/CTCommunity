@@ -183,6 +183,10 @@ function MM_swapImage() { //v3.0
 		<td><s:property value="#topic.topicinfo.author" /></td>
 		<td><s:property value="#topic.topicinfo.replyNum" /></td>
 		<td><s:date name="#topic.topicinfo.updateTime" format="yyyy-MM-dd HH:mm:ss"/></td>
+		<s:if test='#session.username == topicinfo.author'>
+			<td><a href="<%=request.getContextPath()%>/communityAction/DeleteTopic.action?topicId=<s:property value="#topic.topicinfo.topicId"/>&communityId=<s:property value="#topic.communityId"/>">删除</a>
+			</td>
+		</s:if>
 	</tr>
 </s:iterator>
 </table>

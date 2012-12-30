@@ -108,6 +108,12 @@
                <param name="namespace">/com/action</param>
            </result>
         </action>
+        <action name="DeleteTopic" class="communityAction.TopicAction" method="deleteTopic">
+            <result name="success" type="redirectAction">
+               <param name="actionName">InCommunity?communityId=${communityId}</param>
+               <param name="namespace">/com/action</param>
+           </result>
+        </action>
         <action name="Reply" class="communityAction.ReplyAction">
             <result name="success" type="dispatcher">/jsp/topicHome.jsp</result>
             <result name="failure" type="dispatcher">/jsp/addReply.jsp</result>
