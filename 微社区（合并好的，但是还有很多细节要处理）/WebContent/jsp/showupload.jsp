@@ -38,8 +38,7 @@ $(document).ready(function(){
                 minZoom:100,
                 maxZoom:300,
 	            startZoom:60,
-//                 useStartZoomAsMinZoom:true,
-                snapToContainer:true //ͼƬ �߽粻���Ƴ������߽�
+                snapToContainer:true
             }
         });
         
@@ -110,10 +109,8 @@ xmlhttp.send();
 
    <div class="btn"> 
       <input type="button" class="btn" id="crop" value="剪裁" /> 
-      <s:form action="SavePic"  namespace="/com/action" method="post" enctype="multipart/form-data">
-        	<s:hidden name="picpath"  id="pic"></s:hidden>
-        	<s:submit value="确定"></s:submit> 
-        </s:form>
+     <a href="<s:url action="CommunityPager" namespace="/com/action"/>?username=<s:property value="#session.username"/>&cuPage=1&page=0&cuPage2=1&page2=0&ty=<s:property value="1"/>">返回我的天地</a>
+     
    </div> 
 </body>
 </html>

@@ -8,18 +8,15 @@
 <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
 <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
 <title>topicHome</title>
-<link href="<%=request.getContextPath()%>/jsp/css/home.css"
-	rel="stylesheet" type="text/css">
-<link href="<%=request.getContextPath()%>/jsp/css/top.css"
-	rel="stylesheet" type="text/css">
-<link href="<%=request.getContextPath()%>/jsp/css/community.css"
-	rel="stylesheet" type="text/css">
-<link href="<%=request.getContextPath()%>/jsp/css/menu.css"
-	rel="stylesheet" media="screen" type="text/css">
-<link href="<%=request.getContextPath()%>/jsp/css/item.css"
-	rel="stylesheet" type="text/css" />
-<script type="text/javascript"
-	src="<%=request.getContextPath()%>/jsp/js/jquery.min.js"></script>
+<link href="<%=request.getContextPath()%>/jsp/css/home.css" rel="stylesheet" type="text/css">
+<link href="<%=request.getContextPath()%>/jsp/css/top.css" rel="stylesheet" type="text/css">
+<link href="<%=request.getContextPath()%>/jsp/css/community.css" rel="stylesheet" type="text/css">
+<link href="<%=request.getContextPath()%>/jsp/css/menu.css" rel="stylesheet" media="screen" type="text/css">
+<link href="<%=request.getContextPath()%>/jsp/css/item.css" rel="stylesheet" type="text/css" />
+<link href="<%=request.getContextPath()%>/jsp/js/css/easydialog.css" rel="stylesheet"/>
+<script type="text/javascript" src="<%=request.getContextPath()%>/jsp/js/jquery.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/jsp/js/easydialog.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/jsp/js/guest.js"></script>
 <script type="text/javascript">
 	var timeout = 500;
 	var closetimer = 0;
@@ -72,7 +69,7 @@
 
 		<div class="userId">
 			<ul id="jsddm">
-				<li><a href="footprint.html">用户名</a>
+				<li><a href="footprint.html"><s:property value="#session.username"/></a>
 					<ul>
 						<li><a href="#">登出</a></li>
 						<li><a href="#">我的资料</a></li>
@@ -187,10 +184,10 @@
 			</div>
 
 			<div id="two_flour">
-				<table width="920" border="0" height="121">
+				<table width="920" border="0">
 					<s:iterator value="replies" id="reply" begin="beginItem" end="endItem">
 						<tr>
-							<td width="105" height="121" class="bottomsolid">
+							<td width="105" class="bottomsolid">
 								<div id="author_info">
 									<img src="<%=request.getContextPath()%>/jsp/res/headpic.jpg" />
 									<br>
@@ -204,11 +201,15 @@
 								<table width="800" class="flour_right1">
 									<tr>
 										<td width="587" rowspan="2"><div class="main_text">
-												<span><%=floor%>L</span>
+												<span><%=floor++%>L</span>
 												<s:date name="#reply.createTime"
 													format="yyyy-MM-dd HH:mm:ss" />
 												<p>
-													<s:property value="#reply.rpContent" />
+													<s:property value="#reply.rpContent"/>
+													<br>
+													<s:if test="#reply.rpPic != null">
+														<img src='<s:property value="#reply.rpPic"/>'/>
+													</s:if>
 												</p>
 											</div></td>
 										<td width="124">
@@ -251,7 +252,7 @@
 			</div>
 		</s:form>
 
-		<s:form action="AddReply" namespace="communityAction">
+		<s:form action="AddReply" namespace="communityAction" style="position: absolute; top: 1600px; left: 200px;" enctype="multipart/form-data">
 		<%
 			String replyId = request.getParameter("replyId");
 				if (replyId == null)
@@ -261,18 +262,16 @@
 		<input type="hidden" name="topicId"
 			value="<s:property value="topic.topicId" />" />
 		<input type="hidden" name="replyId" value="<%=replyId%>" />
-		<div id="myreply"
-			style="position: absolute; top: 1400px; left: 200px;">
+		
 			<h2>我的回复</h2>
-			<div id="reply_text">
 				<textarea name="rpContent" cols="80" rows="8" class="rpContent"></textarea>
-				<s:submit name="execute" value="回复" id="sub_reply"
-					onclick="notice()" />
+				<s:file name="upload" label="选择图片"></s:file>
+				<input type="submit" name="execute" value="回复"
+					onclick="return checkGuest(<s:property value="#session.username"/>)" />
 				<a name="btm_reply" id="btm_reply"></a>
-			</div>
 			<span class="error"></span>
-		</div>
 	</s:form>
+	<div id="crop_container2"></div>
 	</div>
 
 </body>

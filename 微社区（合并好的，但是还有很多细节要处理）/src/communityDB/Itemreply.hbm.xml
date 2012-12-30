@@ -21,7 +21,7 @@
 			<column name="rpContent" length="65535" not-null="true" />
 		</property>
 		<property name="rpPic" type="string">
-			<column name="rpPic" length="45" />
+			<column name="rpPic"/>
 		</property>
 		<property name="username" type="string">
 			<column name="username" length="45" not-null="true" />

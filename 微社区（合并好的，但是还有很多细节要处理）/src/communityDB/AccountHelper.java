@@ -84,7 +84,7 @@ public enum AccountHelper {
 			account.setUserId(1);
 			account.setWeiboName(weiboUser.getName());
 			account.setPicpath(weiboUser.getAvatarLarge());
-			accountTrans.persist(account);
+			account.setUserId(accountTrans.save(account));
 		} else {
 			account = li.get(0);// unique value
 			user.setUserId(account.getUserId());
@@ -186,7 +186,7 @@ public enum AccountHelper {
 		return item;
 	}
 
-	public Itemreply saveReply(String _rpContent, int _topicId, int _targetId) {
+	public Itemreply saveReply(String _rpContent, int _topicId, int _targetId, String picUrl) {
 		// this.getReplySession();
 		this.getUser();
 		Notice tp_notice = new Notice();
@@ -199,6 +199,9 @@ public enum AccountHelper {
 		reply.setRpContent(_rpContent);
 		reply.setUserId(user.getUserId());
 		reply.setUsername(user.getUsername());
+		if(picUrl != null){
+			reply.setRpPic(picUrl);
+		}
 
 		if (user.getUserId() != topic.getUserId()) {
 			tp_notice.setTopicUrl(url + _topicId);
@@ -214,7 +217,7 @@ public enum AccountHelper {
 			reply.setTargetId(_targetId);
 
 			Itemreply target = this.selectByReplyId(_targetId);
-			if (user.getUserId() != target.getUserId()) {
+			if (user.getUserId() != target.getUserId() &&  target.getUserId() != topic.getUserId()) {
 				Notice rp_notice = new Notice();
 				rp_notice.setTopicUrl(url + _topicId);
 				rp_notice.setTpTitle(topic.getTpTitle());

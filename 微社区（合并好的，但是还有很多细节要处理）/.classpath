@@ -26,14 +26,14 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts2-core-2.3.4.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xwork-core-2.3.4.1.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="D:/下载/apache-tomcat-7.0.11-windows-x86/apache-tomcat-7.0.11/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="D:/下载/apache-tomcat-7.0.11-windows-x86/apache-tomcat-7.0.11/webapps/examples/WEB-INF/lib/standard.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-beanutils-1.8.0.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-collections-3.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-fileupload-1.2.2.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-io-2.0.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/slf4j-nop-1.6.1.jar"/>
-	<classpathentry kind="lib" path="D:/下载/apache-tomcat-7.0.11-windows-x86/apache-tomcat-7.0.11/lib/jsp-api.jar"/>
-	<classpathentry kind="lib" path="D:/下载/apache-tomcat-7.0.11-windows-x86/apache-tomcat-7.0.11/webapps/examples/WEB-INF/lib/jstl.jar"/>
+	<classpathentry kind="lib" path="D:/apache-tomcat-7.0.32/lib/jsp-api.jar"/>
+	<classpathentry kind="lib" path="D:/apache-tomcat-7.0.32/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="D:/apache-tomcat-7.0.32/webapps/examples/WEB-INF/lib/standard.jar"/>
+	<classpathentry kind="lib" path="D:/apache-tomcat-7.0.32/webapps/examples/WEB-INF/lib/jstl.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -81,24 +81,10 @@
     		<result name="pager">/jsp/userspace.jsp</result>
     	</action>
     	
-    	<action name="SavePic" class="com.action.SavePic">
-    		<result name="success">/jsp/haslogin.jsp</result>
-    	</action>
-    	
-    	<!-- <action name="IPager" class="com.action.IPager">
-    		<result name="success" type="redirectAction">
-    			InCommunity?communityId=${communityId}&amp;beginItem=${pagerbean.beginItem}
-    			&amp;cuP=${pagerbean.cuP}&amp;endItem=${pagerbean.endItem}
-    			&amp;maxItem=${pagerbean.maxItem}&amp;pg=${pagerbean.pg}
-    		</result>
-    	</action> -->
-    	
-    	<action name ="fileUpload" class ="com.action.FileUploadAction"> 
-        
-		<!-- 动态设置Action中的savePath属性的值 --> 
-		<param name="savePath">/upload</param> 
-		<result name="success">/jsp/showupload.jsp</result> 
-		</action > 
+    	<action name ="fileUpload" class ="com.action.FileUploadAction">
+			<param name="savePath">/upload</param> 
+			<result name="success">/jsp/showupload.jsp</result> 
+		</action >
     </package>
     
     <package name="weiboAction" namespace="/weiboAction" extends="struts-default">
@@ -127,6 +113,7 @@
             <result name="failure" type="dispatcher">/jsp/addReply.jsp</result>
         </action>
         <action name="AddReply" class="communityAction.ReplyAction" method="addReply">
+           <param name="savePath">/upload</param> 
            <result name="success" type="redirectAction">
                <param name="actionName">Reply?topicId=${topic.topicId}</param>
                <param name="namespace">/communityAction</param>

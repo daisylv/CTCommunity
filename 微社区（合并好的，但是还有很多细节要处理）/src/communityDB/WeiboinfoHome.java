@@ -50,7 +50,21 @@ public class WeiboinfoHome {
 			throw re;
 		}
 	}
-
+	
+	public Integer save(Weiboinfo transientInstance) {
+		log.debug("saving Weiboinfo instance");
+		try {
+			Transaction transaction = this.sessionFactory.getCurrentSession().beginTransaction();
+			Integer generatedId = (Integer) sessionFactory.getCurrentSession().save(transientInstance);
+			log.debug("save successful");
+			transaction.commit();
+			return generatedId;
+		} catch (RuntimeException re) {
+			log.error("save failed", re);
+			throw re;
+		}
+	}
+	
 	public void attachDirty(Weiboinfo instance) {
 		log.debug("attaching dirty Weiboinfo instance");
 		try {

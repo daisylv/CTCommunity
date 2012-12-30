@@ -7,11 +7,14 @@ f<%@page import="communityAction.TopicAction"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>community</title>
-<link href="<%=request.getContextPath()%>/jsp/css/home.css" rel="stylesheet" type="text/css"> 
+<link href="<%=request.getContextPath()%>/jsp/css/home.css" rel="stylesheet" type="text/css"/> 
 <link href="<%=request.getContextPath()%>/jsp/css/top.css" rel="stylesheet"  type="text/css"/>
 <link href="<%=request.getContextPath()%>/jsp/css/menu.css" rel="stylesheet" media="screen" type="text/css"/>
-<link href="<%=request.getContextPath()%>/jsp/css/community.css" rel="stylesheet" type="text/css">
+<link href="<%=request.getContextPath()%>/jsp/css/community.css" rel="stylesheet" type="text/css"/>
+<link href="<%=request.getContextPath()%>/jsp/js/css/easydialog.css" rel="stylesheet"/>
 <script type="text/javascript" src="<%=request.getContextPath()%>/jsp/js/jquery.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/jsp/js/easydialog.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/jsp/js/guest.js"></script>
 <script type="text/javascript">
 var timeout         = 500;
 var closetimer		= 0;
@@ -123,15 +126,15 @@ function MM_swapImage() { //v3.0
 		<td rowspan="2">
 			<img src="<%=request.getContextPath()%>/jsp/images/search2_05.png" width="138" height="7" alt=""></td>
 		<td rowspan="2">
-			<img src="<%=request.getContextPath()%>/jsp/images/search2_06.png" width="29" height="7" alt=""></td>
+			<img src="<%=request.getContextPath()%>/jsp/images/search2_06.png" width="29" height="7" alt=""/></td>
 		<td>
-			<img src="" width="1" height="2" alt=""></td>
+			<img src="" width="1" height="2" alt=""/></td>
 	</tr>
 	<tr>
 		<td>
-			<img src="<%=request.getContextPath()%>/jsp/images/search2_07.png" width="13" height="5" alt=""></td>
+			<img src="<%=request.getContextPath()%>/jsp/images/search2_07.png" width="13" height="5" alt=""/></td>
 		<td>
-			<img src="" width="1" height="5" alt=""></td>
+			<img src="" width="1" height="5" alt=""/></td>
 	</tr>
 </table>
 </div>
@@ -155,7 +158,7 @@ function MM_swapImage() { //v3.0
 <p>社区1介绍</p>
 </div>
 <% String communityId = request.getParameter("communityId"); %>
-<div id="addnew"><a href="<%=request.getContextPath()%>/jsp/createTopic.jsp?communityId=<%=communityId %>" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('create_item','','<%=request.getContextPath()%>/jsp/res/create_item1.png',1)"><img src="<%=request.getContextPath()%>/jsp/res/create_item.png" name="create_item" width="120" height="40" border="0" id="create_item" /></a> </div>
+<div id="addnew"><a href="<%=request.getContextPath()%>/jsp/createTopic.jsp?communityId=<%=communityId %>" onclick="return checkGuest(<s:property value="#session.username"/>);" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('create_item','','<%=request.getContextPath()%>/jsp/res/create_item1.png',1)"><img src="<%=request.getContextPath()%>/jsp/res/create_item.png" name="create_item" width="120" height="40" border="0" id="create_item" /></a> </div>
 </div>
 
 <div id="community_context">
@@ -219,7 +222,7 @@ function MM_swapImage() { //v3.0
 </div>
 
 
-<div id="community_right"><!右边部分>
+<div id="community_right"><!--右边部分-->
 <div id="master">
 <h2>创建者</h2>
 <div id="master_information">
