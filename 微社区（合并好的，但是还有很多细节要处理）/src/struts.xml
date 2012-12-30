@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="false" />
+
+
+    <package name="default" namespace="/" extends="struts-default">
+    
+		<interceptors>
+			<interceptor name="Encoding" class="org.hns.plugin.EncodingInterceptor"></interceptor>
+			<interceptor-stack name="Encode">
+				<interceptor-ref name="Encoding"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="Encode"></default-interceptor-ref>
+		
+		
+		<default-action-ref name="index" />
+		
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+        
+		
+		<action name="index" class="com.action.Hello">
+           <result>/jsp/notlogin.jsp</result>
+        </action>
+        
+    </package>
+    
+    <package name="User" namespace="/com/action" extends="default">
+    	<action name="AddUser" class="com.action.Adduser" method="add">
+    		<result name="input">/jsp/register.jsp</result>
+    		<result name="success">/jsp/haslogin.jsp</result>
+    	</action>
+    	 
+    	<action name="Login" class="com.action.Login" method="login">
+    		
+    		<result name="failpassword">/jsp/failpsw.jsp</result>
+    		<result name="error">/jsp/error.jsp</result>
+    		<result name="success">/jsp/haslogin.jsp</result>
+    	</action>
+    	
+    </package>
+    <package name="Community" namespace="/com/action" extends="default">
+        <action name="Addcommunity" class="com.action.Addcommunity" method="add">
+            <result name="success">/jsp/community.jsp</result>
+        </action>
+        <action name="InCommunity" class="com.action.InCommunity">
+        	<result name="success">/jsp/Incommunity.jsp</result>
+        </action>
+        <action name="Search" class="com.action.Search">
+        	<result name="success">/jsp/searchresult.jsp</result>
+        	<result name="failed">/jsp/search/searchfailed.jsp</result>
+        	<result name="userfailed">/jsp/search/usersearchfailed.jsp</result>
+        </action>
+        <action name="SearchOwn" class="com.action.Search" method="searchOwn">
+        	<result name="success">/jsp/searchresult.jsp</result>
+        	<result name="failed">/jsp/search/usersearchfailed.jsp</result>
+        </action>
+        <action name="MemberManage" class="com.action.MemberManage" method="getMsgli">
+        	<result name="success">/jsp/MemberManage.jsp</result>
+        </action>
+        <action name="MemberAccept" class="com.action.MemberManage" method="add">
+        	<result name="success">/jsp/MemberManage.jsp</result>
+        </action>
+        <action name="SendRequest" class="com.action.SendRequest">
+        	<result name="success" type="redirectAction">
+					InCommunity?communityId=${communityId}
+			</result>
+        </action>
+            	
+    	<action name="CommunityPager" class="com.action.Pager" method="communityPager">
+    		<result name="pager">/jsp/userspace.jsp</result>
+    	</action>
+    	
+    	<action name="SavePic" class="com.action.SavePic">
+    		<result name="success">/jsp/haslogin.jsp</result>
+    	</action>
+    	
+    	<!-- <action name="IPager" class="com.action.IPager">
+    		<result name="success" type="redirectAction">
+    			InCommunity?communityId=${communityId}&amp;beginItem=${pagerbean.beginItem}
+    			&amp;cuP=${pagerbean.cuP}&amp;endItem=${pagerbean.endItem}
+    			&amp;maxItem=${pagerbean.maxItem}&amp;pg=${pagerbean.pg}
+    		</result>
+    	</action> -->
+    	
+    	<action name ="fileUpload" class ="com.action.FileUploadAction"> 
+        
+		<!-- 动态设置Action中的savePath属性的值 --> 
+		<param name="savePath">/upload</param> 
+		<result name="success">/jsp/showupload.jsp</result> 
+		</action > 
+    </package>
+    
+    <package name="weiboAction" namespace="/weiboAction" extends="struts-default">
+            <action name="Home" class="weiboAction.Home">
+                <result>/jsp/weiboAcct/Home.jsp</result>
+            </action>
+            <action name="Bind" class="weiboAction.BindWeibo">
+               <result name="success">/jsp/haslogin.jsp</result>
+            </action>
+            
+    </package>
+    
+    <package name="communityAction"  namespace="/communityAction" extends="struts-default">
+        <!-- action name="Topic" class="communityAction.TopicAction">
+            <result name="success" type="dispatcher">/jsp/Incommunity.jsp</result>
+            <result name="failure" type="dispatcher">/jsp/createTopic.jsp</result>
+        </action-->
+        <action name="AddTopic" class="communityAction.TopicAction" method="addTopic">
+            <result name="success" type="redirectAction">
+               <param name="actionName">InCommunity?communityId=${communityId}</param>
+               <param name="namespace">/com/action</param>
+           </result>
+        </action>
+        <action name="Reply" class="communityAction.ReplyAction">
+            <result name="success" type="dispatcher">/jsp/topicHome.jsp</result>
+            <result name="failure" type="dispatcher">/jsp/addReply.jsp</result>
+        </action>
+        <action name="AddReply" class="communityAction.ReplyAction" method="addReply">
+           <result name="success" type="redirectAction">
+               <param name="actionName">Reply?topicId=${topic.topicId}</param>
+               <param name="namespace">/communityAction</param>
+           </result>
+           <result name="failure" type="dispatcher">/jsp/addReply.jsp</result>
+        </action>
+        <action name="DeleteReply" class="communityAction.ReplyAction" method="deleteReply">
+           <result name="success" type="redirectAction">
+               <param name="actionName">Reply?topicId=${topic.topicId}</param>
+               <param name="namespace">/communityAction</param>
+           </result>
+           <result name="failure" type="dispatcher">/jsp/addReply.jsp</result>
+        </action>
+        <action name="CheckNotice" class="communityAction.NoticeAction" method="checkNotice">
+        </action>
+    </package>
+
+</struts>
