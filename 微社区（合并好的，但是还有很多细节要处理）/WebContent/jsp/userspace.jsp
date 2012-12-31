@@ -41,8 +41,6 @@ $(document).ready(function()
 	$('#jsddm > li').bind('mouseout',  jsddm_timer);});
 
 document.onclick = jsddm_close;
-  </script> 
-  <script type="text/javascript">
 		function show_section(id)
 		{
 			//alert(id);
@@ -57,6 +55,26 @@ document.onclick = jsddm_close;
 			{
 				sections[i].style.display = "none";
 			}
+		}
+
+		function forwardFootSteps() {
+			var _content = document.getElementsByName("content");
+			var data = 'content=' + _content;
+			$
+					.ajax({
+						type : "POST",
+						url : "http://localhost:8080/CTCommunity/communityAction/ForwardFootsteps.action",
+						data : data,
+						success : function() {
+							easyDialog.open({
+								container : {
+									header : '微博提示',
+									content : '已转发至微博'
+								}
+							});
+						}
+					});
+			return false;
 		}
 	</script>
 </head>
@@ -205,9 +223,9 @@ document.onclick = jsddm_close;
 <s:iterator id="up" value="@com.action.Login@userpace" begin="pagerbean2.beginItem" end="pagerbean2.endItem">
 <tr>
 <td>
-<span><s:property value="#up.getUserpace()"/><br><s:property value="#up.getTimestamp()"/></span>
- 		<br>	<a href="#">
- 				转发微薄？
+<span id="content"><s:property value="#up.getUserpace()"/><br><s:property value="#up.getTimestamp()"/></span>
+ 		<br>	<a href="#" onclick="forwardFootSteps()">
+ 				转发微博？
  			</a></td>
 </tr>
 </s:iterator>
