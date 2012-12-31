@@ -188,7 +188,7 @@ function MM_swapImage() { //v3.0
   <s:iterator value="topics" id="topic" begin="beginItem" end="endItem">
 	<tr>
 		<td><a
-			href="http://localhost:8080/CTCommunity/communityAction/Reply.action?topicId=<s:property value="#topic.topicId"/>" />
+			href="http://localhost:8080/CTCommunity/communityAction/Reply.action?topicId=<s:property value="#topic.topicId"/>&owner=<s:property value="#topic.topicinfo.author"/>" />
 			<s:property value="#topic.tpTitle" /></td>
 		<td><s:property value="#topic.topicinfo.author" /></td>
 		<td><s:property value="#topic.topicinfo.replyNum" /></td>

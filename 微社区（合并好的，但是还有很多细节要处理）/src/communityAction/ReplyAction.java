@@ -8,9 +8,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.ServletActionContext;
+import org.hns.bean.User;
+import org.hns.user.dao.UserHibDao;
 
 import com.bean.FileInfo;
 import com.opensymphony.xwork2.ActionSupport;
@@ -29,13 +32,21 @@ public class ReplyAction extends ActionSupport {
 	CommunityItem topic = new CommunityItem();
 	Topicinfo topicinfo = new Topicinfo();
 	private List<Itemreply> replies;
-
+	private String author = null;
+	private List<User> replyerlist = new ArrayList<User>();
+	
 	public String execute() {
 		request = ServletActionContext.getRequest();
 		AccountHelper helper = AccountHelper.INSTANCE;
 		int topicId = Integer.parseInt(request.getParameter("topicId"));
+		author = request.getParameter("owner");
 		topic = helper.selectCommunityItemByTopicId(topicId);
 		replies = helper.selectByTimeline(topicId);
+		if(replies!=null){
+			for(int i=0; i<replies.size(); ++i){
+				replyerlist.add(UserHibDao.getuser(replies.get(i).getUserId()));
+			}
+		}
 		topicinfo = helper.selectTopicinfoByTopicId(topicId).get(0);
 		System.out.println(topicinfo.getAuthor());
 
@@ -287,6 +298,18 @@ public class ReplyAction extends ActionSupport {
 		return topicId;
 	}
 
+	public void setReplyerlist(List<User> replyerlist) {
+		this.replyerlist = replyerlist;
+	}
+	public List<User> getReplyerlist() {
+		return replyerlist;
+	}
 	
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	public String getAuthor() {
+		return author;
+	}
 
 }

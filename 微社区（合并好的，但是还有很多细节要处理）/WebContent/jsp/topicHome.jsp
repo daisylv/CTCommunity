@@ -180,7 +180,9 @@
 				<div id="author_info" style="width: 100px;float: left;">
 					<img src="<%=request.getContextPath()%>/jsp/res/headpic.jpg" /> <br>
 					<p>
-						<span><s:property value="topic.userId" /></span>
+						<span>
+							<s:property value="author"/>
+						</span>
 					</p>
 				</div>
 				<div id="main_thing" style="width:800px;">
