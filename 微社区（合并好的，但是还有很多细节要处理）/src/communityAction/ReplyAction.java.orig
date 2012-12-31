@@ -8,7 +8,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.ServletActionContext;
@@ -21,7 +20,6 @@ import com.opensymphony.xwork2.ActionSupport;
 import communityDB.AccountHelper;
 import communityDB.CommunityItem;
 import communityDB.Itemreply;
-import communityDB.Topicinfo;
 
 public class ReplyAction extends ActionSupport {
 	/**
@@ -31,20 +29,24 @@ public class ReplyAction extends ActionSupport {
 	private HttpServletRequest request;
 	public static final String FAILURE = "failure";
 	CommunityItem topic = new CommunityItem();
-	Topicinfo topicinfo = new Topicinfo();
 	private List<Itemreply> replies;
-
+<<<<<<< HEAD
 	private String author = null;
-	private List<User> replyerlist = new ArrayList<User>();
 	
+=======
+
+>>>>>>> 450017f523ab82205af4b90be0a0efbe81ae06a9
 	public String execute() {
 		request = ServletActionContext.getRequest();
 		AccountHelper helper = AccountHelper.INSTANCE;
 		int topicId = Integer.parseInt(request.getParameter("topicId"));
-		author = request.getParameter("owner");
 		topic = helper.selectCommunityItemByTopicId(topicId);
+		replies = helper.selectByTimeline(topicId);
+<<<<<<< HEAD
 		topicinfo = helper.selectTopicinfoByTopicId(topicId).get(0);
 		System.out.println(topicinfo.getAuthor());
+=======
+>>>>>>> 450017f523ab82205af4b90be0a0efbe81ae06a9
 
 		if (request.getParameter("page") != null) {
 			setPager();
@@ -243,31 +245,6 @@ public class ReplyAction extends ActionSupport {
 		}
 	}
 
-	
-	public CommunityItem getTopic() {
-		return topic;
-	}
-
-	public void setTopic(CommunityItem topic) {
-		this.topic = topic;
-	}
-
-	public List<Itemreply> getReplies() {
-		return replies;
-	}
-
-	public void setReplies(List<Itemreply> replies) {
-		this.replies = replies;
-	}
-
-	public Topicinfo getTopicinfo() {
-		return topicinfo;
-	}
-
-	public void setTopicinfo(Topicinfo topicinfo) {
-		this.topicinfo = topicinfo;
-	}
-
 	public void setBeginItem(int beginItem) {
 		this.beginItem = beginItem;
 	}
@@ -316,6 +293,7 @@ public class ReplyAction extends ActionSupport {
 		return topicId;
 	}
 
+<<<<<<< HEAD
 	
 	public void setAuthor(String author) {
 		this.author = author;
@@ -324,4 +302,6 @@ public class ReplyAction extends ActionSupport {
 		return author;
 	}
 
+=======
+>>>>>>> 450017f523ab82205af4b90be0a0efbe81ae06a9
 }

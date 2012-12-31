@@ -109,6 +109,29 @@ public class weiboUtil {
 		}
 		return true;
 	}
+	
+	public boolean updatePicStatus(String _s_status, String picURL) {
+		try {
+			try {
+				System.out.print(picURL);
+				byte[] content = picURL.getBytes();
+				System.out.println("content length:" + content.length);
+				ImageItem pic = new ImageItem(content);
+				String s = java.net.URLEncoder.encode(_s_status, "utf-8");
+				Timeline tl = new Timeline();
+				tl.client.setToken(this.getAccessToken());// access_token
+				Status status = tl.UploadPicStatus(s, pic);
+
+				System.out.println("Successfully upload the status to ["
+						+ status.getText() + "].");
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+		} catch (Exception ioe) {
+			System.out.println("Failed to read the system input.");
+		}
+		return true;
+	}
 
 	public static byte[] readFileImage(String filename) throws IOException {
 		BufferedInputStream bufferedInputStream = new BufferedInputStream(

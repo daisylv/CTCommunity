@@ -131,6 +131,10 @@
            </result>
            <result name="failure" type="dispatcher">/jsp/addReply.jsp</result>
         </action>
+        <action name="Forward" class="communityAction.ForwardAction" method="forwardToWeibo">
+        </action>
+        <action name="ForwardFootsteps" class="communityAction.ForwardAction" method="forwardFootsteps">
+        </action>
         <action name="CheckNotice" class="communityAction.NoticeAction" method="checkNotice">
         </action>
     </package>
