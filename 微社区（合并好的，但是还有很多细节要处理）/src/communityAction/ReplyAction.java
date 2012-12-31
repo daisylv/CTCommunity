@@ -41,11 +41,6 @@ public class ReplyAction extends ActionSupport {
 		author = request.getParameter("owner");
 		topic = helper.selectCommunityItemByTopicId(topicId);
 		replies = helper.selectByTimeline(topicId);
-		if(replies!=null){
-			for(int i=0; i<replies.size(); ++i){
-				replyerlist.add(UserHibDao.getuser(replies.get(i).getUserId()));
-			}
-		}
 		topicinfo = helper.selectTopicinfoByTopicId(topicId).get(0);
 		System.out.println(topicinfo.getAuthor());
 

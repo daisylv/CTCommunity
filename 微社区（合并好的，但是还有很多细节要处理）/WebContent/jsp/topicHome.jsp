@@ -161,7 +161,6 @@
 			<p>社区名</p>
 		</div>
 	</div>
-<s:debug/>
 	<div id="item_body">
 		<s:form action="Reply" namespace="communityAction" method="post">
 			<div id="item_name">
