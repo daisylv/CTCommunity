@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-12-11 20:26:53 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="communityDB.Itemreply" table="itemreply"
+		dynamic-insert="true" dynamic-update="true" catalog="weicom">
+		<id column="replyId" name="replyId" type="int">
+			<generator class="increment" />
+		</id>
+		<property name="communityId" type="java.lang.Integer">
+			<column name="communityId" not-null="true" />
+		</property>
+		<property name="topicId" type="java.lang.Integer">
+			<column name="topicId" not-null="true" />
+		</property>
+		<property name="userId" type="java.lang.Integer">
+			<column name="userId" not-null="true" />
+		</property>
+		<property name="rpContent" type="string">
+			<column name="rpContent" length="65535" not-null="true" />
+		</property>
+		<property name="rpPic" type="string">
+			<column name="rpPic"/>
+		</property>
+		<property name="username" type="string">
+			<column name="username" length="45" not-null="true" />
+		</property>
+		<property name="createTime" type="timestamp">
+			<column name="createTime" length="19" />
+		</property>
+		<property name="targetId" type="java.lang.Integer">
+			<column name="targetId" />
+		</property>
+	</class>
+</hibernate-mapping>

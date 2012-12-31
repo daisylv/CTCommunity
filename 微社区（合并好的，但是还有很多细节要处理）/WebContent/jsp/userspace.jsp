@@ -41,6 +41,29 @@ $(document).ready(function()
 	$('#jsddm > li').bind('mouseout',  jsddm_timer);});
 
 document.onclick = jsddm_close;
+
+function MM_swapImgRestore() { //v3.0
+	  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+	}
+	function MM_preloadImages() { //v3.0
+	  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+	    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+	    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+	}
+
+	function MM_findObj(n, d) { //v4.01
+	  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+	    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+	  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+	  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+	  if(!x && d.getElementById) x=d.getElementById(n); return x;
+	}
+
+	function MM_swapImage() { //v3.0
+	  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+	   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+	}
+  
 		function show_section(id)
 		{
 			//alert(id);
@@ -79,7 +102,7 @@ document.onclick = jsddm_close;
 	</script>
 </head>
 
-<body>
+<body onload="MM_preloadImages('<%=request.getContextPath()%>/jsp/res/create_com1.png')">
 <a id="returnTop" href="javascript:;">回到顶部</a> 
 <script src="<%=request.getContextPath()%>/jsp/js/jquery-1.6.4.min.js" type="text/javascript"></script> 
 <script src="<%=request.getContextPath()%>/jsp/js/top.js" type="text/javascript"></script>
@@ -88,13 +111,12 @@ document.onclick = jsddm_close;
 
 <div class="userId">
 <ul id="jsddm">
-	<li><a href="footprint.html"><s:property value="#session.username"/></a>
+	<li><a href="http://localhost:8080/CTCommunity/jsp/userspace.jsp"><s:property value="#session.username"/></a>
     <%int userid= Integer.parseInt(request.getSession().getAttribute("userid").toString());
 	request.setAttribute("userid", userid);%>
 		<ul>
 	    <li><a href="#">登出</a></li>
-			<li><a href="#">我的资料</a></li>
-			<li><a href="#">我的足迹</a></li>
+			<li><a href="http://localhost:8080/CTCommunity/jsp/userspace.jsp">我的资料</a></li>
 			<li><a href="http://localhost:8080/CTCommunity/jsp/upfile_.jsp?userid=<s:property value="#session.userid"/>">修改头像</a></li>
 		</ul>
 	</li>
@@ -102,44 +124,24 @@ document.onclick = jsddm_close;
 </div>
 <div id="search">
 <table id="__01" width="181" height="40" border="0" cellpadding="0" cellspacing="0">
+	
 	<tr>
-		<td colspan="3">
-			<img src="<%=request.getContextPath()%>/jsp/images/search2_01.png" width="180" height="8" alt=""></td>
-		<td>
-			<img src="" width="1" height="8" alt=""></td>
-	</tr>
-	<tr>
-		<td rowspan="2">
-			<img src="<%=request.getContextPath()%>/jsp/images/search2_02.png" width="13" height="27" alt=""></td>
-		<td class="search_input" >
-        <s:form action="SearchOwn" namespace="/com/action">
+		
+		<td  >
+        <s:form action="Search" namespace="/com/action">
 				<s:textfield name="searchcontent"></s:textfield>
 				<s:submit value="搜索社区"></s:submit>
 		</s:form>
         </td>
-		<td>
-			<a href="#"><img src="<%=request.getContextPath()%>/jsp/images/search2_04.png" width="29" height="25" alt=""></a></td>
-		<td>
-		</td>
+		
 	</tr>
-	<tr>
-		<td rowspan="2">
-			<img src="<%=request.getContextPath()%>/jsp/images/search2_05.png" width="138" height="7" alt=""></td>
-		<td rowspan="2">
-			<img src="<%=request.getContextPath()%>/jsp/images/search2_06.png" width="29" height="7" alt=""></td>
-		<td>
-			<img src="" width="1" height="2" alt=""></td>
-	</tr>
-	<tr>
-		<td>
-			<img src="<%=request.getContextPath()%>/jsp/images/search2_07.png" width="13" height="5" alt=""></td>
-		<td>
-			<img src="" width="1" height="5" alt=""></td>
-	</tr>
+	
 </table>
 </div>
 </div >
-<div class="create_community_pic" ><a href="http://localhost:8080/CTCommunity/jsp/createcommunity.jsp" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('create_com','','res/create_com1.png',1)"><img src="<%=request.getContextPath()%>/jsp/res/create_com.png" name="create_com" width="120" height="40" border="0" id="create_com" /></a> </div>
+
+<div class="create_community_pic" >
+<a href="http://localhost:8080/CTCommunity/jsp/createcommunity.jsp" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('create_com','','<%=request.getContextPath()%>/jsp/res/create_com1.png',1)"><img src="<%=request.getContextPath()%>/jsp/res/create_com.png" name="create_com" width="120" height="40" border="0" id="create_com" /></a> </div>
 <div id="location">
 <img src="<%=request.getContextPath()%>/jsp/res/home.gif" class="house" />
 <em >></em>
@@ -153,32 +155,7 @@ document.onclick = jsddm_close;
 <h2 onClick="show_section(2)" class="myspace_click">我的足迹</h2>
 <div class="history" id="section-1" name="section">
 
-<!--<%	int pg = Integer.parseInt(request.getParameter("page"));
-	int cuP = Integer.parseInt(request.getParameter("cuPage"));
-	
-	if(pg==-1){
-		--cuP ;
-	}
-	if(pg==1){
-		cuP = cuP+1;
-	}
-	
-	if(cuP<=0){
-		cuP=1;
-	}
-	request.setAttribute("cuPage", cuP);
-	int beginItem = 5*(cuP-1);
-	request.setAttribute("beginIt", beginItem);
-	int endItem = beginItem+4;
-	int max = com.action.Login.userCommunity.size()-1;
-	request.setAttribute("max", max);
-	if(endItem>=max+1){
-		endItem = max;
-	}
-	request.setAttribute("endIt", endItem);
-		%>
- <%=request.getParameter("page") %>
-<%=request.getAttribute("cuPage") %> -->
+
 
 <table width="649">
 <s:iterator id="co" value="@com.action.Login@userCommunity" begin="pagerbean.beginItem" end="pagerbean.endItem">
@@ -194,17 +171,17 @@ document.onclick = jsddm_close;
 	</s:iterator>
 </table>
 
-<!--<s:property value="'共'+{#request.max}+'条'"/>
-<s:property value="'当前第'+{#request.beginIt+1}+'到'+{#request.endIt+1}+'条'"/>
-<s:property value="'当前第'+{#request.cuPage}+'页'"/>-->
-<s:property value="'共'+{pagerbean.maxItem+1}+'条'"/>
-<s:property value="'当前第'+{pagerbean.beginItem+1}+'到'+{pagerbean.endItem+1}+'条'"/>
-<s:property value="'当前第'+pagerbean.cuP+'页'"/>
+<!--<s:property value="'�+{#request.max}+'�"/>
+<s:property value="'当前�+{#request.beginIt+1}+'�+{#request.endIt+1}+'�"/>
+<s:property value="'当前�+{#request.cuPage}+'�"/>-->
+<s:property value="'�+{pagerbean.maxItem+1}+'�"/>
+<s:property value="'当前�+{pagerbean.beginItem+1}+'�+{pagerbean.endItem+1}+'�"/>
+<s:property value="'当前�+pagerbean.cuP+'�"/>
 <s:if test="pagerbean.beginItem>0">
 <a href="<s:url action="CommunityPager" namespace="/com/action"/>?username=
 	<s:property value="#session.username"/>&page=<s:property value="-1"/>
 	&cuPage=<s:property value="pagerbean.cuP"/>&page2=<s:property value="-1"/>
-	&cuPage2=<s:property value="pagerbean2.cuP"/>&ty=<s:property value="1"/>">上一页</a>
+	&cuPage2=<s:property value="pagerbean2.cuP"/>&ty=<s:property value="1"/>">上一�/a>
 </s:if>
 <s:else>首页</s:else>
 
@@ -212,7 +189,7 @@ document.onclick = jsddm_close;
 <a href="<s:url action="CommunityPager" namespace="/com/action"/>?username=
 	<s:property value="#session.username"/>&page=<s:property value="1"/>
 	&cuPage=<s:property value="pagerbean.cuP"/>&page2=<s:property value="1"/>
-	&cuPage2=<s:property value="pagerbean2.cuP"/>&ty=<s:property value="1"/>">下一页</a>
+	&cuPage2=<s:property value="pagerbean2.cuP"/>&ty=<s:property value="1"/>">下一�/a>
 </s:if>
 <s:else>末页</s:else>	
 </div>
@@ -223,22 +200,22 @@ document.onclick = jsddm_close;
 <s:iterator id="up" value="@com.action.Login@userpace" begin="pagerbean2.beginItem" end="pagerbean2.endItem">
 <tr>
 <td>
-<span id="content"><s:property value="#up.getUserpace()"/><br><s:property value="#up.getTimestamp()"/></span>
- 		<br>	<a href="#" onclick="forwardFootSteps()">
- 				转发微博？
+<span><s:property value="#up.getUserpace()"/><br><s:property value="#up.getTimestamp()"/></span>
+ 		<br>	<a href="#">
+ 				转发微薄�
  			</a></td>
 </tr>
 </s:iterator>
 </table>
 
-<s:property value="'共'+{pagerbean2.maxItem+1}+'条'"/>
-<s:property value="'当前第'+{pagerbean2.beginItem+1}+'到'+{pagerbean2.endItem+1}+'条'"/>
-<s:property value="'当前第'+pagerbean2.cuP+'页'"/>
+<s:property value="'�+{pagerbean2.maxItem+1}+'�"/>
+<s:property value="'当前�+{pagerbean2.beginItem+1}+'�+{pagerbean2.endItem+1}+'�"/>
+<s:property value="'当前�+pagerbean2.cuP+'�"/>
 <s:if test="pagerbean2.beginItem>0">
 <a href="<s:url action="CommunityPager" namespace="/com/action"/>?username=
 	<s:property value="#session.username"/>&page=<s:property value="-1"/>
 	&cuPage=<s:property value="pagerbean.cuP"/>&page2=<s:property value="-1"/>
-	&cuPage2=<s:property value="pagerbean2.cuP"/>&ty=<s:property value="2"/>">上一页</a>
+	&cuPage2=<s:property value="pagerbean2.cuP"/>&ty=<s:property value="2"/>">上一�/a>
 </s:if>
 <s:else>首页</s:else>
 
@@ -246,7 +223,7 @@ document.onclick = jsddm_close;
 <a href="<s:url action="CommunityPager" namespace="/com/action"/>?username=
 	<s:property value="#session.username"/>&page=<s:property value="1"/>
 	&cuPage=<s:property value="pagerbean.cuP"/>&page2=<s:property value="1"/>
-	&cuPage2=<s:property value="pagerbean2.cuP"/>&ty=<s:property value="2"/>">下一页</a>
+	&cuPage2=<s:property value="pagerbean2.cuP"/>&ty=<s:property value="2"/>">下一�/a>
 </s:if>
 <s:else>末页</s:else>
 </div>
@@ -262,11 +239,7 @@ document.onclick = jsddm_close;
 </div>
 </div>
 
-<div id="modify_info">
-<ul><li><a href="modify_information.html">修改信息</a></li>
 
-</ul>
-</div>
 
 </div>
 

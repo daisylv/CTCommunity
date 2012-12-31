@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-11-24 18:02:17 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="communityDB.Weiboinfo" table="weiboinfo" catalog="weicom">
+       <id name="userId" type="int">
+            <column name="userId" />
+        </id>
+        <property name="weiboId" type="string">
+            <column name="weiboId" not-null="true" unique="true" />
+        </property>
+        <property name="accessToken" type="string">
+            <column name="accessToken" not-null="true" unique="true" />
+        </property>
+        <property name="refreshToken" type="string">
+            <column name="refreshToken" unique="true" />
+        </property>
+        <property name="expireTime" type="string">
+            <column name="expireTime" length="20" />
+        </property>
+        <property name="weiboName" type="string">
+            <column name="weiboName" not-null="true" />
+        </property>
+        <property name="picpath" type="string">
+            <column name="picpath"/>
+        </property>
+    </class>
+</hibernate-mapping>

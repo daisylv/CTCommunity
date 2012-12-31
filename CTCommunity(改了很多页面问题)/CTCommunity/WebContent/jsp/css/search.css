@@ -1,0 +1,61 @@
+.search_body {
+	margin-left: 15%;
+	width:800px;
+}
+#search_big {
+	font-size: 18px;
+}
+.search_table {
+	background-color: #F7F7F8;
+	padding: 7px;
+	width:700px;
+}
+.search_button input {
+	background-image: url(../res/bn_srh_1.png);
+	height: 100%;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-position: 45% 45%;
+	cursor:pointer;
+	overflow:hidden;
+	border:0;
+}
+.search_inp input{
+	border:0;
+	height:28px;
+}
+.search_button {
+	height: 30px;
+	width: 30px;
+	position: absolute;
+	top: 135px;
+	cursor:pointer;
+	overflow:hidden;
+	left: 882px;
+	border:0;
+}
+.search_table {
+	border: 1px dotted #CCC;
+}
+#search_big {
+	font-size: 18px;
+}
+.search_title {
+	padding-left: 10px;
+	color: #030;
+}
+.search_com {
+	float: left;
+	margin-right: 20px;
+	margin-left: 20px;
+	border: 1px solid #999;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+.search_topic{
+	-moz-border-radius: 5px;
+ -webkit-border-radius: 5px;
+ }
+.search_topic a,.search_com a {
+	
+}
