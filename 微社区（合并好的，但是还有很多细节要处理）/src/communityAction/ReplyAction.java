@@ -8,18 +8,19 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.ServletActionContext;
-import java.util.List;
-import javax.servlet.http.HttpServletRequest;
-import org.apache.struts2.ServletActionContext;
+import org.hns.bean.User;
+import org.hns.user.dao.UserHibDao;
 
 import com.bean.FileInfo;
 import com.opensymphony.xwork2.ActionSupport;
 import communityDB.AccountHelper;
 import communityDB.CommunityItem;
 import communityDB.Itemreply;
+import communityDB.Topicinfo;
 
 public class ReplyAction extends ActionSupport {
 	/**
@@ -29,14 +30,19 @@ public class ReplyAction extends ActionSupport {
 	private HttpServletRequest request;
 	public static final String FAILURE = "failure";
 	CommunityItem topic = new CommunityItem();
+	Topicinfo topicinfo = new Topicinfo();
 	private List<Itemreply> replies;
-
+	private String author = null;
+	
 	public String execute() {
 		request = ServletActionContext.getRequest();
 		AccountHelper helper = AccountHelper.INSTANCE;
 		int topicId = Integer.parseInt(request.getParameter("topicId"));
+		author = request.getParameter("owner");
 		topic = helper.selectCommunityItemByTopicId(topicId);
 		replies = helper.selectByTimeline(topicId);
+		topicinfo = helper.selectTopicinfoByTopicId(topicId).get(0);
+		System.out.println(topicinfo.getAuthor());
 
 		if (request.getParameter("page") != null) {
 			setPager();
@@ -54,17 +60,12 @@ public class ReplyAction extends ActionSupport {
 	}
 
 	public String addReply() {
-		String rpPic;
 		request = ServletActionContext.getRequest();
 		AccountHelper helper = AccountHelper.INSTANCE;
 		int topicId = Integer.parseInt(request.getParameter("topicId"));
 		topic = helper.selectCommunityItemByTopicId(topicId);
 		String rpContent = request.getParameter("rpContent");
-		try {
-			rpPic = "/CTCommunity/upload/" + this.uploadPic();
-		} catch (Exception e) {
-			rpPic = null;
-		}
+		String rpPic = "/CTCommunity/upload/" + this.uploadPic();
 		if (rpContent != null && rpContent != "") {
 			int replyId = Integer.parseInt(request.getParameter("replyId"));
 			System.out.println(topicId + "..." + replyId);
@@ -86,22 +87,6 @@ public class ReplyAction extends ActionSupport {
 		topic = helper.selectCommunityItemByTopicId(topicId);
 		replies = helper.selectByTimeline(topicId);
 		return SUCCESS;
-	}
-	
-	public CommunityItem getTopic() {
-		return topic;
-	}
-
-	public void setTopic(CommunityItem topic) {
-		this.topic = topic;
-	}
-
-	public List<Itemreply> getReplies() {
-		return replies;
-	}
-
-	public void setReplies(List<Itemreply> replies) {
-		this.replies = replies;
 	}
 	
 	private static final int BUFFER_SIZE = 16 * 1024;
@@ -126,7 +111,7 @@ public class ReplyAction extends ActionSupport {
 
 		File dstFile = new File(dstPath);
 		copy(this.upload, dstFile);
-
+		
 		return fileInfo.getTargetfilename();
 	}
 
@@ -210,7 +195,7 @@ public class ReplyAction extends ActionSupport {
 	int endItem;
 	int maxItem;
 	int pg;
-
+	
 	public void setPager() {
 
 		pg = Integer.parseInt(ServletActionContext.getRequest().getParameter(
@@ -233,6 +218,30 @@ public class ReplyAction extends ActionSupport {
 		if (endItem >= maxItem + 1) {
 			endItem = maxItem;
 		}
+	}
+	
+	public CommunityItem getTopic() {
+		return topic;
+	}
+
+	public void setTopic(CommunityItem topic) {
+		this.topic = topic;
+	}
+
+	public List<Itemreply> getReplies() {
+		return replies;
+	}
+
+	public void setReplies(List<Itemreply> replies) {
+		this.replies = replies;
+	}
+
+	public Topicinfo getTopicinfo() {
+		return topicinfo;
+	}
+
+	public void setTopicinfo(Topicinfo topicinfo) {
+		this.topicinfo = topicinfo;
 	}
 
 	public void setBeginItem(int beginItem) {
@@ -281,6 +290,14 @@ public class ReplyAction extends ActionSupport {
 
 	public int getTopicId() {
 		return topicId;
+	}
+
+	
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	public String getAuthor() {
+		return author;
 	}
 
 }

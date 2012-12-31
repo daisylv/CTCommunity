@@ -23,7 +23,6 @@ public class CommunityItem implements java.io.Serializable {
 	private Date createTime;
 	private Topicinfo topicinfo;
 	private Set itemreplies = new HashSet(0);
-	private User user;
 
 	public CommunityItem() {
 	}
@@ -116,13 +115,5 @@ public class CommunityItem implements java.io.Serializable {
 
 	public void setTopicinfo(Topicinfo topicinfo) {
 		this.topicinfo = topicinfo;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 }

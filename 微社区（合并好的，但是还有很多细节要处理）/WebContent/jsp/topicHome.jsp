@@ -44,27 +44,7 @@
 		}
 	}
 
-	function forward(_replyId) {
-		var data = 'replyId=' + _replyId;
-		$
-				.ajax({
-					type : "POST",
-					url : "http://localhost:8080/CTCommunity/communityAction/Forward.action",
-					data : data,
-					success : function() {
-						easyDialog.open({
-							container : {
-								header : 'weibo hint'
-								content : 'has forwarded to weibo'
-							}
-						});
-					}
-				});
-		return false;
-	}
-
 	$(document).ready(function() {
-
 		$('#jsddm > li').bind('mouseover', jsddm_open);
 		$('#jsddm > li').bind('mouseout', jsddm_timer);
 	});
@@ -111,8 +91,6 @@
 		<div class="logo">
 			<s:if test="#session.username!=null"><a href="http://localhost:8080/CTCommunity/jsp/haslogin.jsp?username=<s:property value="#session.username"/>"><img src="<%=request.getContextPath()%>/jsp/res/logo.jpg" width="100" height="40" /></a></s:if>
 <s:if test="#session.username==null"><a href="http://localhost:8080/CTCommunity"><img src="<%=request.getContextPath()%>/jsp/res/logo.jpg" width="100" height="40" /></a></s:if></div>
-				src="<%=request.getContextPath()%>/jsp/res/logo.jpg" width="100"
-				height="40" /></a>
 
 
 		<div class="userId">
@@ -135,7 +113,6 @@
 	<s:else>
 <ul id="jsddm">
 	<li><a href="http://localhost:8080/CTCommunity/jsp/userspace.jsp"><s:property value="#session.username"/></a>
-							value="#session.username" /></a>
 		<ul>
 	    <li><a href="#">登出</a></li>
 		
@@ -174,16 +151,16 @@
 		int floor = 2;
 	%>
 
+
 	<div id="apDiv1">
 		<div id="com_pic">
 			<img src="<%=request.getContextPath()%>/jsp/res/2.jpg" width="40"
 				height="40" />
 		</div>
 		<div id="com_name">
-			<p>社区�/p>
+			<p>社区名</p>
 		</div>
 	</div>
-	<s:debug />
 	<div id="item_body">
 		<s:form action="Reply" namespace="communityAction" method="post">
 			<div id="item_name">
@@ -196,17 +173,15 @@
 					href="http://localhost:8080/CTCommunity/communityAction/Reply.action?topicId=<s:property value="topic.topicId"/>#btm_reply">回复</a>
 			</div>
 			<br>
+			
+			
 			<div id="first_flour">
 				<div id="author_info" style="width: 100px;float: left;">
-				<s:if test="topic.user.picpath == null">
-					<img src="<%=request.getContextPath()%>/jsp/res/headpic.jpg" />
-				</s:if>
-				<s:else>
-					<img src="<s:property value="topic.user.picpath" />" />
-				</s:else>
-				<br>
+					<img src="<%=request.getContextPath()%>/jsp/res/headpic.jpg" /> <br>
 					<p>
-						<span><s:property value="topic.user.username" /></span>
+						<span>
+							<s:property value="author"/>
+						</span>
 					</p>
 				</div>
 				<div id="main_thing" style="width:800px;">
@@ -231,21 +206,15 @@
 
 			<div id="two_flour">
 				<table width="920" border="0">
-					<s:iterator value="replies" id="reply" begin="beginItem"
-						end="endItem">
+					<s:iterator value="replies" id="reply" begin="beginItem" end="endItem">
 						<tr>
 							<td width="105" class="bottomsolid">
 								<div id="author_info">
-								<s:if test="#reply.user.picpath == null">
 									<img src="<%=request.getContextPath()%>/jsp/res/headpic.jpg" />
-								</s:if>
-								<s:else>
-									<img src="<s:property value="#reply.user.picpath" />" />
-								</s:else>
-								<br>
-								<p>
-									<s:property value="#reply.username" />
-								</p>
+									<br>
+									<p>
+										<s:property value="#reply.username" />
+									</p>
 								</div>
 
 							</td>
@@ -255,10 +224,10 @@
 												<s:date name="#reply.createTime"
 													format="yyyy-MM-dd HH:mm:ss" />
 												<p>
-													<s:property value="#reply.rpContent" />
+													<s:property value="#reply.rpContent"/>
 													<br>
 													<s:if test="#reply.rpPic != null">
-														<img src='<s:property value="#reply.rpPic"/>' />
+														<img src='<s:property value="#reply.rpPic"/>'/>
 													</s:if>
 												</p>
 											
@@ -266,8 +235,7 @@
 											<div class="replyandtrans1" style="display: none;">
 												<a
 													href="<%=request.getContextPath()%>/communityAction/Reply.action?topicId=<s:property value="topic.topicId"/>&replyId=<s:property value="#reply.replyId"/>#btm_reply">回复</a>
-												<span><a href="#"
-													onclick="return forward(<s:property value="#reply.replyId"/>)">转发</a></span>
+												<span><a href="#">转发</a></span>
 												<s:if
 													test='#session.username == topicinfo.author || #session.username == #reply.username'>
 													<span><a
@@ -282,49 +250,45 @@
 						</tr>
 					</s:iterator>
 				</table>
-				<s:property value="'�+{maxItem+1}+'�" />
-				<s:property value="'当前�+{beginItem+1}+'�+{endItem+1}+'�" />
-				<s:property value="'当前�+cuP+'�" />
+				<s:property value="'共'+{maxItem+1}+'条'"/>
+				<s:property value="'当前第'+{beginItem+1}+'到'+{endItem+1}+'条'"/>
+				<s:property value="'当前第'+cuP+'页'"/>
 				<s:if test="beginItem>0">
-					<a
-						href="<s:url action="Reply" namespace="/communityAction"/>?username=
+				<a href="<s:url action="Reply" namespace="/communityAction"/>?username=
 					<s:property value="#session.username"/>&page=<s:property value="-1"/>
-					&cuPage=<s:property value="cuP"/>&topicId=<s:property value="topicId"/>">上一�/a>
+					&cuPage=<s:property value="cuP"/>&topicId=<s:property value="topicId"/>">上一页</a>
 				</s:if>
 				<s:else>首页</s:else>
 
 				<s:if test="endItem<maxItem">
-					<a
-						href="<s:url action="Reply" namespace="/communityAction"/>?username=
+				<a href="<s:url action="Reply" namespace="/communityAction"/>?username=
 				<s:property value="#session.username"/>&page=<s:property value="1"/>
-				&cuPage=<s:property value="cuP"/>&topicId=<s:property value="topicId"/>">下一�/a>
+				&cuPage=<s:property value="cuP"/>&topicId=<s:property value="topicId"/>">下一页</a>
 				</s:if>
-				<s:else>末页</s:else>
+				<s:else>末页</s:else>	
 			</div>
 		</s:form>
 
-		<s:form action="AddReply" namespace="communityAction"
-			style="position: absolute; top: 1600px; left: 200px;"
-			enctype="multipart/form-data">
-			<%
-				String replyId = request.getParameter("replyId");
-					if (replyId == null)
-						replyId = "0";
-			%>
+		<s:form action="AddReply" namespace="communityAction" style="position: absolute; top: 1600px; left: 200px;" enctype="multipart/form-data">
+		<%
+			String replyId = request.getParameter("replyId");
+				if (replyId == null)
+					replyId = "0";
+		%>
 
-			<input type="hidden" name="topicId"
-				value="<s:property value="topic.topicId" />" />
-			<input type="hidden" name="replyId" value="<%=replyId%>" />
-
+		<input type="hidden" name="topicId"
+			value="<s:property value="topic.topicId" />" />
+		<input type="hidden" name="replyId" value="<%=replyId%>" />
+		
 			<h2>我的回复</h2>
-			<textarea name="rpContent" cols="80" rows="8" class="rpContent"></textarea>
-			<s:file name="upload" label="选择图片"></s:file>
-			<input type="submit" name="execute" value="回复"
-				onclick="return checkGuest(<s:property value="#session.username"/>)" />
-			<a name="btm_reply" id="btm_reply"></a>
+				<textarea name="rpContent" cols="80" rows="8" class="rpContent"></textarea>
+				<s:file name="upload" label="选择图片"></s:file>
+				<input type="submit" name="execute" value="回复"
+					onclick="return checkGuest(<s:property value="#session.username"/>)" />
+				<a name="btm_reply" id="btm_reply"></a>
 			<span class="error"></span>
-		</s:form>
-		<div id="crop_container2"></div>
+	</s:form>
+	<div id="crop_container2"></div>
 	</div>
 
 </body>

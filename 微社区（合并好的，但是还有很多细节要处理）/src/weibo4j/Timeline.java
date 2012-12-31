@@ -14,7 +14,7 @@ import weibo4j.util.WeiboConfig;
 
 public class Timeline extends Weibo{
 
-	/*----------------------------¶ÁÈ¡½Ó¿Ú----------------------------------------*/
+	/*----------------------------è¯»å–æ¥å£----------------------------------------*/
 
 	/**
 	 * 
@@ -22,7 +22,7 @@ public class Timeline extends Weibo{
 	private static final long serialVersionUID = 6235150828015082132L;
 
 	/**
-	 * ·µ»Ø×îĞÂµÄ¹«¹²Î¢²©
+	 * è¿”å›æœ€æ–°çš„å…¬å…±å¾®åš
 	 * 
 	 * @return list of statuses of the Public Timeline
 	 * @throws WeiboException
@@ -39,12 +39,12 @@ public class Timeline extends Weibo{
 	}
 
 	/**
-	 * ·µ»Ø×îĞÂµÄ¹«¹²Î¢²©
+	 * è¿”å›æœ€æ–°çš„å…¬å…±å¾®åš
 	 * 
 	 * @param count
-	 *            µ¥Ò³·µ»ØµÄ¼ÇÂ¼ÌõÊı£¬Ä¬ÈÏÎª20¡£
+	 *            å•é¡µè¿”å›çš„è®°å½•æ¡æ•°ï¼Œé»˜è®¤ä¸º20ã€‚
 	 * @param baseApp
-	 *            ÊÇ·ñ½ö»ñÈ¡µ±Ç°Ó¦ÓÃ·¢²¼µÄĞÅÏ¢¡£0ÎªËùÓĞ£¬1Îª½ö±¾Ó¦ÓÃ¡£
+	 *            æ˜¯å¦ä»…è·å–å½“å‰åº”ç”¨å‘å¸ƒçš„ä¿¡æ¯ã€‚0ä¸ºæ‰€æœ‰ï¼Œ1ä¸ºä»…æœ¬åº”ç”¨ã€‚
 	 * @throws WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
@@ -62,8 +62,8 @@ public class Timeline extends Weibo{
 	}
 
 	/**
-	 * »ñÈ¡µ±Ç°µÇÂ¼ÓÃ»§¼°ÆäËù¹Ø×¢ÓÃ»§µÄ×îĞÂ20ÌõÎ¢²©ÏûÏ¢¡£
-	 * ºÍÓÃ»§µÇÂ¼ http://weibo.com ºóÔÚ¡°ÎÒµÄÊ×Ò³¡±ÖĞ¿´µ½µÄÄÚÈİÏàÍ¬¡£
+	 * è·å–å½“å‰ç™»å½•ç”¨æˆ·åŠå…¶æ‰€å…³æ³¨ç”¨æˆ·çš„æœ€æ–°20æ¡å¾®åšæ¶ˆæ¯ã€‚
+	 * å’Œç”¨æˆ·ç™»å½• http://weibo.com ååœ¨â€œæˆ‘çš„é¦–é¡µâ€ä¸­çœ‹åˆ°çš„å†…å®¹ç›¸åŒã€‚
 	 * This method calls
 	 * http://api.t.sina.com.cn/statuses/friends_timeline.format
 	 * 
@@ -81,12 +81,12 @@ public class Timeline extends Weibo{
 	}
 
 	/**
-	 * »ñÈ¡µ±Ç°µÇÂ¼ÓÃ»§¼°ÆäËù¹Ø×¢ÓÃ»§µÄ×îĞÂÎ¢²©ÏûÏ¢¡£<br/>
-	 * ºÍÓÃ»§µÇÂ¼ http://weibo.com ºóÔÚ¡°ÎÒµÄÊ×Ò³¡±ÖĞ¿´µ½µÄÄÚÈİÏàÍ¬¡£
+	 * è·å–å½“å‰ç™»å½•ç”¨æˆ·åŠå…¶æ‰€å…³æ³¨ç”¨æˆ·çš„æœ€æ–°å¾®åšæ¶ˆæ¯ã€‚<br/>
+	 * å’Œç”¨æˆ·ç™»å½• http://weibo.com ååœ¨â€œæˆ‘çš„é¦–é¡µâ€ä¸­çœ‹åˆ°çš„å†…å®¹ç›¸åŒã€‚
 	 * 
 	 * @param paging
-	 *            Ïà¹Ø·ÖÒ³²ÎÊı
-	 * @param ¹ıÂËÀàĞÍID£¬0£ºÈ«²¿¡¢1£ºÔ­´´¡¢2£ºÍ¼Æ¬¡¢3£ºÊÓÆµ¡¢4£ºÒôÀÖ£¬Ä¬ÈÏÎª0¡£
+	 *            ç›¸å…³åˆ†é¡µå‚æ•°
+	 * @param è¿‡æ»¤ç±»å‹IDï¼Œ0ï¼šå…¨éƒ¨ã€1ï¼šåŸåˆ›ã€2ï¼šå›¾ç‰‡ã€3ï¼šè§†é¢‘ã€4ï¼šéŸ³ä¹ï¼Œé»˜è®¤ä¸º0ã€‚
 	 * @return list of the Friends Timeline
 	 * @throws WeiboException
 	 *             when Weibo service or network is unavailable
@@ -105,8 +105,8 @@ public class Timeline extends Weibo{
 				paging));
 		}
 	/**
-	 * »ñÈ¡µ±Ç°µÇÂ¼ÓÃ»§¼°ÆäËù¹Ø×¢ÓÃ»§µÄ×îĞÂ20ÌõÎ¢²©ÏûÏ¢¡£
-	 * ºÍÓÃ»§µÇÂ¼ http://weibo.com ºóÔÚ¡°ÎÒµÄÊ×Ò³¡±ÖĞ¿´µ½µÄÄÚÈİÏàÍ¬¡£
+	 * è·å–å½“å‰ç™»å½•ç”¨æˆ·åŠå…¶æ‰€å…³æ³¨ç”¨æˆ·çš„æœ€æ–°20æ¡å¾®åšæ¶ˆæ¯ã€‚
+	 * å’Œç”¨æˆ·ç™»å½• http://weibo.com ååœ¨â€œæˆ‘çš„é¦–é¡µâ€ä¸­çœ‹åˆ°çš„å†…å®¹ç›¸åŒã€‚
 	 * This method calls
 	 * http://api.t.sina.com.cn/statuses/friends_timeline.format
 	 * 
@@ -132,8 +132,8 @@ public class Timeline extends Weibo{
 				paging).asJSONObject();
 		}
 	/**
-	 * »ñÈ¡µ±Ç°µÇÂ¼ÓÃ»§¼°ÆäËù¹Ø×¢ÓÃ»§µÄ×îĞÂÎ¢²©ÏûÏ¢¡£<br/>
-	 * ºÍÓÃ»§µÇÂ¼ http://weibo.com ºóÔÚ¡°ÎÒµÄÊ×Ò³¡±ÖĞ¿´µ½µÄÄÚÈİÏàÍ¬¡£
+	 * è·å–å½“å‰ç™»å½•ç”¨æˆ·åŠå…¶æ‰€å…³æ³¨ç”¨æˆ·çš„æœ€æ–°å¾®åšæ¶ˆæ¯ã€‚<br/>
+	 * å’Œç”¨æˆ·ç™»å½• http://weibo.com ååœ¨â€œæˆ‘çš„é¦–é¡µâ€ä¸­çœ‹åˆ°çš„å†…å®¹ç›¸åŒã€‚
 	 * 
 	 * @return list of status
 	 * @throws WeiboException
@@ -150,13 +150,13 @@ public class Timeline extends Weibo{
 	}
 
 	/**
-	 * »ñÈ¡µ±Ç°µÇÂ¼ÓÃ»§¼°ÆäËù¹Ø×¢ÓÃ»§µÄ×îĞÂÎ¢²©ÏûÏ¢¡£<br/>
-	 * ºÍÓÃ»§µÇÂ¼ http://weibo.com ºóÔÚ¡°ÎÒµÄÊ×Ò³¡±ÖĞ¿´µ½µÄÄÚÈİÏàÍ¬¡£
+	 * è·å–å½“å‰ç™»å½•ç”¨æˆ·åŠå…¶æ‰€å…³æ³¨ç”¨æˆ·çš„æœ€æ–°å¾®åšæ¶ˆæ¯ã€‚<br/>
+	 * å’Œç”¨æˆ·ç™»å½• http://weibo.com ååœ¨â€œæˆ‘çš„é¦–é¡µâ€ä¸­çœ‹åˆ°çš„å†…å®¹ç›¸åŒã€‚
 	 * 
 	 * @param paging
-	 *            Ïà¹Ø·ÖÒ³²ÎÊı
-	 * @param ¹ıÂËÀàĞÍID
-	 *            £¬0£ºÈ«²¿¡¢1£ºÔ­´´¡¢2£ºÍ¼Æ¬¡¢3£ºÊÓÆµ¡¢4£ºÒôÀÖ£¬Ä¬ÈÏÎª0¡£
+	 *            ç›¸å…³åˆ†é¡µå‚æ•°
+	 * @param è¿‡æ»¤ç±»å‹ID
+	 *            ï¼Œ0ï¼šå…¨éƒ¨ã€1ï¼šåŸåˆ›ã€2ï¼šå›¾ç‰‡ã€3ï¼šè§†é¢‘ã€4ï¼šéŸ³ä¹ï¼Œé»˜è®¤ä¸º0ã€‚
 	 * @return list of the Friends Timeline
 	 * @throws WeiboException
 	 *             when Weibo service or network is unavailable
@@ -177,7 +177,7 @@ public class Timeline extends Weibo{
 	}
 
 	/**
-	 * »ñÈ¡Ä³¸öÓÃ»§×îĞÂ·¢±íµÄÎ¢²©ÁĞ±í
+	 * è·å–æŸä¸ªç”¨æˆ·æœ€æ–°å‘è¡¨çš„å¾®åšåˆ—è¡¨
 	 * 
 	 * @return list of the user_timeline
 	 * @throws WeiboException
@@ -204,20 +204,20 @@ public class Timeline extends Weibo{
 		}));
 	}
 	/**
-	 * »ñÈ¡Ä³¸öÓÃ»§×îĞÂ·¢±íµÄÎ¢²©ÁĞ±í
+	 * è·å–æŸä¸ªç”¨æˆ·æœ€æ–°å‘è¡¨çš„å¾®åšåˆ—è¡¨
 	 * 
 	 * @param uid
-	 *            ĞèÒª²éÑ¯µÄÓÃ»§ID¡£
+	 *            éœ€è¦æŸ¥è¯¢çš„ç”¨æˆ·IDã€‚
 	 * @param screen_name
-	 *            ĞèÒª²éÑ¯µÄÓÃ»§êÇ³Æ¡£
+	 *            éœ€è¦æŸ¥è¯¢çš„ç”¨æˆ·æ˜µç§°ã€‚
 	 * @param count
-	 *            µ¥Ò³·µ»ØµÄ¼ÇÂ¼ÌõÊı£¬Ä¬ÈÏÎª50¡£
+	 *            å•é¡µè¿”å›çš„è®°å½•æ¡æ•°ï¼Œé»˜è®¤ä¸º50ã€‚
 	 * @param page
-	 *            ·µ»Ø½á¹ûµÄÒ³Âë£¬Ä¬ÈÏÎª1¡£
+	 *            è¿”å›ç»“æœçš„é¡µç ï¼Œé»˜è®¤ä¸º1ã€‚
 	 * @param base_app
-	 *            ÊÇ·ñÖ»»ñÈ¡µ±Ç°Ó¦ÓÃµÄÊı¾İ¡£0Îª·ñ£¨ËùÓĞÊı¾İ£©£¬1ÎªÊÇ£¨½öµ±Ç°Ó¦ÓÃ£©£¬Ä¬ÈÏÎª0¡£
+	 *            æ˜¯å¦åªè·å–å½“å‰åº”ç”¨çš„æ•°æ®ã€‚0ä¸ºå¦ï¼ˆæ‰€æœ‰æ•°æ®ï¼‰ï¼Œ1ä¸ºæ˜¯ï¼ˆä»…å½“å‰åº”ç”¨ï¼‰ï¼Œé»˜è®¤ä¸º0ã€‚
 	 * @param feature
-	 *            ¹ıÂËÀàĞÍID£¬0£ºÈ«²¿¡¢1£ºÔ­´´¡¢2£ºÍ¼Æ¬¡¢3£ºÊÓÆµ¡¢4£ºÒôÀÖ£¬Ä¬ÈÏÎª0¡£
+	 *            è¿‡æ»¤ç±»å‹IDï¼Œ0ï¼šå…¨éƒ¨ã€1ï¼šåŸåˆ›ã€2ï¼šå›¾ç‰‡ã€3ï¼šè§†é¢‘ã€4ï¼šéŸ³ä¹ï¼Œé»˜è®¤ä¸º0ã€‚
 	 * @return list of the user_timeline
 	 * @throws WeiboException
 	 *             when Weibo service or network is unavailable
@@ -246,7 +246,7 @@ public class Timeline extends Weibo{
 						page));
 	}
 	/**
-	 * »ñÈ¡Ä³¸öÓÃ»§×îĞÂ·¢±íµÄÎ¢²©ÁĞ±íID
+	 * è·å–æŸä¸ªç”¨æˆ·æœ€æ–°å‘è¡¨çš„å¾®åšåˆ—è¡¨ID
 	 * 
 	 * @return user_timeline IDS
 	 * @throws WeiboException
@@ -267,10 +267,10 @@ public class Timeline extends Weibo{
 		}).asJSONObject();
 	}
 	/**
-	 * »ñÈ¡Ö¸¶¨Î¢²©µÄ×ª·¢Î¢²©ÁĞ±í
+	 * è·å–æŒ‡å®šå¾®åšçš„è½¬å‘å¾®åšåˆ—è¡¨
 	 * 
 	 * @param id
-	 *            ĞèÒª²éÑ¯µÄÎ¢²©ID
+	 *            éœ€è¦æŸ¥è¯¢çš„å¾®åšID
 	 * @return list of Status
 	 * @throws WeiboException
 	 *             when Weibo service or network is unavailable
@@ -287,14 +287,14 @@ public class Timeline extends Weibo{
 	}
 
 	/**
-	 * »ñÈ¡Ö¸¶¨Î¢²©µÄ×ª·¢Î¢²©ÁĞ±í
+	 * è·å–æŒ‡å®šå¾®åšçš„è½¬å‘å¾®åšåˆ—è¡¨
 	 * 
 	 * @param id
-	 *            ĞèÒª²éÑ¯µÄÎ¢²©ID
+	 *            éœ€è¦æŸ¥è¯¢çš„å¾®åšID
 	 * @param count
-	 *            µ¥Ò³·µ»ØµÄ¼ÇÂ¼ÌõÊı£¬Ä¬ÈÏÎª50
+	 *            å•é¡µè¿”å›çš„è®°å½•æ¡æ•°ï¼Œé»˜è®¤ä¸º50
 	 * @param page
-	 *            ·µ»Ø½á¹ûµÄÒ³Âë£¬Ä¬ÈÏÎª1
+	 *            è¿”å›ç»“æœçš„é¡µç ï¼Œé»˜è®¤ä¸º1
 	 * @return list of Status
 	 * @throws WeiboException
 	 *             when Weibo service or network is unavailable
@@ -311,10 +311,10 @@ public class Timeline extends Weibo{
 				new PostParameter[] { new PostParameter("id", id) }, page));
 	}
 	/**
-	 * »ñÈ¡Ö¸¶¨Î¢²©µÄ×ª·¢Î¢²©ÁĞ±í
+	 * è·å–æŒ‡å®šå¾®åšçš„è½¬å‘å¾®åšåˆ—è¡¨
 	 * 
 	 * @param id
-	 *            ĞèÒª²éÑ¯µÄÎ¢²©ID
+	 *            éœ€è¦æŸ¥è¯¢çš„å¾®åšID
 	 * @return ids
 	 * @throws WeiboException
 	 *             when Weibo service or network is unavailable
@@ -329,7 +329,7 @@ public class Timeline extends Weibo{
 				new PostParameter[] { new PostParameter("id", id) }).asJSONObject();
 	}
 	/**
-	 * »ñÈ¡µ±Ç°ÓÃ»§×îĞÂ×ª·¢µÄÎ¢²©ÁĞ±í
+	 * è·å–å½“å‰ç”¨æˆ·æœ€æ–°è½¬å‘çš„å¾®åšåˆ—è¡¨
 	 * 
 	 * @return list of Status
 	 * @throws WeiboException
@@ -345,10 +345,10 @@ public class Timeline extends Weibo{
 	}
 
 	/**
-	 * »ñÈ¡µ±Ç°ÓÃ»§×îĞÂ×ª·¢µÄÎ¢²©ÁĞ±í
+	 * è·å–å½“å‰ç”¨æˆ·æœ€æ–°è½¬å‘çš„å¾®åšåˆ—è¡¨
 	 * 
 	 * @param page
-	 *            ·µ»Ø½á¹ûµÄÒ³Âë£¬Ä¬ÈÏÎª1
+	 *            è¿”å›ç»“æœçš„é¡µç ï¼Œé»˜è®¤ä¸º1
 	 * @return list of Status
 	 * @throws WeiboException
 	 *             when Weibo service or network is unavailable
@@ -363,7 +363,7 @@ public class Timeline extends Weibo{
 	}
 
 	/**
-	 * »ñÈ¡×îĞÂµÄÌáµ½µÇÂ¼ÓÃ»§µÄÎ¢²©ÁĞ±í£¬¼´@ÎÒµÄÎ¢²©
+	 * è·å–æœ€æ–°çš„æåˆ°ç™»å½•ç”¨æˆ·çš„å¾®åšåˆ—è¡¨ï¼Œå³@æˆ‘çš„å¾®åš
 	 * 
 	 * @return list of Status
 	 * @throws WeiboException
@@ -379,18 +379,18 @@ public class Timeline extends Weibo{
 	}
 
 	/**
-	 * »ñÈ¡×îĞÂµÄÌáµ½µÇÂ¼ÓÃ»§µÄÎ¢²©ÁĞ±í£¬¼´@ÎÒµÄÎ¢²©
+	 * è·å–æœ€æ–°çš„æåˆ°ç™»å½•ç”¨æˆ·çš„å¾®åšåˆ—è¡¨ï¼Œå³@æˆ‘çš„å¾®åš
 	 * 
 	 * @param count
-	 *            µ¥Ò³·µ»ØµÄ¼ÇÂ¼ÌõÊı£¬Ä¬ÈÏÎª50¡£
+	 *            å•é¡µè¿”å›çš„è®°å½•æ¡æ•°ï¼Œé»˜è®¤ä¸º50ã€‚
 	 * @param page
-	 *            ·µ»Ø½á¹ûµÄÒ³Âë£¬Ä¬ÈÏÎª1¡£
+	 *            è¿”å›ç»“æœçš„é¡µç ï¼Œé»˜è®¤ä¸º1ã€‚
 	 * @param filter_by_author
-	 *            ×÷ÕßÉ¸Ñ¡ÀàĞÍ£¬0£ºÈ«²¿¡¢1£ºÎÒ¹Ø×¢µÄÈË¡¢2£ºÄ°ÉúÈË£¬Ä¬ÈÏÎª0¡£
+	 *            ä½œè€…ç­›é€‰ç±»å‹ï¼Œ0ï¼šå…¨éƒ¨ã€1ï¼šæˆ‘å…³æ³¨çš„äººã€2ï¼šé™Œç”Ÿäººï¼Œé»˜è®¤ä¸º0ã€‚
 	 * @param filter_by_source
-	 *            À´Ô´É¸Ñ¡ÀàĞÍ£¬0£ºÈ«²¿¡¢1£ºÀ´×ÔÎ¢²©¡¢2£ºÀ´×ÔÎ¢Èº£¬Ä¬ÈÏÎª0¡£
+	 *            æ¥æºç­›é€‰ç±»å‹ï¼Œ0ï¼šå…¨éƒ¨ã€1ï¼šæ¥è‡ªå¾®åšã€2ï¼šæ¥è‡ªå¾®ç¾¤ï¼Œé»˜è®¤ä¸º0ã€‚
 	 * @param filter_by_type
-	 *            Ô­´´É¸Ñ¡ÀàĞÍ£¬0£ºÈ«²¿Î¢²©¡¢1£ºÔ­´´µÄÎ¢²©£¬Ä¬ÈÏÎª0¡£
+	 *            åŸåˆ›ç­›é€‰ç±»å‹ï¼Œ0ï¼šå…¨éƒ¨å¾®åšã€1ï¼šåŸåˆ›çš„å¾®åšï¼Œé»˜è®¤ä¸º0ã€‚
 	 * @return list of Status
 	 * @throws WeiboException
 	 *             when Weibo service or network is unavailable
@@ -410,7 +410,7 @@ public class Timeline extends Weibo{
 						new PostParameter("filter_by_type", filter_by_type.toString()) }, page));
 	}
 	/**
-	 * »ñÈ¡×îĞÂµÄÌáµ½µÇÂ¼ÓÃ»§µÄÎ¢²©IDÁĞ±í£¬¼´@ÎÒµÄÎ¢²©
+	 * è·å–æœ€æ–°çš„æåˆ°ç™»å½•ç”¨æˆ·çš„å¾®åšIDåˆ—è¡¨ï¼Œå³@æˆ‘çš„å¾®åš
 	 * 
 	 * @return list of Status
 	 * @throws WeiboException
@@ -435,7 +435,7 @@ public class Timeline extends Weibo{
 						new PostParameter("filter_by_type", filter_by_type.toString()) }, page).asJSONObject();
 	}
 	/**
-	 * »ñÈ¡Ë«Ïò¹Ø×¢ÓÃ»§µÄ×îĞÂÎ¢²© 
+	 * è·å–åŒå‘å…³æ³¨ç”¨æˆ·çš„æœ€æ–°å¾®åš 
 	 * 
 	 * @return list of Status
 	 * @throws WeiboException
@@ -456,10 +456,10 @@ public class Timeline extends Weibo{
 		}));
 	}
 	/**
-	 * ¸ù¾İÎ¢²©ID»ñÈ¡µ¥ÌõÎ¢²©ÄÚÈİ
+	 * æ ¹æ®å¾®åšIDè·å–å•æ¡å¾®åšå†…å®¹
 	 * 
 	 * @param id
-	 *            ĞèÒª»ñÈ¡µÄÎ¢²©ID¡£
+	 *            éœ€è¦è·å–çš„å¾®åšIDã€‚
 	 * @return Status
 	 * @throws WeiboException
 	 *             when Weibo service or network is unavailable
@@ -475,12 +475,12 @@ public class Timeline extends Weibo{
 	}
 
 	/**
-	 * Í¨¹ıÎ¢²©ID»ñÈ¡ÆäMID
+	 * é€šè¿‡å¾®åšIDè·å–å…¶MID
 	 * 
 	 * @param id
-	 *            ĞèÒª²éÑ¯µÄÎ¢²©ID£¬ÅúÁ¿Ä£Ê½ÏÂ£¬ÓÃ°ë½Ç¶ººÅ·Ö¸ô£¬×î¶à²»³¬¹ı20¸ö¡£
+	 *            éœ€è¦æŸ¥è¯¢çš„å¾®åšIDï¼Œæ‰¹é‡æ¨¡å¼ä¸‹ï¼Œç”¨åŠè§’é€—å·åˆ†éš”ï¼Œæœ€å¤šä¸è¶…è¿‡20ä¸ªã€‚
 	 * @param type
-	 *            »ñÈ¡ÀàĞÍ£¬1£ºÎ¢²©¡¢2£ºÆÀÂÛ¡¢3£ºË½ĞÅ£¬Ä¬ÈÏÎª1¡£
+	 *            è·å–ç±»å‹ï¼Œ1ï¼šå¾®åšã€2ï¼šè¯„è®ºã€3ï¼šç§ä¿¡ï¼Œé»˜è®¤ä¸º1ã€‚
 	 * @return Status's mid
 	 * @throws WeiboException
 	 *             when Weibo service or network is unavailable
@@ -495,14 +495,14 @@ public class Timeline extends Weibo{
 						new PostParameter("type", type.toString()) }).asJSONObject();
 	}	
 	/**
-	 * Í¨¹ıÎ¢²©ID»ñÈ¡ÆäMID
+	 * é€šè¿‡å¾®åšIDè·å–å…¶MID
 	 * 
 	 * @param id
-	 *            ĞèÒª²éÑ¯µÄÎ¢²©ID£¬ÅúÁ¿Ä£Ê½ÏÂ£¬ÓÃ°ë½Ç¶ººÅ·Ö¸ô£¬×î¶à²»³¬¹ı20¸ö¡£
+	 *            éœ€è¦æŸ¥è¯¢çš„å¾®åšIDï¼Œæ‰¹é‡æ¨¡å¼ä¸‹ï¼Œç”¨åŠè§’é€—å·åˆ†éš”ï¼Œæœ€å¤šä¸è¶…è¿‡20ä¸ªã€‚
 	 * @param type
-	 *            »ñÈ¡ÀàĞÍ£¬1£ºÎ¢²©¡¢2£ºÆÀÂÛ¡¢3£ºË½ĞÅ£¬Ä¬ÈÏÎª1¡£
+	 *            è·å–ç±»å‹ï¼Œ1ï¼šå¾®åšã€2ï¼šè¯„è®ºã€3ï¼šç§ä¿¡ï¼Œé»˜è®¤ä¸º1ã€‚
 	 * @param is_batch
-	 *            ÊÇ·ñÊ¹ÓÃÅúÁ¿Ä£Ê½£¬0£º·ñ¡¢1£ºÊÇ£¬Ä¬ÈÏÎª0¡£
+	 *            æ˜¯å¦ä½¿ç”¨æ‰¹é‡æ¨¡å¼ï¼Œ0ï¼šå¦ã€1ï¼šæ˜¯ï¼Œé»˜è®¤ä¸º0ã€‚
 	 * @return Status's mid
 	 * @throws WeiboException
 	 *             when Weibo service or network is unavailable
@@ -518,12 +518,12 @@ public class Timeline extends Weibo{
 						new PostParameter("is_batch", is_batch)}).asJSONObject();
 	}
 	/**
-	 * Í¨¹ıÎ¢²©MID»ñÈ¡ÆäID
+	 * é€šè¿‡å¾®åšMIDè·å–å…¶ID
 	 * 
 	 * @param mid
-	 *            true string ĞèÒª²éÑ¯µÄÎ¢²©MID£¬ÅúÁ¿Ä£Ê½ÏÂ£¬ÓÃ°ë½Ç¶ººÅ·Ö¸ô£¬×î¶à²»³¬¹ı20¸ö
+	 *            true string éœ€è¦æŸ¥è¯¢çš„å¾®åšMIDï¼Œæ‰¹é‡æ¨¡å¼ä¸‹ï¼Œç”¨åŠè§’é€—å·åˆ†éš”ï¼Œæœ€å¤šä¸è¶…è¿‡20ä¸ª
 	 * @param type
-	 *            »ñÈ¡ÀàĞÍ£¬1£ºÎ¢²©¡¢2£ºÆÀÂÛ¡¢3£ºË½ĞÅ£¬Ä¬ÈÏÎª1¡£
+	 *            è·å–ç±»å‹ï¼Œ1ï¼šå¾®åšã€2ï¼šè¯„è®ºã€3ï¼šç§ä¿¡ï¼Œé»˜è®¤ä¸º1ã€‚
 	 * @return Status's id
 	 * @throws WeiboException
 	 *             when Weibo service or network is unavailable
@@ -541,18 +541,18 @@ public class Timeline extends Weibo{
 	}
 
 	/**
-	 * Í¨¹ıÎ¢²©MID»ñÈ¡ÆäID
+	 * é€šè¿‡å¾®åšMIDè·å–å…¶ID
 	 * 
 	 * @param mid
-	 *            true string ĞèÒª²éÑ¯µÄÎ¢²©MID£¬ÅúÁ¿Ä£Ê½ÏÂ£¬ÓÃ°ë½Ç¶ººÅ·Ö¸ô£¬×î¶à²»³¬¹ı20¸ö
+	 *            true string éœ€è¦æŸ¥è¯¢çš„å¾®åšMIDï¼Œæ‰¹é‡æ¨¡å¼ä¸‹ï¼Œç”¨åŠè§’é€—å·åˆ†éš”ï¼Œæœ€å¤šä¸è¶…è¿‡20ä¸ª
 	 * @param type
-	 *            »ñÈ¡ÀàĞÍ£¬1£ºÎ¢²©¡¢2£ºÆÀÂÛ¡¢3£ºË½ĞÅ£¬Ä¬ÈÏÎª1¡£
+	 *            è·å–ç±»å‹ï¼Œ1ï¼šå¾®åšã€2ï¼šè¯„è®ºã€3ï¼šç§ä¿¡ï¼Œé»˜è®¤ä¸º1ã€‚
 	 * @param is_batch
-	 *            ÊÇ·ñÊ¹ÓÃÅúÁ¿Ä£Ê½£¬0£º·ñ¡¢1£ºÊÇ£¬Ä¬ÈÏÎª0¡£
+	 *            æ˜¯å¦ä½¿ç”¨æ‰¹é‡æ¨¡å¼ï¼Œ0ï¼šå¦ã€1ï¼šæ˜¯ï¼Œé»˜è®¤ä¸º0ã€‚
 	 * @param inbox
-	 *            ½ö¶ÔË½ĞÅÓĞĞ§£¬µ±MIDÀàĞÍÎªË½ĞÅÊ±ÓÃ´Ë²ÎÊı£¬0£º·¢¼şÏä¡¢1£ºÊÕ¼şÏä£¬Ä¬ÈÏÎª0 ¡£
+	 *            ä»…å¯¹ç§ä¿¡æœ‰æ•ˆï¼Œå½“MIDç±»å‹ä¸ºç§ä¿¡æ—¶ç”¨æ­¤å‚æ•°ï¼Œ0ï¼šå‘ä»¶ç®±ã€1ï¼šæ”¶ä»¶ç®±ï¼Œé»˜è®¤ä¸º0 ã€‚
 	 * @param isBase62
-	 *            MIDÊÇ·ñÊÇbase62±àÂë£¬0£º·ñ¡¢1£ºÊÇ£¬Ä¬ÈÏÎª0¡£
+	 *            MIDæ˜¯å¦æ˜¯base62ç¼–ç ï¼Œ0ï¼šå¦ã€1ï¼šæ˜¯ï¼Œé»˜è®¤ä¸º0ã€‚
 	 * @return Status's id
 	 * @throws WeiboException
 	 *             when Weibo service or network is unavailable
@@ -573,7 +573,7 @@ public class Timeline extends Weibo{
 
 
 	/**
-	 * °´Ìì·µ»ØÈÈÃÅÎ¢²©×ª·¢°ñµÄÎ¢²©ÁĞ±í
+	 * æŒ‰å¤©è¿”å›çƒ­é—¨å¾®åšè½¬å‘æ¦œçš„å¾®åšåˆ—è¡¨
 	 * 
 	 * @return Status
 	 * @throws WeiboException
@@ -588,7 +588,7 @@ public class Timeline extends Weibo{
 				.getValue("baseURL") + "statuses/hot/repost_daily.json").asJSONArray();
 	}
 	/**
-	 * °´ÖÜ·µ»ØÈÈÃÅÎ¢²©×ª·¢°ñµÄÎ¢²©ÁĞ±í
+	 * æŒ‰å‘¨è¿”å›çƒ­é—¨å¾®åšè½¬å‘æ¦œçš„å¾®åšåˆ—è¡¨
 	 * 
 	 * @return Status
 	 * @throws WeiboException
@@ -603,7 +603,7 @@ public class Timeline extends Weibo{
 				.getValue("baseURL") + "statuses/hot/repost_weekly.json").asJSONArray();
 	}
 	/**
-	 * °´Ìì·µ»ØÈÈÃÅÎ¢²©ÆÀÂÛ°ñµÄÎ¢²©ÁĞ±í
+	 * æŒ‰å¤©è¿”å›çƒ­é—¨å¾®åšè¯„è®ºæ¦œçš„å¾®åšåˆ—è¡¨
 	 * 
 	 * @return Status
 	 * @throws WeiboException
@@ -618,7 +618,7 @@ public class Timeline extends Weibo{
 				.getValue("baseURL") + "statuses/hot/comments_daily.json").asJSONArray();
 	}
 	/**
-	 * °´ÖÜ·µ»ØÈÈÃÅÎ¢²©ÆÀÂÛ°ñµÄÎ¢²©ÁĞ±í
+	 * æŒ‰å‘¨è¿”å›çƒ­é—¨å¾®åšè¯„è®ºæ¦œçš„å¾®åšåˆ—è¡¨
 	 * 
 	 * @return Status
 	 * @throws WeiboException
@@ -634,10 +634,10 @@ public class Timeline extends Weibo{
 	}
 
 	/**
-	 * ×ª·¢Ò»ÌõĞÂÎ¢²©
+	 * è½¬å‘ä¸€æ¡æ–°å¾®åš
 	 * 
 	 * @param id
-	 *            Òª×ª·¢µÄÎ¢²©ID
+	 *            è¦è½¬å‘çš„å¾®åšID
 	 * @return Status
 	 * @throws WeiboException
 	 *             when Weibo service or network is unavailable
@@ -653,14 +653,14 @@ public class Timeline extends Weibo{
 	}
 
 	/**
-	 * ×ª·¢Ò»ÌõÎ¢²©
+	 * è½¬å‘ä¸€æ¡å¾®åš
 	 * 
 	 * @param id
-	 *            Òª×ª·¢µÄÎ¢²©ID
+	 *            è¦è½¬å‘çš„å¾®åšID
 	 * @param status
-	 *            Ìí¼ÓµÄ×ª·¢ÎÄ±¾£¬±ØĞë×öURLencode£¬ÄÚÈİ²»³¬¹ı140¸öºº×Ö£¬²»ÌîÔòÄ¬ÈÏÎª¡°×ª·¢Î¢²©¡±
+	 *            æ·»åŠ çš„è½¬å‘æ–‡æœ¬ï¼Œå¿…é¡»åšURLencodeï¼Œå†…å®¹ä¸è¶…è¿‡140ä¸ªæ±‰å­—ï¼Œä¸å¡«åˆ™é»˜è®¤ä¸ºâ€œè½¬å‘å¾®åšâ€
 	 * @param is_comment
-	 *            ÊÇ·ñÔÚ×ª·¢µÄÍ¬Ê±·¢±íÆÀÂÛ£¬0£º·ñ¡¢1£ºÆÀÂÛ¸øµ±Ç°Î¢²©¡¢2£ºÆÀÂÛ¸øÔ­Î¢²©¡¢3£º¶¼ÆÀÂÛ£¬Ä¬ÈÏÎª0
+	 *            æ˜¯å¦åœ¨è½¬å‘çš„åŒæ—¶å‘è¡¨è¯„è®ºï¼Œ0ï¼šå¦ã€1ï¼šè¯„è®ºç»™å½“å‰å¾®åšã€2ï¼šè¯„è®ºç»™åŸå¾®åšã€3ï¼šéƒ½è¯„è®ºï¼Œé»˜è®¤ä¸º0
 	 * @return Status
 	 * @throws WeiboException
 	 *             when Weibo service or network is unavailable
@@ -678,10 +678,10 @@ public class Timeline extends Weibo{
 	}
 
 	/**
-	 * ¸ù¾İÎ¢²©IDÉ¾³ıÖ¸¶¨Î¢²©
+	 * æ ¹æ®å¾®åšIDåˆ é™¤æŒ‡å®šå¾®åš
 	 * 
 	 * @param id
-	 *            ĞèÒªÉ¾³ıµÄÎ¢²©ID
+	 *            éœ€è¦åˆ é™¤çš„å¾®åšID
 	 * @return Status
 	 * @throws WeiboException
 	 *             when Weibo service or network is unavailable
@@ -697,10 +697,10 @@ public class Timeline extends Weibo{
 	}
 
 	/**
-	 * ·¢²¼Ò»ÌõĞÂÎ¢²©
+	 * å‘å¸ƒä¸€æ¡æ–°å¾®åš
 	 * 
 	 * @param status
-	 *            Òª·¢²¼µÄÎ¢²©ÎÄ±¾ÄÚÈİ£¬±ØĞë×öURLencode£¬ÄÚÈİ²»³¬¹ı140¸öºº×Ö
+	 *            è¦å‘å¸ƒçš„å¾®åšæ–‡æœ¬å†…å®¹ï¼Œå¿…é¡»åšURLencodeï¼Œå†…å®¹ä¸è¶…è¿‡140ä¸ªæ±‰å­—
 	 * @return Status
 	 * @throws WeiboException
 	 *             when Weibo service or network is unavailable
@@ -716,16 +716,16 @@ public class Timeline extends Weibo{
 	}
 
 	/**
-	 * ·¢²¼Ò»ÌõĞÂÎ¢²©
+	 * å‘å¸ƒä¸€æ¡æ–°å¾®åš
 	 * 
 	 * @param status
-	 *            Òª·¢²¼µÄÎ¢²©ÎÄ±¾ÄÚÈİ£¬±ØĞë×öURLencode£¬ÄÚÈİ²»³¬¹ı140¸öºº×Ö
+	 *            è¦å‘å¸ƒçš„å¾®åšæ–‡æœ¬å†…å®¹ï¼Œå¿…é¡»åšURLencodeï¼Œå†…å®¹ä¸è¶…è¿‡140ä¸ªæ±‰å­—
 	 * @param lat
-	 *            Î³¶È£¬ÓĞĞ§·¶Î§£º-90.0µ½+90.0£¬+±íÊ¾±±Î³£¬Ä¬ÈÏÎª0.0¡£
-	 * @param long ¾­¶È£¬ÓĞĞ§·¶Î§£º-180.0µ½+180.0£¬+±íÊ¾¶«¾­£¬Ä¬ÈÏÎª0.0¡£
+	 *            çº¬åº¦ï¼Œæœ‰æ•ˆèŒƒå›´ï¼š-90.0åˆ°+90.0ï¼Œ+è¡¨ç¤ºåŒ—çº¬ï¼Œé»˜è®¤ä¸º0.0ã€‚
+	 * @param long ç»åº¦ï¼Œæœ‰æ•ˆèŒƒå›´ï¼š-180.0åˆ°+180.0ï¼Œ+è¡¨ç¤ºä¸œç»ï¼Œé»˜è®¤ä¸º0.0ã€‚
 	 * @param annotations
-	 *            ÔªÊı¾İ£¬Ö÷ÒªÊÇÎªÁË·½±ãµÚÈı·½Ó¦ÓÃ¼ÇÂ¼Ò»Ğ©ÊÊºÏÓÚ×Ô¼ºÊ¹ÓÃµÄĞÅÏ¢£¬Ã¿ÌõÎ¢²©¿ÉÒÔ°üº¬Ò»¸ö»òÕß¶à¸öÔªÊı¾İ£¬
-	 *            ±ØĞëÒÔjson×Ö´®µÄĞÎÊ½Ìá½»£¬×Ö´®³¤¶È²»³¬¹ı512¸ö×Ö·û£¬¾ßÌåÄÚÈİ¿ÉÒÔ×Ô¶¨
+	 *            å…ƒæ•°æ®ï¼Œä¸»è¦æ˜¯ä¸ºäº†æ–¹ä¾¿ç¬¬ä¸‰æ–¹åº”ç”¨è®°å½•ä¸€äº›é€‚åˆäºè‡ªå·±ä½¿ç”¨çš„ä¿¡æ¯ï¼Œæ¯æ¡å¾®åšå¯ä»¥åŒ…å«ä¸€ä¸ªæˆ–è€…å¤šä¸ªå…ƒæ•°æ®ï¼Œ
+	 *            å¿…é¡»ä»¥jsonå­—ä¸²çš„å½¢å¼æäº¤ï¼Œå­—ä¸²é•¿åº¦ä¸è¶…è¿‡512ä¸ªå­—ç¬¦ï¼Œå…·ä½“å†…å®¹å¯ä»¥è‡ªå®š
 	 * @return Status
 	 * @throws WeiboException
 	 *             when Weibo service or network is unavailable
@@ -745,12 +745,12 @@ public class Timeline extends Weibo{
 	}
 
 	/**
-	 * ÉÏ´«Í¼Æ¬²¢·¢²¼Ò»ÌõĞÂÎ¢²©
+	 * ä¸Šä¼ å›¾ç‰‡å¹¶å‘å¸ƒä¸€æ¡æ–°å¾®åš
 	 * 
 	 * @param status
-	 *            Òª·¢²¼µÄÎ¢²©ÎÄ±¾ÄÚÈİ£¬±ØĞë×öURLencode£¬ÄÚÈİ²»³¬¹ı140¸öºº×Ö
+	 *            è¦å‘å¸ƒçš„å¾®åšæ–‡æœ¬å†…å®¹ï¼Œå¿…é¡»åšURLencodeï¼Œå†…å®¹ä¸è¶…è¿‡140ä¸ªæ±‰å­—
 	 * @param pic
-	 *            ÒªÉÏ´«µÄÍ¼Æ¬£¬½öÖ§³ÖJPEG¡¢GIF¡¢PNG¸ñÊ½£¬Í¼Æ¬´óĞ¡Ğ¡ÓÚ5M¡£
+	 *            è¦ä¸Šä¼ çš„å›¾ç‰‡ï¼Œä»…æ”¯æŒJPEGã€GIFã€PNGæ ¼å¼ï¼Œå›¾ç‰‡å¤§å°å°äº5Mã€‚
 	 * @return Status
 	 * @throws WeiboException
 	 *             when Weibo service or network is unavailable
@@ -766,40 +766,17 @@ public class Timeline extends Weibo{
 				new PostParameter[] { new PostParameter("status", status)},
 				item));
 	}
-	
-	/**
-	 * ÉÏ´«Í¼Æ¬²¢·¢²¼Ò»ÌõĞÂÎ¢²©
-	 * 
-	 * @param status
-	 *            Òª·¢²¼µÄÎ¢²©ÎÄ±¾ÄÚÈİ£¬±ØĞë×öURLencode£¬ÄÚÈİ²»³¬¹ı140¸öºº×Ö
-	 * @param pic
-	 *            ÒªÉÏ´«µÄÍ¼Æ¬£¬½öÖ§³ÖJPEG¡¢GIF¡¢PNG¸ñÊ½£¬Í¼Æ¬´óĞ¡Ğ¡ÓÚ5M¡£
-	 * @return Status
-	 * @throws WeiboException
-	 *             when Weibo service or network is unavailable
-	 * @version weibo4j-V2 1.0.0
-	 * @see <a
-	 *      href="http://open.weibo.com/wiki/2/statuses/upload">statuses/upload</a>
-	 * @since JDK 1.5
-	 */
-	public Status UploadPicStatus(String status, ImageItem item)
-			throws WeiboException {
-		return new Status(client.multPartURL(
-				WeiboConfig.getValue("baseURL") + "statuses/upload_url_text.json",
-				new PostParameter[] { new PostParameter("status", status)},
-				item));
-	}
 
 	/**
-	 * ÉÏ´«Í¼Æ¬²¢·¢²¼Ò»ÌõĞÂÎ¢²©
+	 * ä¸Šä¼ å›¾ç‰‡å¹¶å‘å¸ƒä¸€æ¡æ–°å¾®åš
 	 * 
 	 * @param status
-	 *            Òª·¢²¼µÄÎ¢²©ÎÄ±¾ÄÚÈİ£¬±ØĞë×öURLencode£¬ÄÚÈİ²»³¬¹ı140¸öºº×Ö
+	 *            è¦å‘å¸ƒçš„å¾®åšæ–‡æœ¬å†…å®¹ï¼Œå¿…é¡»åšURLencodeï¼Œå†…å®¹ä¸è¶…è¿‡140ä¸ªæ±‰å­—
 	 * @param pic
-	 *            ÒªÉÏ´«µÄÍ¼Æ¬£¬½öÖ§³ÖJPEG¡¢GIF¡¢PNG¸ñÊ½£¬Í¼Æ¬´óĞ¡Ğ¡ÓÚ5M¡£
+	 *            è¦ä¸Šä¼ çš„å›¾ç‰‡ï¼Œä»…æ”¯æŒJPEGã€GIFã€PNGæ ¼å¼ï¼Œå›¾ç‰‡å¤§å°å°äº5Mã€‚
 	 * @param lat
-	 *            Î³¶È£¬ÓĞĞ§·¶Î§£º-90.0µ½+90.0£¬+±íÊ¾±±Î³£¬Ä¬ÈÏÎª0.0¡£
-	 * @param long ¾­¶È£¬ÓĞĞ§·¶Î§£º-180.0µ½+180.0£¬+±íÊ¾¶«¾­£¬Ä¬ÈÏÎª0.0¡£
+	 *            çº¬åº¦ï¼Œæœ‰æ•ˆèŒƒå›´ï¼š-90.0åˆ°+90.0ï¼Œ+è¡¨ç¤ºåŒ—çº¬ï¼Œé»˜è®¤ä¸º0.0ã€‚
+	 * @param long ç»åº¦ï¼Œæœ‰æ•ˆèŒƒå›´ï¼š-180.0åˆ°+180.0ï¼Œ+è¡¨ç¤ºä¸œç»ï¼Œé»˜è®¤ä¸º0.0ã€‚
 	 * @return Status
 	 * @throws WeiboException
 	 *             when Weibo service or network is unavailable
@@ -818,7 +795,7 @@ public class Timeline extends Weibo{
 	}
 
 	/**
-	 * »ñÈ¡Î¢²©¹Ù·½±íÇéµÄÏêÏ¸ĞÅÏ¢
+	 * è·å–å¾®åšå®˜æ–¹è¡¨æƒ…çš„è¯¦ç»†ä¿¡æ¯
 	 * 
 	 * @return Emotion
 	 * @throws WeiboException
@@ -833,12 +810,12 @@ public class Timeline extends Weibo{
 	}
 
 	/**
-	 * »ñÈ¡Î¢²©¹Ù·½±íÇéµÄÏêÏ¸ĞÅÏ¢
+	 * è·å–å¾®åšå®˜æ–¹è¡¨æƒ…çš„è¯¦ç»†ä¿¡æ¯
 	 * 
 	 * @param type
-	 *            ±íÇéÀà±ğ£¬face£ºÆÕÍ¨±íÇé¡¢ani£ºÄ§·¨±íÇé¡¢cartoon£º¶¯Âş±íÇé£¬Ä¬ÈÏÎªface
+	 *            è¡¨æƒ…ç±»åˆ«ï¼Œfaceï¼šæ™®é€šè¡¨æƒ…ã€aniï¼šé­”æ³•è¡¨æƒ…ã€cartoonï¼šåŠ¨æ¼«è¡¨æƒ…ï¼Œé»˜è®¤ä¸ºface
 	 * @param language
-	 *            ÓïÑÔÀà±ğ£¬cnname£º¼òÌå¡¢twname£º·±Ìå£¬Ä¬ÈÏÎªcnname
+	 *            è¯­è¨€ç±»åˆ«ï¼Œcnnameï¼šç®€ä½“ã€twnameï¼šç¹ä½“ï¼Œé»˜è®¤ä¸ºcnname
 	 * @return Emotion
 	 * @throws WeiboException
 	 *             when Weibo service or network is unavailable

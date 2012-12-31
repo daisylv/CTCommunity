@@ -63,7 +63,9 @@ function MM_swapImgRestore() { //v3.0
 	  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
 	   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
 	}
+  </script> 
   
+  <script type="text/javascript">
 		function show_section(id)
 		{
 			//alert(id);
@@ -78,26 +80,6 @@ function MM_swapImgRestore() { //v3.0
 			{
 				sections[i].style.display = "none";
 			}
-		}
-
-		function forwardFootSteps() {
-			var _content = document.getElementsByName("content");
-			var data = 'content=' + _content;
-			$
-					.ajax({
-						type : "POST",
-						url : "http://localhost:8080/CTCommunity/communityAction/ForwardFootsteps.action",
-						data : data,
-						success : function() {
-							easyDialog.open({
-								container : {
-									header : '微博提示',
-									content : '已转发至微博'
-								}
-							});
-						}
-					});
-			return false;
 		}
 	</script>
 </head>
@@ -171,17 +153,17 @@ function MM_swapImgRestore() { //v3.0
 	</s:iterator>
 </table>
 
-<!--<s:property value="'�+{#request.max}+'�"/>
-<s:property value="'当前�+{#request.beginIt+1}+'�+{#request.endIt+1}+'�"/>
-<s:property value="'当前�+{#request.cuPage}+'�"/>-->
-<s:property value="'�+{pagerbean.maxItem+1}+'�"/>
-<s:property value="'当前�+{pagerbean.beginItem+1}+'�+{pagerbean.endItem+1}+'�"/>
-<s:property value="'当前�+pagerbean.cuP+'�"/>
+<!--<s:property value="'共'+{#request.max}+'条'"/>
+<s:property value="'当前第'+{#request.beginIt+1}+'到'+{#request.endIt+1}+'条'"/>
+<s:property value="'当前第'+{#request.cuPage}+'页'"/>-->
+<s:property value="'共'+{pagerbean.maxItem+1}+'条'"/>
+<s:property value="'当前第'+{pagerbean.beginItem+1}+'到'+{pagerbean.endItem+1}+'条'"/>
+<s:property value="'当前第'+pagerbean.cuP+'页'"/>
 <s:if test="pagerbean.beginItem>0">
 <a href="<s:url action="CommunityPager" namespace="/com/action"/>?username=
 	<s:property value="#session.username"/>&page=<s:property value="-1"/>
 	&cuPage=<s:property value="pagerbean.cuP"/>&page2=<s:property value="-1"/>
-	&cuPage2=<s:property value="pagerbean2.cuP"/>&ty=<s:property value="1"/>">上一�/a>
+	&cuPage2=<s:property value="pagerbean2.cuP"/>&ty=<s:property value="1"/>">上一页</a>
 </s:if>
 <s:else>首页</s:else>
 
@@ -189,7 +171,7 @@ function MM_swapImgRestore() { //v3.0
 <a href="<s:url action="CommunityPager" namespace="/com/action"/>?username=
 	<s:property value="#session.username"/>&page=<s:property value="1"/>
 	&cuPage=<s:property value="pagerbean.cuP"/>&page2=<s:property value="1"/>
-	&cuPage2=<s:property value="pagerbean2.cuP"/>&ty=<s:property value="1"/>">下一�/a>
+	&cuPage2=<s:property value="pagerbean2.cuP"/>&ty=<s:property value="1"/>">下一页</a>
 </s:if>
 <s:else>末页</s:else>	
 </div>
@@ -202,20 +184,20 @@ function MM_swapImgRestore() { //v3.0
 <td>
 <span><s:property value="#up.getUserpace()"/><br><s:property value="#up.getTimestamp()"/></span>
  		<br>	<a href="#">
- 				转发微薄�
+ 				转发微薄？
  			</a></td>
 </tr>
 </s:iterator>
 </table>
 
-<s:property value="'�+{pagerbean2.maxItem+1}+'�"/>
-<s:property value="'当前�+{pagerbean2.beginItem+1}+'�+{pagerbean2.endItem+1}+'�"/>
-<s:property value="'当前�+pagerbean2.cuP+'�"/>
+<s:property value="'共'+{pagerbean2.maxItem+1}+'条'"/>
+<s:property value="'当前第'+{pagerbean2.beginItem+1}+'到'+{pagerbean2.endItem+1}+'条'"/>
+<s:property value="'当前第'+pagerbean2.cuP+'页'"/>
 <s:if test="pagerbean2.beginItem>0">
 <a href="<s:url action="CommunityPager" namespace="/com/action"/>?username=
 	<s:property value="#session.username"/>&page=<s:property value="-1"/>
 	&cuPage=<s:property value="pagerbean.cuP"/>&page2=<s:property value="-1"/>
-	&cuPage2=<s:property value="pagerbean2.cuP"/>&ty=<s:property value="2"/>">上一�/a>
+	&cuPage2=<s:property value="pagerbean2.cuP"/>&ty=<s:property value="2"/>">上一页</a>
 </s:if>
 <s:else>首页</s:else>
 
@@ -223,7 +205,7 @@ function MM_swapImgRestore() { //v3.0
 <a href="<s:url action="CommunityPager" namespace="/com/action"/>?username=
 	<s:property value="#session.username"/>&page=<s:property value="1"/>
 	&cuPage=<s:property value="pagerbean.cuP"/>&page2=<s:property value="1"/>
-	&cuPage2=<s:property value="pagerbean2.cuP"/>&ty=<s:property value="2"/>">下一�/a>
+	&cuPage2=<s:property value="pagerbean2.cuP"/>&ty=<s:property value="2"/>">下一页</a>
 </s:if>
 <s:else>末页</s:else>
 </div>

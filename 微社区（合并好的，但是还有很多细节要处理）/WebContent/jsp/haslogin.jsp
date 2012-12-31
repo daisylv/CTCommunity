@@ -103,7 +103,7 @@ function MM_swapImage() { //v3.0
 		<ul>
 	    <li><a href="#">登出</a></li>
 		
-			<li><a href="http://localhost:8080/CTCommunity/jsp/userspace.jsp">我的足迹</a></li>
+			<li><a href="<s:url action="CommunityPager" namespace="/com/action"/>?username=<s:property value="#session.username"/>&cuPage=1&page=0&cuPage2=1&page2=0&ty=<s:property value="1"/>">我的足迹</a></li>
 			<li><a href="http://localhost:8080/CTCommunity/jsp/upfile_.jsp?userid=<s:property value="#session.userid"/>">修改头像</a></li>
 		
 		</ul>

@@ -3,6 +3,8 @@ package communityDB;
 // Generated 2012-12-17 1:26:43 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
+
+import org.hns.bean.Community;
 import org.hns.bean.User;
 
 /**
@@ -19,7 +21,6 @@ public class Itemreply implements java.io.Serializable {
 	private String username;
 	private Integer targetId;
 	private Date createTime;
-	private User user;
 
 	public Itemreply() {
 	}
@@ -33,8 +34,8 @@ public class Itemreply implements java.io.Serializable {
 		this.username = username;
 	}
 
-	public Itemreply(Integer communityId, Integer topicId,
-			 Integer userId, String rpContent, String rpPic, String username,
+	public Itemreply(Community community, CommunityItem communityitem,
+			User userinfo, String rpContent, String rpPic, String username,
 			Integer targetId, Date createTime) {
 		this.communityId = communityId;
 		this.topicId = topicId;
@@ -117,14 +118,6 @@ public class Itemreply implements java.io.Serializable {
 
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 
 }

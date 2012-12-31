@@ -2,8 +2,10 @@ package communityDB;
 
 import java.util.Date;
 import java.util.List;
+
 import org.apache.struts2.ServletActionContext;
 import org.hibernate.SessionFactory;
+import org.hns.bean.Community;
 import org.hns.bean.User;
 import weibo4j.http.AccessToken;
 import weiboAction.weiboUtil;
@@ -23,7 +25,6 @@ public enum AccountHelper {
 	ItemreplyHome replyTrans;
 	TopicinfoHome topicinfoTrans;
 	NoticeHome noticeTrans;
-	AccessToken token;
 
 	AccountHelper() {
 		this.getAccountSession();
@@ -67,7 +68,6 @@ public enum AccountHelper {
 
 	public Weiboinfo validation(AccessToken _accessToken) {
 		// this.getAccountSession();
-		token = _accessToken;
 		this.isWeiboUser = true;
 		this.hasSetUser = true;
 		account = new Weiboinfo();
@@ -182,13 +182,11 @@ public enum AccountHelper {
 		// this.getTopicSession();
 		// order by update time
 		CommunityItem item = topicTrans.findById(_topicId);
-		User t_user = org.hns.user.dao.UserHibDao.getuser(item.getUserId());
-		item.setUser(t_user);
+		
 		return item;
 	}
 
-	public Itemreply saveReply(String _rpContent, int _topicId, int _targetId,
-			String picUrl) {
+	public Itemreply saveReply(String _rpContent, int _topicId, int _targetId, String picUrl) {
 		// this.getReplySession();
 		this.getUser();
 		Notice tp_notice = new Notice();
@@ -201,7 +199,7 @@ public enum AccountHelper {
 		reply.setRpContent(_rpContent);
 		reply.setUserId(user.getUserId());
 		reply.setUsername(user.getUsername());
-		if (picUrl != null) {
+		if(picUrl != null){
 			reply.setRpPic(picUrl);
 		}
 
@@ -219,8 +217,7 @@ public enum AccountHelper {
 			reply.setTargetId(_targetId);
 
 			Itemreply target = this.selectByReplyId(_targetId);
-			if (user.getUserId() != target.getUserId()
-					&& target.getUserId() != topic.getUserId()) {
+			if (user.getUserId() != target.getUserId() &&  target.getUserId() != topic.getUserId()) {
 				Notice rp_notice = new Notice();
 				rp_notice.setTopicUrl(url + _topicId);
 				rp_notice.setTpTitle(topic.getTpTitle());
@@ -271,9 +268,6 @@ public enum AccountHelper {
 		List<Itemreply> li = replyTrans.findByTopicId(_topicId);
 		// Collections.reverse(li);
 		for (int i = 0; i < li.size(); i++) {
-			User r_user = org.hns.user.dao.UserHibDao.getuser(li.get(i).getUserId());
-			li.get(i).setUser(r_user);
-			
 			if (li.get(i).getTargetId() == null) {
 			} else {
 				Itemreply target = this
@@ -295,35 +289,11 @@ public enum AccountHelper {
 
 	public List<Notice> selectUncheckedNotices(Integer _userId) {
 		List<Notice> li = noticeTrans.findUncheckedNotices(_userId);
-		for (int i = 0; i < li.size(); i++) {
+		for(int i = 0; i < li.size(); i++) {
 			Notice notice = li.get(i);
 			notice.setNoticed(0);
 			noticeTrans.merge(notice);
 		}
 		return li;
-	}
-
-	public boolean forwardToWeibo(Integer _replyId) {
-		if (token == null) {
-			return false;
-		}
-		Itemreply reply = this.selectByReplyId(_replyId);
-		String content = reply.getRpContent();
-		content = "来自微社区的评论" + reply.getRpContent();
-		weiboUtil util = new weiboUtil(token);
-		util.updateStatus(content);
-		
-		return true;
-	}
-	
-	public boolean forwardByFootSteps(String _content) {
-		if (token == null) {
-			return false;
-		}
-		String content = "来自微社区的活动" + _content;
-		weiboUtil util = new weiboUtil(token);
-		util.updateStatus(content);
-		
-		return true;
 	}
 }
