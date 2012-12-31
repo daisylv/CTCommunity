@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="org.hns.bean.CommunityMember" table="communitymember">
+  <id column="userId" name="userId" type="int">
+  </id>
+  <property column="communityId" generated="never" lazy="false"
+   name="communityId" type="int"/>
+ </class>
+</hibernate-mapping>

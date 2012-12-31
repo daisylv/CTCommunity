@@ -1,0 +1,14 @@
+.all_members {
+	margin-left: 15%;
+	width:800px;
+}
+.member_name a {
+	text-decoration: none;
+	font-size: 17px;
+	font-weight: normal;
+}
+.return_com {
+	left:900px;
+	top:80px;
+	position:absolute;
+}

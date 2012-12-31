@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="communityDB.CommunityItem" table="communityitem" dynamic-insert="true" dynamic-update="true">
+  <id column="topicId" name="topicId" type="int">
+   <generator class="increment"></generator>
+  </id>
+  <property name="createTime" type="timestamp">
+  <column name="createTime" length="19" not-null="true"></column>
+  </property>
+  <property column="userId" generated="never" lazy="false"
+   name="userId" type="int"/>
+  <property column="communityId" generated="never" lazy="false"
+   name="communityId" type="int"/>
+  <property column="tpContent" generated="never" lazy="false"
+   name="tpContent" type="string"/>
+  <property column="tpPic" generated="never" lazy="false" name="tpPic" type="string"/>
+  <property column="tpTitle" generated="never" lazy="false"
+   name="tpTitle" type="string"/>
+ </class>
+ 
+</hibernate-mapping>
