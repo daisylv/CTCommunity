@@ -14,6 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.ServletActionContext;
 import org.hns.bean.User;
 import org.hns.user.dao.UserHibDao;
+import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import org.apache.struts2.ServletActionContext;
 
 import com.bean.FileInfo;
 import com.opensymphony.xwork2.ActionSupport;
@@ -34,14 +37,17 @@ public class ReplyAction extends ActionSupport {
 	private List<Itemreply> replies;
 	private String author = null;
 	
+	private String author = null;
+	private List<User> replyerlist = new ArrayList<User>();
+	
 	public String execute() {
 		request = ServletActionContext.getRequest();
 		AccountHelper helper = AccountHelper.INSTANCE;
 		int topicId = Integer.parseInt(request.getParameter("topicId"));
 		author = request.getParameter("owner");
 		topic = helper.selectCommunityItemByTopicId(topicId);
-		replies = helper.selectByTimeline(topicId);
 		topicinfo = helper.selectTopicinfoByTopicId(topicId).get(0);
+		System.out.println(topicinfo.getAuthor());
 		System.out.println(topicinfo.getAuthor());
 
 		if (request.getParameter("page") != null) {
@@ -60,12 +66,18 @@ public class ReplyAction extends ActionSupport {
 	}
 
 	public String addReply() {
+		String rpPic;
 		request = ServletActionContext.getRequest();
 		AccountHelper helper = AccountHelper.INSTANCE;
 		int topicId = Integer.parseInt(request.getParameter("topicId"));
 		topic = helper.selectCommunityItemByTopicId(topicId);
 		String rpContent = request.getParameter("rpContent");
 		String rpPic = "/CTCommunity/upload/" + this.uploadPic();
+		try {
+			rpPic = "/CTCommunity/upload/" + this.uploadPic();
+		} catch (Exception e) {
+			rpPic = null;
+		}
 		if (rpContent != null && rpContent != "") {
 			int replyId = Integer.parseInt(request.getParameter("replyId"));
 			System.out.println(topicId + "..." + replyId);
@@ -87,6 +99,22 @@ public class ReplyAction extends ActionSupport {
 		topic = helper.selectCommunityItemByTopicId(topicId);
 		replies = helper.selectByTimeline(topicId);
 		return SUCCESS;
+	}
+	
+	public CommunityItem getTopic() {
+		return topic;
+	}
+
+	public void setTopic(CommunityItem topic) {
+		this.topic = topic;
+	}
+
+	public List<Itemreply> getReplies() {
+		return replies;
+	}
+
+	public void setReplies(List<Itemreply> replies) {
+		this.replies = replies;
 	}
 	
 	private static final int BUFFER_SIZE = 16 * 1024;
@@ -219,6 +247,7 @@ public class ReplyAction extends ActionSupport {
 			endItem = maxItem;
 		}
 	}
+	
 	
 	public CommunityItem getTopic() {
 		return topic;

@@ -113,6 +113,7 @@
 	<s:else>
 <ul id="jsddm">
 	<li><a href="http://localhost:8080/CTCommunity/jsp/userspace.jsp"><s:property value="#session.username"/></a>
+							value="#session.username" /></a>
 		<ul>
 	    <li><a href="#">登出</a></li>
 		
@@ -158,10 +159,10 @@
 				height="40" />
 		</div>
 		<div id="com_name">
-			<p>社区名</p>
+			<p>社区�/p>
 		</div>
 	</div>
-	<div id="item_body">
+<div id="item_body">
 		<s:form action="Reply" namespace="communityAction" method="post">
 			<div id="item_name">
 				<h1>
@@ -179,6 +180,7 @@
 				<div id="author_info" style="width: 100px;float: left;">
 					<img src="<%=request.getContextPath()%>/jsp/res/headpic.jpg" /> <br>
 					<p>
+						<span>
 						<span>
 							<s:property value="author"/>
 						</span>
@@ -210,11 +212,20 @@
 						<tr>
 							<td width="105" class="bottomsolid">
 								<div id="author_info">
+								<s:if test="#reply.user.picpath == null">
 									<img src="<%=request.getContextPath()%>/jsp/res/headpic.jpg" />
 									<br>
 									<p>
 										<s:property value="#reply.username" />
 									</p>
+								</s:if>
+								<s:else>
+									<img src="<s:property value="#reply.user.picpath" />" />
+								</s:else>
+								<br>
+								<p>
+									<s:property value="#reply.username" />
+								</p>
 								</div>
 
 							</td>
@@ -235,7 +246,9 @@
 											<div class="replyandtrans1" style="display: none;">
 												<a
 													href="<%=request.getContextPath()%>/communityAction/Reply.action?topicId=<s:property value="topic.topicId"/>&replyId=<s:property value="#reply.replyId"/>#btm_reply">回复</a>
-												<span><a href="#">转发</a></span>
+											<span><
+											a href="#"
+													onclick="return forward(<s:property value="#reply.replyId"/>)">转发</a></span>
 												<s:if
 													test='#session.username == topicinfo.author || #session.username == #reply.username'>
 													<span><a
@@ -250,20 +263,20 @@
 						</tr>
 					</s:iterator>
 				</table>
-				<s:property value="'共'+{maxItem+1}+'条'"/>
-				<s:property value="'当前第'+{beginItem+1}+'到'+{endItem+1}+'条'"/>
-				<s:property value="'当前第'+cuP+'页'"/>
+				<s:property value="'�+{maxItem+1}+'�"/>
+				<s:property value="'当前�+{beginItem+1}+'�+{endItem+1}+'�"/>
+				<s:property value="'当前�+cuP+'�"/>
 				<s:if test="beginItem>0">
 				<a href="<s:url action="Reply" namespace="/communityAction"/>?username=
 					<s:property value="#session.username"/>&page=<s:property value="-1"/>
-					&cuPage=<s:property value="cuP"/>&topicId=<s:property value="topicId"/>">上一页</a>
+					&cuPage=<s:property value="cuP"/>&topicId=<s:property value="topicId"/>">上一�/a>
 				</s:if>
 				<s:else>首页</s:else>
 
 				<s:if test="endItem<maxItem">
 				<a href="<s:url action="Reply" namespace="/communityAction"/>?username=
 				<s:property value="#session.username"/>&page=<s:property value="1"/>
-				&cuPage=<s:property value="cuP"/>&topicId=<s:property value="topicId"/>">下一页</a>
+				&cuPage=<s:property value="cuP"/>&topicId=<s:property value="topicId"/>">下一�/a>
 				</s:if>
 				<s:else>末页</s:else>	
 			</div>
