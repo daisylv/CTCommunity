@@ -33,7 +33,6 @@ public class ReplyAction extends ActionSupport {
 	Topicinfo topicinfo = new Topicinfo();
 	private List<Itemreply> replies;
 	private String author = null;
-	private List<User> replyerlist = new ArrayList<User>();
 	
 	public String execute() {
 		request = ServletActionContext.getRequest();
@@ -298,12 +297,6 @@ public class ReplyAction extends ActionSupport {
 		return topicId;
 	}
 
-	public void setReplyerlist(List<User> replyerlist) {
-		this.replyerlist = replyerlist;
-	}
-	public List<User> getReplyerlist() {
-		return replyerlist;
-	}
 	
 	public void setAuthor(String author) {
 		this.author = author;
