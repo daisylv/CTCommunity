@@ -64,6 +64,7 @@ public class Login extends ActionSupport{
 		System.out.println("Login!");
 		System.out.println(user.getUsername());
 		int id = UserHibDao.finduser(user.getUsername(), user.getPassword());
+		//validate();
 		if(id == -1){
 			return "noneuser";
 		}

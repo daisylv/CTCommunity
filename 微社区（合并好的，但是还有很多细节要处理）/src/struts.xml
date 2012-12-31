@@ -37,12 +37,10 @@
     
     <package name="User" namespace="/com/action" extends="default">
     	<action name="AddUser" class="com.action.Adduser" method="add">
-    		<result name="input">/jsp/register.jsp</result>
     		<result name="success">/jsp/haslogin.jsp</result>
     	</action>
     	 
     	<action name="Login" class="com.action.Login" method="login">
-    		
     		<result name="failpassword">/jsp/failpsw.jsp</result>
     		<result name="error">/jsp/error.jsp</result>
     		<result name="success">/jsp/haslogin.jsp</result>
