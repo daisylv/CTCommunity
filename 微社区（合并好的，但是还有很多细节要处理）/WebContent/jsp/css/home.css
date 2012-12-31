@@ -136,6 +136,20 @@ list-style:none;
 	width: 50px;
 	
 }
+.userId2 {
+	position: absolute;
+	right: 85%;
+	top:30%;
+	width: 74px;
+	
+}
+.userId12 {
+	position: absolute;
+	right: 10%;
+	top:30%;
+	width: 50px;
+	
+}
 .pop_pic {
 	position:absolute;
 	right:30%;
@@ -421,4 +435,57 @@ background-color: #F0F0F0;
     filter: Alpha(opacity=60);
 }#history h2 {
 	font-size: 24px;
+}
+
+.sex input,.sex label{
+	float:left;
+	margin-right: 20px;
+	
+}
+.manage_com{
+	position: absolute;
+	top: 50px;
+	left:20px;
+		color: #000;
+}
+
+.manage_com a{
+	text-decoration: none;
+}
+
+#community_right{
+	position: absolute;
+	left:1000px;
+	top:150px;
+	width: 200px;
+	
+}
+#footprint_body{
+	left:15%;
+	position: absolute;
+}
+
+.myspace_click{
+	position: absolute;
+	left:200px;
+	top:0px;
+}
+.welcome_username{
+	position: absolute;
+	left:780px;
+	top:14px;
+	color: white;
+	background: #258867;
+	padding:3px;
+}
+
+.btn1 a{
+	
+	text-decoration: none;
+}
+
+.btn1 a:hover{
+	
+	text-decoration: none;
+	background: grey;
 }

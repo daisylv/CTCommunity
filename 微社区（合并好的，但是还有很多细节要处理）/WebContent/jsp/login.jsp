@@ -47,12 +47,12 @@ document.onclick = jsddm_close;
 <script src="<%=request.getContextPath()%>/jsp/js/jquery-1.6.4.min.js" type="text/javascript"></script> 
 <script src="<%=request.getContextPath()%>/jsp/js/top.js" type="text/javascript"></script>
 <div class="nav">
-<div class="logo"> <a href="home.html"><img src="<%=request.getContextPath()%>/jsp/res/logo.jpg" width="100" height="40" /></a> </div>
+<div class="logo"> <a href="http://localhost:8080/CTCommunity"><img src="<%=request.getContextPath()%>/jsp/res/logo.jpg" width="100" height="40" /></a> </div>
 
 
 <div class="userId">
 <ul id="jsddm1">
-	<li><a href="logon.html">登录</a>
+	<li><a href="http://localhost:8080/CTCommunity/jsp/login.jsp">登录</a>
 	</li>
     </ul>
 
@@ -60,46 +60,24 @@ document.onclick = jsddm_close;
 <div class="userId1">
 
     <ul id="jsddm1">
-    <li><a href="#" >注册</a></li>
+    <li><a href="http://localhost:8080/CTCommunity/jsp/register.jsp" >注册</a></li>
     </ul>
 
 </div>
 <div id="search">
 <table id="__01" width="181" height="40" border="0" cellpadding="0" cellspacing="0">
+	
 	<tr>
-		<td colspan="3">
-			<img src="<%=request.getContextPath()%>/jsp/images/search2_01.png" width="180" height="8" alt=""></td>
-		<td>
-			<img src="" width="1" height="8" alt=""></td>
-	</tr>
-	<tr>
-		<td rowspan="2">
-			<img src="<%=request.getContextPath()%>/jsp/images/search2_02.png" width="13" height="27" alt=""></td>
-		<td class="search_input" >
-        <form id="form1" name="form1" method="post" action="">
-		  <label for="search"></label>
-		  <input name="search_input" type="text" id="search_input" size="14" />
-	    </form>
+		
+		<td  >
+        <s:form action="Search" namespace="/com/action">
+				<s:textfield name="searchcontent"></s:textfield>
+				<s:submit value="搜索社区"></s:submit>
+		</s:form>
         </td>
-		<td>
-			<a href="#"><img src="<%=request.getContextPath()%>/jsp/images/search2_04.png" width="29" height="25" alt=""></a></td>
-		<td>
-			</td>
+		
 	</tr>
-	<tr>
-		<td rowspan="2">
-			<img src="<%=request.getContextPath()%>/jsp/images/search2_05.png" width="138" height="7" alt=""></td>
-		<td rowspan="2">
-			<img src="<%=request.getContextPath()%>/jsp/images/search2_06.png" width="29" height="7" alt=""></td>
-		<td>
-			<img src="" width="1" height="2" alt=""></td>
-	</tr>
-	<tr>
-		<td>
-			<img src="<%=request.getContextPath()%>/jsp/images/search2_07.png" width="13" height="5" alt=""></td>
-		<td>
-			<img src="" width="1" height="5" alt=""></td>
-	</tr>
+	
 </table>
 </div>
 </div >
@@ -107,9 +85,9 @@ document.onclick = jsddm_close;
 <div id="location">
 <img src="<%=request.getContextPath()%>/jsp/res/home.gif" class="house" />
 <em >></em>
-<a href="#">首页</a>
+<a href="http://localhost:8080/CTCommunity">首页</a>
 <em >></em>
-<a href="#">登录</a>
+<a href="http://localhost:8080/CTCommunity/jsp/login.jsp">登录</a>
 </div>
 
 <div id="infomation_body">
@@ -136,7 +114,7 @@ document.onclick = jsddm_close;
 		<s:submit value="submit"></s:submit></s:form>
 
 </div>
-<div><a href="http://localhost:8080/CTCommunity/weiboAction/Bind.action"><img src="res/register_sina_title.png"/></a></div>
+<div style="position: absolute; left:600px; top:120px; "><a href="http://localhost:8080/CTCommunity/weiboAction/Bind.action"><img src="res/register_sina_title.png"/></a></div>
 </div>
 
 

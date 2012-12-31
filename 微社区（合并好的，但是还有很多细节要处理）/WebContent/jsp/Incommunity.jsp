@@ -76,18 +76,38 @@ function MM_swapImage() { //v3.0
 
 
 <div class="userId">
+<s:if test="#session.username==null">
+	<div class="userId2">
+<ul id="jsddm1">
+	<li><a href="http://localhost:8080/CTCommunity/jsp/login.jsp">登录</a>
+	</li>
+    </ul>
+
+</div>
+<div class="userId12">
+
+    <ul id="jsddm1">
+    <li><a href="http://localhost:8080/CTCommunity/jsp/register.jsp" >注册</a></li>
+    </ul>
+
+</div>
+	</s:if>
+	<s:else>
 <ul id="jsddm">
-	<li><a href="footprint.html"><s:property value="#session.username"/></a>
+	<li><a href="http://localhost:8080/CTCommunity/jsp/userspace.jsp"><s:property value="#session.username"/></a>
 		<ul>
 	    <li><a href="#">登出</a></li>
-			<li><a href="#">我的资料</a></li>
-			<li><a href="#">我的足迹</a></li>
+		
+			<li><a href="http://localhost:8080/CTCommunity/jsp/userspace.jsp">我的足迹</a></li>
+			<li><a href="http://localhost:8080/CTCommunity/jsp/upfile_.jsp?userid=<s:property value="#session.userid"/>">修改头像</a></li>
+		
 		</ul>
 	</li>
     </ul>
+    </s:else>
 </div>
 
-	<s:if test="msgconfirm == 'manage'">
+	<div class="manage_com"><s:if test="msgconfirm == 'manage'">
 	<a href="<s:url action="MemberManage" namespace="/com/action"/>
 	?communityId=<s:property value="currentCommunity.communityId"/>
 	">社区管理</a></s:if>
@@ -99,43 +119,23 @@ function MM_swapImage() { //v3.0
 	</s:if>
 	<s:if test="msgconfirm == 'member'">社区社员</s:if>
 	<s:if test="msgconfirm == 'sended'"><a href="#">已发申请</a></s:if>
+	</div>
+	
 	
 <div id="search">
 <table id="__01" width="181" height="40" border="0" cellpadding="0" cellspacing="0">
+	
 	<tr>
-		<td colspan="3">
-			<img src="<%=request.getContextPath()%>/jsp/images/search2_01.png" width="180" height="8" alt=""></td>
-		<td>
-			<img src="" width="1" height="8" alt=""></td>
-	</tr>
-	<tr>
-		<td rowspan="2">
-			<img src="<%=request.getContextPath()%>/jsp/images/search2_02.png" width="13" height="27" alt=""></td>
-		<td class="search_input" >
-        <form id="form1" name="form1" method="post" action="">
-		  <label for="search"></label>
-		  <input name="search_input" type="text" id="search_input" size="14" />
-	    </form>
+		
+		<td  >
+        <s:form action="Search" namespace="/com/action">
+				<s:textfield name="searchcontent"></s:textfield>
+				<s:submit value="搜索社区"></s:submit>
+		</s:form>
         </td>
-		<td>
-			<a href="#"><img src="<%=request.getContextPath()%>/jsp/images/search2_04.png" width="29" height="25" alt=""></a></td>
-		<td>
-			</td>
+		
 	</tr>
-	<tr>
-		<td rowspan="2">
-			<img src="<%=request.getContextPath()%>/jsp/images/search2_05.png" width="138" height="7" alt=""></td>
-		<td rowspan="2">
-			<img src="<%=request.getContextPath()%>/jsp/images/search2_06.png" width="29" height="7" alt=""/></td>
-		<td>
-			<img src="" width="1" height="2" alt=""/></td>
-	</tr>
-	<tr>
-		<td>
-			<img src="<%=request.getContextPath()%>/jsp/images/search2_07.png" width="13" height="5" alt=""/></td>
-		<td>
-			<img src="" width="1" height="5" alt=""/></td>
-	</tr>
+	
 </table>
 </div>
 </div >
@@ -143,7 +143,7 @@ function MM_swapImage() { //v3.0
 <div id="location">
 <img src="<%=request.getContextPath()%>/jsp/res/home.gif" class="house" />
 <em >></em>
-<a href="#">首页</a>
+<a href="http://localhost:8080/CTCommunity">首页</a>
 <em >></em>
 <a href="#">社区</a>
 </div>
@@ -158,7 +158,17 @@ function MM_swapImage() { //v3.0
 <p>社区1介绍</p>
 </div>
 <% String communityId = request.getParameter("communityId"); %>
-<div id="addnew"><a href="<%=request.getContextPath()%>/jsp/createTopic.jsp?communityId=<%=communityId %>" onclick="return checkGuest(<s:property value="#session.username"/>);" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('create_item','','<%=request.getContextPath()%>/jsp/res/create_item1.png',1)"><img src="<%=request.getContextPath()%>/jsp/res/create_item.png" name="create_item" width="120" height="40" border="0" id="create_item" /></a> </div>
+<div id="addnew">
+
+
+<s:if test="msgconfirm == 'manage'">
+	<a href="<%=request.getContextPath()%>/jsp/createTopic.jsp?communityId=<%=communityId %>" onclick="return checkGuest(<s:property value="#session.username"/>);" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('create_item','','<%=request.getContextPath()%>/jsp/res/create_item1.png',1)"><img src="<%=request.getContextPath()%>/jsp/res/create_item.png" name="create_item" width="120" height="40" border="0" id="create_item" /></a> 
+	</s:if>
+	
+	<s:if test="msgconfirm == 'member'"><a href="<%=request.getContextPath()%>/jsp/createTopic.jsp?communityId=<%=communityId %>" onclick="return checkGuest(<s:property value="#session.username"/>);" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('create_item','','<%=request.getContextPath()%>/jsp/res/create_item1.png',1)"><img src="<%=request.getContextPath()%>/jsp/res/create_item.png" name="create_item" width="120" height="40" border="0" id="create_item" /></a> </s:if>
+	
+
+</div>
 </div>
 
 <div id="community_context">
@@ -210,19 +220,7 @@ function MM_swapImage() { //v3.0
 </div>
 </s:form>
 
-<div id="page">
-<span class="strong">1</span>
-<a href="#" >2</a>
-<a href="#" >3</a>
-<a href="#" >4</a>
-<a href="#" >5</a>
-<a href="#" >6</a>
-<a href="#" >7</a>
-<a href="#" >8</a>
-<a href="#" >9</a>
-<a href="#" >10</a>
-<a href="#" >尾页</a>
-</div>
+
 </div>
 
 

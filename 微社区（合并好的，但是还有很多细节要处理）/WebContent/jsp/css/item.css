@@ -137,6 +137,19 @@
 	
 }
 
+.main_text1 {
+	height: 120px;
+	font-size: 12px;	
+}
+.main_text2 p{
+	font-size: 16px;	
+}
+.main_text2 span {
+	margin-right: 20px;
+	font-weight: bold;
+	
+}
+
 .replyandtrans{
 	
 	text-align:right;

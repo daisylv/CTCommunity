@@ -23,10 +23,7 @@ form.formular, .validationEngineContainer {
 }
 
 .formular fieldset label {
-	float: none;
-	text-align: inherit;
-	display:block;
-	width: auto;
+	
 }
 
 .formular label span {

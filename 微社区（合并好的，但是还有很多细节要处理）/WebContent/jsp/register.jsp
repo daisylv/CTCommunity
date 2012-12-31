@@ -34,12 +34,12 @@
 </head>
 <body>
 <div class="nav">
-<div class="logo"> <a href="home.html"><img src="res/logo.jpg" width="100" height="40" /></a> </div>
+<div class="logo"> <a href="http://localhost:8080/CTCommunity"><img src="res/logo.jpg" width="100" height="40" /></a> </div>
 
 
 <div class="userId">
 <ul id="jsddm1">
-	<li><a href="logon.html">登录</a>
+	<li><a href="http://localhost:8080/CTCommunity/jsp/login.jsp">登录</a>
 	</li>
     </ul>
 
@@ -47,7 +47,7 @@
 <div class="userId1">
 
     <ul id="jsddm1">
-    <li><a href="#" >注册</a></li>
+    <li><a href="http://localhost:8080/CTCommunity/jsp/register.jsp" >注册</a></li>
     </ul>
 
 </div>
@@ -57,9 +57,9 @@
 <div id="location">
 <img src="res/home.gif" class="house" />
 <em >></em>
-<a href="#">首页</a>
+<a href="http://localhost:8080/CTCommunity">首页</a>
 <em >></em>
-<a href="#">注册</a>
+<a href="http://localhost:8080/CTCommunity/jsp/register.jsp">注册</a>
 </div>
 
 	<s:form action="AddUser" namespace="/com/action" method="post" theme="simple" id="formID" cssClass="formular">
@@ -71,9 +71,9 @@
 	  	</fieldset>
 	  	<fieldset>
 			<legend>性别</legend>
-				<label>
-					<s:radio name="User.usergender" list="%{#{'1':'男','2':'女'}}" theme="simple"></s:radio>
-				</label>
+				<p class="sex">
+					<s:radio name="User.usergender" list="%{#{'1':'男','2':'女'}}" ></s:radio>
+				</p>
 	  	</fieldset>
 		<fieldset>
 			<legend>

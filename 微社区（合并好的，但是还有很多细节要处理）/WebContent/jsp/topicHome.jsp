@@ -50,7 +50,33 @@
 	});
 
 	document.onclick = jsddm_close;
-</script>
+
+	function show(event){
+		var containers = event.childNodes;   
+		　//获取所有的标签   
+		    
+		  for(var iLoop = 0; iLoop < containers.length; iLoop ++)   
+		  {   
+		   var container = containers[iLoop];      
+		  
+		       
+		   if ("DIV" == container.nodeName) container.style.display = "block" ;   
+		    }   
+	}
+	
+	function hide(event){
+		var containers = event.childNodes;   
+		　//获取所有的标签   
+		    
+		  for(var iLoop = 0; iLoop < containers.length; iLoop ++)   
+		  {   
+		   var container = containers[iLoop];      
+		  
+		       
+		   if ("DIV" == container.nodeName) container.style.display = "none" ;   
+		    }   
+	}
+	</script>
 </head>
 
 <body>
@@ -63,60 +89,56 @@
 		type="text/javascript"></script>
 	<div class="nav">
 		<div class="logo">
-			<a href="http://localhost:8080/CTCommunity/jsp/haslogin.jsp?username=<s:property value="#session.username"/>"><img src="<%=request.getContextPath()%>/jsp/res/logo.jpg" width="100" height="40" /></a> 
-		</div>
+			<s:if test="#session.username!=null"><a href="http://localhost:8080/CTCommunity/jsp/haslogin.jsp?username=<s:property value="#session.username"/>"><img src="<%=request.getContextPath()%>/jsp/res/logo.jpg" width="100" height="40" /></a></s:if>
+<s:if test="#session.username==null"><a href="http://localhost:8080/CTCommunity"><img src="<%=request.getContextPath()%>/jsp/res/logo.jpg" width="100" height="40" /></a></s:if></div>
 
 
 		<div class="userId">
-			<ul id="jsddm">
-				<li><a href="footprint.html"><s:property value="#session.username"/></a>
-					<ul>
-						<li><a href="#">登出</a></li>
-						<li><a href="#">我的资料</a></li>
-						<li><a href="#">我的足迹</a></li>
-					</ul></li>
-			</ul>
+			<s:if test="#session.username==null">
+	<div class="userId2">
+<ul id="jsddm1">
+	<li><a href="http://localhost:8080/CTCommunity/jsp/login.jsp">登录</a>
+	</li>
+    </ul>
+
+</div>
+<div class="userId12">
+
+    <ul id="jsddm1">
+    <li><a href="http://localhost:8080/CTCommunity/jsp/register.jsp" >注册</a></li>
+    </ul>
+
+</div>
+	</s:if>
+	<s:else>
+<ul id="jsddm">
+	<li><a href="http://localhost:8080/CTCommunity/jsp/userspace.jsp"><s:property value="#session.username"/></a>
+		<ul>
+	    <li><a href="#">登出</a></li>
+		
+			<li><a href="http://localhost:8080/CTCommunity/jsp/userspace.jsp">我的足迹</a></li>
+			<li><a href="http://localhost:8080/CTCommunity/jsp/upfile_.jsp?userid=<s:property value="#session.userid"/>">修改头像</a></li>
+		
+		</ul>
+	</li>
+    </ul>
+    </s:else>
 		</div>
 		<div id="search">
-			<table id="__01" width="181" height="40" border="0" cellpadding="0"
-				cellspacing="0">
-				<tr>
-					<td colspan="3"><img
-						src="<%=request.getContextPath()%>/jsp/images/search2_01.png"
-						width="180" height="8" alt=""></td>
-					<td><img src="" width="1" height="8" alt=""></td>
-				</tr>
-				<tr>
-					<td rowspan="2"><img
-						src="<%=request.getContextPath()%>/jsp/images/search2_02.png"
-						width="13" height="27" alt=""></td>
-					<td class="search_input">
-						<form id="form1" name="form1" method="post" action="">
-							<label for="search"></label> <input name="search_input"
-								type="text" id="search_input" size="14" />
-						</form>
-					</td>
-					<td><a href="#"><img
-							src="<%=request.getContextPath()%>/jsp/images/search2_04.png"
-							width="29" height="25" alt=""></a></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td rowspan="2"><img
-						src="<%=request.getContextPath()%>/jsp/images/search2_05.png"
-						width="138" height="7" alt=""></td>
-					<td rowspan="2"><img
-						src="<%=request.getContextPath()%>/jsp/images/search2_06.png"
-						width="29" height="7" alt=""></td>
-					<td><img src="" width="1" height="2" alt=""></td>
-				</tr>
-				<tr>
-					<td><img
-						src="<%=request.getContextPath()%>/jsp/images/search2_07.png"
-						width="13" height="5" alt=""></td>
-					<td><img src="" width="1" height="5" alt=""></td>
-				</tr>
-			</table>
+			<table id="__01" width="181" height="40" border="0" cellpadding="0" cellspacing="0">
+	
+	<tr>
+		
+		<td  >
+        <s:form action="Search" namespace="/com/action">
+				<s:textfield name="searchcontent"></s:textfield>
+				<s:submit value="搜索社区"></s:submit>
+		</s:form>
+        </td>
+		
+	</tr>
+	
+</table>
 		</div>
 	</div>
 
@@ -152,17 +174,17 @@
 					href="http://localhost:8080/CTCommunity/communityAction/Reply.action?topicId=<s:property value="topic.topicId"/>#btm_reply">回复</a>
 			</div>
 			<br>
+			
+			
 			<div id="first_flour">
-				<div id="author_info">
+				<div id="author_info" style="width: 100px;float: left;">
 					<img src="<%=request.getContextPath()%>/jsp/res/headpic.jpg" /> <br>
 					<p>
 						<span><s:property value="topic.userId" /></span>
 					</p>
 				</div>
-				<div id="main_thing" style="float: right;">
-					<table width="800" height="121" class="flour_right">
-						<tr>
-							<td width="587" rowspan="2">
+				<div id="main_thing" style="width:800px;">
+					
 
 								<div class="main_text">
 									<span>1L</span>
@@ -170,16 +192,14 @@
 									<p>
 										<s:property value="topic.tpContent" />
 									</p>
-								</div>
-							</td>
-							<td width="154">
-								<div class="replyandtrans" style="display: none;">
+									
+									<div class="replyandtrans" style="display: none;">
 									<span><a href="#">转发</a></span>
 								</div>
-							</td>
-						</tr>
-
-					</table>
+							
+								</div>
+							
+								
 				</div>
 			</div>
 
@@ -198,9 +218,7 @@
 
 							</td>
 							<td width="815" class="bottomsolid">
-								<table width="800" class="flour_right1">
-									<tr>
-										<td width="587" rowspan="2"><div class="main_text">
+								<div class="main_text1" onmouseover="show(this)" onmouseout="hide(this)">
 												<span><%=floor++%>L</span>
 												<s:date name="#reply.createTime"
 													format="yyyy-MM-dd HH:mm:ss" />
@@ -211,9 +229,9 @@
 														<img src='<s:property value="#reply.rpPic"/>'/>
 													</s:if>
 												</p>
-											</div></td>
-										<td width="124">
-											<div>
+											
+										
+											<div class="replyandtrans1" style="display: none;">
 												<a
 													href="<%=request.getContextPath()%>/communityAction/Reply.action?topicId=<s:property value="topic.topicId"/>&replyId=<s:property value="#reply.replyId"/>#btm_reply">回复</a>
 												<span><a href="#">转发</a></span>
@@ -225,9 +243,7 @@
 												</s:if>
 
 											</div>
-										</td>
-									</tr>
-								</table>
+										</div>
 
 							</td>
 						</tr>

@@ -16,6 +16,9 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/jsp/js/HelpBalloon.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/jsp/js/notice.js"></script>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/jsp/css/style.css"></link>
+<script type="text/javascript" src="<%=request.getContextPath()%>/jsp/js/jquery.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/jsp/js/easydialog.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/jsp/js/guest.js"></script>
 
 <script type="text/javascript">
 var timeout         = 500;
@@ -69,10 +72,12 @@ function MM_swapImage() { //v3.0
 </head>
 <body  onload="check()">
 <a id="returnTop" href="javascript:;">回到顶部</a> 
+<script src="<%=request.getContextPath()%>/jsp/js/jquery-1.6.4.min.js" type="text/javascript"></script> 
+
 <script src="<%=request.getContextPath()%>/jsp/js/top.js" type="text/javascript"></script>
 <div class="nav">
-<div class="logo"> <a href="home.html"><img src="<%=request.getContextPath()%>/jsp/res/logo.jpg" width="100" height="40" /></a> </div>
-Hello!<s:property value="#session.username"/>
+<div class="logo"> <a href="http://localhost:8080/CTCommunity/jsp/haslogin.jsp"><img src="<%=request.getContextPath()%>/jsp/res/logo.jpg" width="100" height="40" /></a> </div>
+
 
 <div><span id="notice"><script type="text/javascript" >
 	HelpBalloon.Options.prototype = Object.extend(HelpBalloon.Options.prototype, {
@@ -93,15 +98,39 @@ Hello!<s:property value="#session.username"/>
     </ul>
 </div>
 <div class="userId1">
-	<ul id="jsddm1">
-    	<li><a href="<s:url action="CommunityPager" namespace="/com/action"/>?username=<s:property value="#session.username"/>&cuPage=1&page=0&cuPage2=1&page2=0&ty=<s:property value="1"/>">我的天地</a></li>
-    </ul>
+	<ul id="jsddm">
+	<li><a href="http://localhost:8080/CTCommunity/jsp/userspace.jsp"><s:property value="#session.username"/></a>
+		<ul>
+	    <li><a href="#">登出</a></li>
+		
+			<li><a href="http://localhost:8080/CTCommunity/jsp/userspace.jsp">我的足迹</a></li>
+			<li><a href="http://localhost:8080/CTCommunity/jsp/upfile_.jsp?userid=<s:property value="#session.userid"/>">修改头像</a></li>
+		
+		</ul>
+    
+</div>
+<div id="search">
+<table id="__01" width="181" height="40" border="0" cellpadding="0" cellspacing="0">
+	
+	<tr>
+		
+		<td  >
+        <s:form action="Search" namespace="/com/action">
+				<s:textfield name="searchcontent"></s:textfield>
+				<s:submit value="搜索社区"></s:submit>
+		</s:form>
+        </td>
+		
+	</tr>
+	
+</table>
+</div>
 </div>
 
 <div id="location">
 <img src="<%=request.getContextPath()%>/jsp/res/home.gif" class="house" />
-<em >></em>
-<a href="#">首页</a>
+<em style="color: black;">></em>
+<a href="http://localhost:8080/CTCommunity/jsp/haslogin.jsp">首页</a>
 </div>
 
  <%
@@ -147,7 +176,7 @@ try{
 <s:iterator value="@com.action.Hello@communitylist">
  			<s:if test='communityType == #request.type'> 
 <li >
-<div id="community_picture"><a href="community.html">
+<div id="community_picture"><a href="http://localhost:8080/CTCommunity">
 <img src="<%=request.getContextPath()%>/jsp/res/2.jpg" /></a>
 </div>
 <div id="community_content">

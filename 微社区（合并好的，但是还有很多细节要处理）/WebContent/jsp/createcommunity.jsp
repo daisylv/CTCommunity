@@ -50,51 +50,31 @@ document.onclick = jsddm_close;
 
 <div class="userId">
 <ul id="jsddm">
-	<li><a href="footprint.html"><s:property value="#session.username"/></a>
+	<li><a href="http://localhost:8080/CTCommunity/jsp/userspace.jsp"><s:property value="#session.username"/></a>
 		<ul>
 	    <li><a href="#">登出</a></li>
-			<li><a href="#">我的资料</a></li>
-			<li><a href="#">我的足迹</a></li>
+		
+			<li><a href="http://localhost:8080/CTCommunity/jsp/userspace.jsp">我的足迹</a></li>
+			<li><a href="http://localhost:8080/CTCommunity/jsp/upfile_.jsp?userid=<s:property value="#session.userid"/>">修改头像</a></li>
+		
 		</ul>
 	</li>
     </ul>
 </div>
 <div id="search">
 <table id="__01" width="181" height="40" border="0" cellpadding="0" cellspacing="0">
+	
 	<tr>
-		<td colspan="3">
-			<img src="images/search2_01.png" width="180" height="8" alt=""></td>
-		<td>
-			<img src="" width="1" height="8" alt=""></td>
-	</tr>
-	<tr>
-		<td rowspan="2">
-			<img src="images/search2_02.png" width="13" height="27" alt=""></td>
-		<td class="search_input" >
-        <form id="form1" name="form1" method="post" action="">
-		  <label for="search"></label>
-		  <input name="search_input" type="text" id="search_input" size="14" />
-	    </form>
+		
+		<td  >
+        <s:form action="Search" namespace="/com/action">
+				<s:textfield name="searchcontent"></s:textfield>
+				<s:submit value="搜索社区"></s:submit>
+		</s:form>
         </td>
-		<td>
-			<a href="#"><img src="images/search2_04.png" width="29" height="25" alt=""></a></td>
-		<td>
-			</td>
+		
 	</tr>
-	<tr>
-		<td rowspan="2">
-			<img src="images/search2_05.png" width="138" height="7" alt=""></td>
-		<td rowspan="2">
-			<img src="images/search2_06.png" width="29" height="7" alt=""></td>
-		<td>
-			<img src="" width="1" height="2" alt=""></td>
-	</tr>
-	<tr>
-		<td>
-			<img src="images/search2_07.png" width="13" height="5" alt=""></td>
-		<td>
-			<img src="" width="1" height="5" alt=""></td>
-	</tr>
+	
 </table>
 </div>
 </div >

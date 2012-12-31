@@ -22,12 +22,7 @@ form.formular, .validationEngineContainer {
 	font-weight: 900;
 }
 
-.formular fieldset label {
-	float: none;
-	text-align: inherit;
-	display:block;
-	width: auto;
-}
+
 
 .formular label span {
 	color: #000;
